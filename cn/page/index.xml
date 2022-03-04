@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on 演示站点</title>
-    <link>https://dettonville.github.io/blog/cn/page/</link>
+    <link>https://dettonville.github.io/cn/page/</link>
     <description>Recent content in Pages on 演示站点</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://dettonville.github.io/blog/cn/page/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://dettonville.github.io/cn/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
-      <link>https://dettonville.github.io/blog/cn/%E5%85%B3%E4%BA%8E/</link>
+      <link>https://dettonville.github.io/cn/%E5%85%B3%E4%BA%8E/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dettonville.github.io/blog/cn/%E5%85%B3%E4%BA%8E/</guid>
+      <guid>https://dettonville.github.io/cn/%E5%85%B3%E4%BA%8E/</guid>
       <description>This is a test page for i18n support.</description>
     </item>
     
