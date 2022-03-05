@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.'><title>mapedit.addin</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='How'><title>Ansible Limitations with respect to Application Configuration on a target host and workarounds</title>
 
-<link rel='canonical' href='https://dettonville.github.io/packages/mapedit-addin/'>
+<link rel='canonical' href='https://dettonville.github.io/p/ansible-limitations-with-respect-to-application-configuration-on-a-target-host-and-workarounds/'>
 
 <link rel="stylesheet" href="/scss/style.min.0867610fd3b558dff6d70fe8db371a941cdde8714bbda96857533e7efe6f230b.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<meta property='og:title' content='mapedit.addin'>
-<meta property='og:description' content='mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.'>
-<meta property='og:url' content='https://dettonville.github.io/packages/mapedit-addin/'>
+<meta property='og:title' content='Ansible Limitations with respect to Application Configuration on a target host and workarounds'>
+<meta property='og:description' content='How'>
+<meta property='og:url' content='https://dettonville.github.io/p/ansible-limitations-with-respect-to-application-configuration-on-a-target-host-and-workarounds/'>
 <meta property='og:site_name' content='Platforms, Clusters, and Pipelines, oh my...'>
-<meta property='og:type' content='article'><meta property='article:section' content='Packages' /><meta property='article:tag' content='mapping' /><meta property='article:tag' content='addin' /><meta property='article:published_time' content='2018-12-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2018-12-26T00:00:00&#43;00:00'/><meta property='og:image' content='https://dettonville.github.io/img/logo.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-03-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-05T00:00:00&#43;00:00'/><meta property='og:image' content='https://dettonville.github.io/img/logo.jpg' />
 <meta name="twitter:site" content="@lj020326">
-    <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="mapedit.addin">
-<meta name="twitter:description" content="mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="Ansible Limitations with respect to Application Configuration on a target host and workarounds">
+<meta name="twitter:description" content="How"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://dettonville.github.io/img/logo.jpg' />
 <link rel="icon" href="icons/favicon.ico">
 <link rel="icon" type="image/png" href="icons/favicon.png">
@@ -323,28 +317,16 @@ library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/packages/" >
-                packages
-            </a>
-        
-            <a href="/categories/r/" >
-                R
-            </a>
-        
-            <a href="/categories/spatial/" >
-                spatial
-            </a>
-        
-    </header>
-    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/packages/mapedit-addin/">mapedit.addin</a>
+            <a href="/p/ansible-limitations-with-respect-to-application-configuration-on-a-target-host-and-workarounds/">Ansible Limitations with respect to Application Configuration on a target host and workarounds</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            How
+        </h3>
         
     </div>
 
@@ -361,7 +343,7 @@ library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 26, 2018</time>
+                <time class="article-time--published">Mar 05, 2022</time>
             </div>
         
 
@@ -390,74 +372,205 @@ library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;
     <section class="article-content">
     
     
-    
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+    <p>If one has worked long enough with ansible, you might have gotten to the same frustation I have had.</p>
+<p>Ansible has many scopes to store a variable value allowing for its supreme flexibility for maintaining a hardware/virtual machine inventory.</p>
+<p>For example, for a target host VM instance, one can set the variable state at the host level in the inventory.</p>
+<p>Another possibility, is if the setting is not unique to the machine, and if there are a group of such machines (pet / cattle), then one can set the variable state at the respective group level.</p>
+<p>Just this support enables a large diversity of use cases where the scenario is one-to-many between group to machine.</p>
+<p>Then one has the an array of additional options to further overide a variable state other levels:</p>
+<pre><code>- at the playbook level by setting the variable upon playbook execution
+- at runtime level, by setting the variable input file
+- at environment level, by using lookup(env, )
+- etc, etc,...
+</code></pre>
+<p>For the challenge that occurs in realistic application environments, DEV, TEST, PROD, STAGE, etc, consider the following simplistic but realistic scenario:</p>
+<p>Say we have a stack of application components belonging to the same overall application and for a given host machine, that multiple application components are to be hosted/running on the machine, each with it own set of configuration parameters.</p>
+<p>Make the scenario more realistic by considering a stack of applications running on a docker machine.</p>
+<p>Take the following docker-compose example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">version: &#39;3&#39;
+services:
+
+  web:
+    image: ansible/awx:18.
+    container_name: awx_web
+    depends_on:
+      - redis
+      - postgres
+    ports:
+      - &#34;80:8052&#34;
+    hostname: awxweb
+    user: root
+    restart: unless-stopped
+    volumes:
+      - supervisor-socket:/var/run/supervisor
+      - rsyslog-socket:/var/run/awx-rsyslog/
+      - rsyslog-config:/var/lib/awx/rsyslog/
+      - &#34;~/.awx/awxcompose/SECRET_KEY:/etc/tower/SECRET_KEY&#34;
+      - &#34;~/.awx/awxcompose/environment.sh:/etc/tower/conf.d/environment.sh&#34;
+      - &#34;~/.awx/awxcompose/credentials.py:/etc/tower/conf.d/credentials.py&#34;
+      - &#34;~/.awx/awxcompose/nginx.conf:/etc/nginx/nginx.conf:ro&#34;
+      - &#34;~/.awx/awxcompose/redis_socket:/var/run/redis/:rw&#34;
+    environment:
+      http_proxy: 
+      https_proxy: 
+      no_proxy: 
+
+  task:
+    image: ansible/awx:17.1.0
+    container_name: awx_task
+    depends_on:
+      - redis
+      - web
+      - postgres
+    command: /usr/bin/launch_awx_task.sh
+    hostname: awx
+    user: root
+    restart: unless-stopped
+    volumes:
+      - supervisor-socket:/var/run/supervisor
+      - rsyslog-socket:/var/run/awx-rsyslog/
+      - rsyslog-config:/var/lib/awx/rsyslog/
+      - &#34;~/.awx/awxcompose/SECRET_KEY:/etc/tower/SECRET_KEY&#34;
+      - &#34;~/.awx/awxcompose/environment.sh:/etc/tower/conf.d/environment.sh&#34;
+      - &#34;~/.awx/awxcompose/credentials.py:/etc/tower/conf.d/credentials.py&#34;
+      - &#34;~/.awx/awxcompose/redis_socket:/var/run/redis/:rw&#34;
+    environment:
+      AWX_SKIP_MIGRATIONS: &#34;1&#34;
+      http_proxy: 
+      https_proxy: 
+      no_proxy: 
+      SUPERVISOR_WEB_CONFIG_PATH: &#39;/etc/supervisord.conf&#39;
+
+  redis:
+    image: redis
+    container_name: awx_redis
+    restart: unless-stopped
+    environment:
+      http_proxy: 
+      https_proxy: 
+      no_proxy: 
+    command: [&#34;/usr/local/etc/redis/redis.conf&#34;]
+    volumes:
+      - &#34;~/.awx/awxcompose/redis.conf:/usr/local/etc/redis/redis.conf:ro&#34;
+      - &#34;~/.awx/awxcompose/redis_socket:/var/run/redis/:rw&#34;
+
+  postgres:
+    image: postgres:12
+    container_name: awx_postgres
+    restart: unless-stopped
+    volumes:
+      - &#34;~/.awx/pgdocker/12/data/:/var/lib/postgresql/data:Z&#34;
+    environment:
+      POSTGRES_USER: awx
+      POSTGRES_PASSWORD: pgpass
+      POSTGRES_DB: awx
+      http_proxy: 
+      https_proxy: 
+      no_proxy: 
 
 
-<div id="mapedit.addin" class="section level1">
-<h1>mapedit.addin</h1>
-<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle" /></a>
-<a href="https://travis-ci.org/mrjoh3/mapedit.addin"><img src="https://travis-ci.org/mrjoh3/mapedit.addin.svg?branch=master" alt="Build Status" /></a></p>
-<p>The goal of <code>mapedit.addin</code> is to simplify the creation of spatial data by wrapping the <a href="https://github.com/r-spatial/mapedit">mapedit</a> package. As you can see in the code below the <code>mapedit</code> package already makes the process very simple.</p>
-<pre class="r"><code>library(mapview)
-library(mapedit)
-new_spatial_data &lt;- mapview() %&gt;%
-  editMap()</code></pre>
-<p>All <code>mappedit.addin</code> does is wrap this piece of code in an <code>RStudio</code> addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools. It is also possible to link <code>mapedit.addin</code> to keyboard shortcuts, further simplifying the process (see <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">here</a>).</p>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
-<p>You can install the current version of <code>mapedit.addin</code> from <a href="https://github.com/mrjoh3/mapedit.addin">Github</a> with:</p>
-<pre class="r"><code>devtools::install_github(&quot;mrjoh3/mapedit.addin&quot;)</code></pre>
-</div>
-<div id="usage" class="section level2">
-<h2>Usage</h2>
-<p>This simple addin allows you to interactively create an <code>sf</code> spatial object that can then be saved and used in your code. To use, just open the addin add some geometry to the map and click <code>Done</code> when completed.</p>
-<div class="figure">
-<img src="/pkg/2018-12-26-mapedit-addin_files/mapedit_addin.png" alt="" />
-<p class="caption">mapedit addin</p>
-</div>
-<p>Selecting text within the <code>RStudio</code> IDE will modify the behavior of the addin. Where no text is selected the addin will save an <code>sf</code> object called <code>geom</code> into <code>.GlobalEnv</code>. To save a spatial object to file, the <code>Save</code> switch must be toggled using the addin interface. A file called <code>saved_geometry.geojson</code> will be created in the current working directory. If text is selected in <code>RStudio</code> this will be used for naming both the <code>sf</code> object and the created file.</p>
-</div>
-<div id="adding-objects-to-the-map" class="section level2">
-<h2>Adding objects to the map</h2>
-<p>If the text selected in <code>RStudio</code> IDE is the name of an existing <code>sf</code> object then the addin will add this object to the <code>mapedit</code> map and zoom to its bounds. When a spatial object is passed to the map in this way, any new geometry is added to it using <a href="https://r-spatial.github.io/sf/reference/bind.html">rbind</a>. It is not currently possible to edit existing geometry.</p>
-</div>
-<div id="saving-to-file" class="section level2">
-<h2>Saving to File</h2>
-<p>Spatial objects are saved to file using <code>sf::write_sf</code>. File names can be set by selecting text inside <code>RStudio</code> or via the naming bar at the bottom of the addin. The file naming bar can also be used to add file paths and to change output extensions.</p>
-<div class="figure">
-<img src="/pkg/2018-12-26-mapedit-addin_files/save_file_bar.png" alt="" />
-<p class="caption">image bar</p>
-</div>
-<p>The text seen in the naming bar is passed directly to <code>write_sf</code>. Most file drivers will be guessed by the extension. See <code>sf::st_drivers()</code> or <a href="https://www.gdal.org/ogr_formats.html">OGR formats</a> for details; only <code>.geojson</code> and <code>.shp</code> have been tested.</p>
-<p>Note that the function <code>write_sf</code> is called with options <code>delete_layer = TRUE</code> and <code>delete_dsn = TRUE</code>. This means that existing files with the same name are over-written.</p>
-</div>
-<div id="future" class="section level2">
-<h2>Future</h2>
-<p>Future updates will give the user more control over:</p>
-<ol style="list-style-type: decimal">
-<li>the starting point of the map (currently zooms to world or input object)</li>
-<li>the name of output object (completed)</li>
-<li>file name (completed)</li>
-<li>add more option when saving to file</li>
-<li>edit existing geometry</li>
-</ol>
+volumes:
+  supervisor-socket:
+  rsyslog-socket:
+  rsyslog-config:
+</code></pre></td></tr></table>
 </div>
 </div>
-
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/mapping/">mapping</a>
-        
-            <a href="/tags/addin/">addin</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">
@@ -475,38 +588,34 @@ new_spatial_data &lt;- mapview() %&gt;%
 
 
     
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
 </article>
 
     
 
     
-
-<aside class="related-contents--wrapper">
-    <h2 class="section-title">Related contents</h2>
-    <div class="related-contents">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/packages/ggtrack-package/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/img/MRJ_2020_DSC8761.png" loading="lazy" data-key="ggtrack-package" data-hash="/img/MRJ_2020_DSC8761.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">ggtrack</h2>
-        </div>
-    </a>
-</article>
-            
-        </div>
-    </div>
-</aside>
 
      
     
