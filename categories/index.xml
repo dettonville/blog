@@ -6,7 +6,34 @@
     <description>Recent content in Categories on Example Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>data visualisation</title>
+      <link>https://dettonville.github.io/categories/data-visualisation/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/data-visualisation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>packages</title>
+      <link>https://dettonville.github.io/categories/packages/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://dettonville.github.io/categories/r/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>syntax</title>
       <link>https://dettonville.github.io/categories/syntax/</link>
@@ -40,6 +67,15 @@
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dettonville.github.io/categories/test-with-whitespaces/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spatial</title>
+      <link>https://dettonville.github.io/categories/spatial/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/spatial/</guid>
       <description></description>
     </item>
     

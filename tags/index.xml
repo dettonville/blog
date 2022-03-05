@@ -6,7 +6,52 @@
     <description>Recent content in Tags on Example Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggplot2</title>
+      <link>https://dettonville.github.io/tags/ggplot2/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggtrack</title>
+      <link>https://dettonville.github.io/tags/ggtrack/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/ggtrack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qrencoder</title>
+      <link>https://dettonville.github.io/tags/qrencoder/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/qrencoder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>htmlwidgets</title>
+      <link>https://dettonville.github.io/tags/htmlwidgets/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/htmlwidgets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network chart</title>
+      <link>https://dettonville.github.io/tags/network-chart/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/network-chart/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>css</title>
       <link>https://dettonville.github.io/tags/css/</link>
@@ -85,6 +130,51 @@
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dettonville.github.io/tags/emoji/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>addin</title>
+      <link>https://dettonville.github.io/tags/addin/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/addin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mapping</title>
+      <link>https://dettonville.github.io/tags/mapping/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/mapping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c3</title>
+      <link>https://dettonville.github.io/tags/c3/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/c3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph</title>
+      <link>https://dettonville.github.io/tags/graph/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pie</title>
+      <link>https://dettonville.github.io/tags/pie/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/tags/pie/</guid>
       <description></description>
     </item>
     
