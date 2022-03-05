@@ -8,11 +8,11 @@
         <language>en-us</language>
         <lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Ansible considerations for app container configurations</title>
-        <link>https://dettonville.github.io/p/ansible-considerations-for-app-container-configurations/</link>
+        <link>https://dettonville.github.io/p/ansible-for-app-configuration/</link>
         <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://dettonville.github.io/p/ansible-considerations-for-app-container-configurations/</guid>
-        <description>&lt;p&gt;Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.&lt;/p&gt;
+        <guid>https://dettonville.github.io/p/ansible-for-app-configuration/</guid>
+        <description>&lt;img src="https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg" alt="Featured image of post Ansible considerations for app container configurations" /&gt;&lt;p&gt;Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.&lt;/p&gt;
 &lt;p&gt;At the time of playbook execution, Ansible applies variable precedence to derive the value/state for a given variable.&lt;/p&gt;
 &lt;p&gt;Here is the order of precedence from least to greatest (the last listed variables override all other variables):&lt;/p&gt;
 &lt;blockquote&gt;
@@ -95,7 +95,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In general, Ansible gives precedence to variables that were defined more recently, more actively, and with more explicit scope. Variables in the defaults folder inside a role are easily overridden. Anything in the vars directory of the role overrides previous versions of that variable in the namespace. Host and/or inventory variables override role defaults, but explicit includes such as the vars directory or an &lt;code&gt;include_vars&lt;/code&gt; task override inventory variables. &lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;[1]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Basically, a variable definition higher in the above list will override the lower level variable setting.  E.g. A variable in the defaults folder inside a role is easily overridden since it resides much lower in the order of precedence. A variable defined in the vars directory of the role overrides previous versions of that variable in the namespace. Host and/or inventory variables override role defaults, but explicit includes such as the vars directory or an &lt;code&gt;include_vars&lt;/code&gt; task override inventory variables. &lt;a class=&#34;link&#34; href=&#34;#1&#34; &gt;[1]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Suppose we have a group of applications for a given VM, each with it own set of configuration parameters.&lt;/p&gt;
 &lt;p&gt;For example, consider a stack of applications running on a docker machine.&lt;/p&gt;
 &lt;p&gt;Take the following docker-compose example:&lt;/p&gt;
@@ -289,7 +289,7 @@
         <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
         
         <guid>https://dettonville.github.io/p/updating-a-blog-theme/</guid>
-        <description>&lt;img src="https://dettonville.github.io/img/DSCN1968_edited-1_20070804_165511_002.jpg" alt="Featured image of post Changing and modifying a Hugo theme on your R Blogdown site" /&gt;
+        <description>&lt;img src="https://dettonville.github.io/p/updating-a-blog-theme/header-bg.jpg" alt="Featured image of post Changing and modifying a Hugo theme on your R Blogdown site" /&gt;
 &lt;script src=&#34;https://dettonville.github.io/p/updating-a-blog-theme/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 

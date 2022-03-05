@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dettonville.github.io/p/ansible-considerations-for-app-container-configurations/</loc>
+    <loc>https://dettonville.github.io/tags/ansible/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/categories/ansible/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/p/ansible-for-app-configuration/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/tags/awx/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/categories/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/categories/configmaps/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/categories/docker/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/tags/openshift/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dettonville.github.io/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dettonville.github.io/post/</loc>
+    <lastmod>2022-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dettonville.github.io/tags/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dettonville.github.io/about-infra-coder/</loc>
@@ -20,9 +44,6 @@
     <loc>https://dettonville.github.io/tags/blogdown/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dettonville.github.io/categories/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dettonville.github.io/p/updating-a-blog-theme/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -30,9 +51,6 @@
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dettonville.github.io/categories/r/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dettonville.github.io/tags/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dettonville.github.io/categories/web/</loc>
