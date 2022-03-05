@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-</urlset>
+  <sitemap>
+    <loc>https://dettonville.github.io/en/sitemap.xml</loc>
+    
+      <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://dettonville.github.io/cn/sitemap.xml</loc>
+    
+      <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://dettonville.github.io/ar/sitemap.xml</loc>
+    
+      <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>
