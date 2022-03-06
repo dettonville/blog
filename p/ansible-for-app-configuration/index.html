@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Updating the Hugo theme on a blogdown site can be intimidating, the trick is to pick a theme with good documentation and an example site. Then you can use the example site to work out how to adjust the theme to your needs'><title>Ansible considerations for app container configurations</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine'><title>Ansible considerations for app container configurations</title>
 
 <link rel='canonical' href='https://dettonville.github.io/p/ansible-for-app-configuration/'>
 
@@ -9,13 +9,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 <meta property='og:title' content='Ansible considerations for app container configurations'>
-<meta property='og:description' content='Updating the Hugo theme on a blogdown site can be intimidating, the trick is to pick a theme with good documentation and an example site. Then you can use the example site to work out how to adjust the theme to your needs'>
+<meta property='og:description' content='Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine'>
 <meta property='og:url' content='https://dettonville.github.io/p/ansible-for-app-configuration/'>
 <meta property='og:site_name' content='Platforms, Clusters, and Pipelines, oh my...'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ansible' /><meta property='article:tag' content='openshift' /><meta property='article:tag' content='awx' /><meta property='article:published_time' content='2022-03-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-05T00:00:00&#43;00:00'/><meta property='og:image' content='https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg' />
 <meta name="twitter:site" content="@lj020326">
     <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="Ansible considerations for app container configurations">
-<meta name="twitter:description" content="Updating the Hugo theme on a blogdown site can be intimidating, the trick is to pick a theme with good documentation and an example site. Then you can use the example site to work out how to adjust the theme to your needs"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg' />
 <link rel="icon" href="icons/favicon.ico">
 <link rel="icon" type="image/png" href="icons/favicon.png">
@@ -353,7 +353,7 @@
     
         
         <h3 class="article-subtitle">
-            Updating the Hugo theme on a blogdown site can be intimidating, the trick is to pick a theme with good documentation and an example site. Then you can use the example site to work out how to adjust the theme to your needs
+            Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine
         </h3>
         
     </div>
@@ -402,88 +402,9 @@
     
     <p>Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.</p>
 <p>At the time of playbook execution, Ansible applies variable precedence to derive the value/state for a given variable.</p>
-<p>Here is the order of precedence from least to greatest (the last listed variables override all other variables):</p>
-<blockquote>
-<ol>
-<li>
-<p>command line values (for example, <code>-u my_user</code>, these are not variables)</p>
-</li>
-<li>
-<p>role defaults (defined in role/defaults/main.yml) <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id13"  target="_blank" rel="noopener"
-    >1</a></p>
-</li>
-<li>
-<p>inventory file or script group vars <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id14"  target="_blank" rel="noopener"
-    >2</a></p>
-</li>
-<li>
-<p>inventory group_vars/all <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id15"  target="_blank" rel="noopener"
-    >3</a></p>
-</li>
-<li>
-<p>playbook group_vars/all <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id15"  target="_blank" rel="noopener"
-    >3</a></p>
-</li>
-<li>
-<p>inventory group_vars/* <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id15"  target="_blank" rel="noopener"
-    >3</a></p>
-</li>
-<li>
-<p>playbook group_vars/* <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id15"  target="_blank" rel="noopener"
-    >3</a></p>
-</li>
-<li>
-<p>inventory file or script host vars <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id14"  target="_blank" rel="noopener"
-    >2</a></p>
-</li>
-<li>
-<p>inventory host_vars/* <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id15"  target="_blank" rel="noopener"
-    >3</a></p>
-</li>
-<li>
-<p>playbook host_vars/* <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id15"  target="_blank" rel="noopener"
-    >3</a></p>
-</li>
-<li>
-<p>host facts / cached set_facts <a class="link" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#ansible-variable-precedence#id16"  target="_blank" rel="noopener"
-    >4</a></p>
-</li>
-<li>
-<p>play vars</p>
-</li>
-<li>
-<p>play vars_prompt</p>
-</li>
-<li>
-<p>play vars_files</p>
-</li>
-<li>
-<p>role vars (defined in role/vars/main.yml)</p>
-</li>
-<li>
-<p>block vars (only for tasks in block)</p>
-</li>
-<li>
-<p>task vars (only for the task)</p>
-</li>
-<li>
-<p>include_vars</p>
-</li>
-<li>
-<p>set_facts / registered vars</p>
-</li>
-<li>
-<p>role (and include_role) params</p>
-</li>
-<li>
-<p>include params</p>
-</li>
-<li>
-<p>extra vars (for example, <code>-e &quot;user=my_user&quot;</code>)(always win precedence)</p>
-</li>
-</ol>
-</blockquote>
-<p>Basically, a variable definition higher in the above list will override the lower level variable setting.  E.g. A variable in the defaults folder inside a role is easily overridden since it resides much lower in the order of precedence. A variable defined in the vars directory of the role overrides previous versions of that variable in the namespace. Host and/or inventory variables override role defaults, but explicit includes such as the vars directory or an <code>include_vars</code> task override inventory variables. <a class="link" href="#1" >[1]</a>.</p>
+<p>Ansible observes an order of precedence to derive the value for a variable.</p>
+<p>Basically, a variable definition higher in the precedent list will override the lower level variable setting.</p>
+<p>E.g. A variable in the defaults folder inside a role is easily overridden since it resides much lower in the order of precedence. A variable defined in the vars directory of the role overrides previous versions of that variable in the namespace. Host and/or inventory variables override role defaults, but explicit includes such as the vars directory or an <code>include_vars</code> task override inventory variables. <a class="link" href="#1" >[1]</a>.</p>
 <p>Suppose we have a group of applications for a given VM, each with it own set of configuration parameters.</p>
 <p>For example, consider a stack of applications running on a docker machine.</p>
 <p>Take the following docker-compose example:</p>

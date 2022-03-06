@@ -15,9 +15,9 @@
       <guid>https://dettonville.github.io/p/ansible-for-app-configuration/</guid>
       <description>Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.
 At the time of playbook execution, Ansible applies variable precedence to derive the value/state for a given variable.
-Here is the order of precedence from least to greatest (the last listed variables override all other variables):
-   command line values (for example, -u my_user, these are not variables)
-  role defaults (defined in role/defaults/main.</description>
+Ansible observes an order of precedence to derive the value for a variable.
+Basically, a variable definition higher in the precedent list will override the lower level variable setting.
+E.g. A variable in the defaults folder inside a role is easily overridden since it resides much lower in the order of precedence.</description>
     </item>
     
   </channel>
