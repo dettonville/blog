@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on Platforms, Clusters, and Pipelines, oh my...</title>
+    <title>Pages on Infra Coder</title>
     <link>https://dettonville.github.io/page/</link>
-    <description>Recent content in Pages on Platforms, Clusters, and Pipelines, oh my...</description>
+    <description>Recent content in Pages on Infra Coder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/page/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About Infra Coder</title>
-      <link>https://dettonville.github.io/about-infra-coder/</link>
-      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/about-infra-coder/</guid>
-      <description>What is Infra Coder? Infra Coder is the side projects and after hour throughts and interests of a datacenter automation coder. So InfraCoder will be quite variable in both content, tools and platforms used. This site blog is used to share code and ideas and to link to other web content.
-The author, Lee Johnson, is a CICD Infrastruction Automation Architect/Engineer working as a consultant. He has been working as a infrastructure automation projects for almost 10 years and for the last couple has been working with a small but remarkable engineering team working predominantly with Openshift.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Archives</title>
       <link>https://dettonville.github.io/archives/</link>
@@ -44,6 +34,15 @@ This page&amp;rsquo;s frontmatter:
       
       <guid>https://dettonville.github.io/search/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>https://dettonville.github.io/%E5%85%B3%E4%BA%8E/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/%E5%85%B3%E4%BA%8E/</guid>
+      <description>This is a test page for i18n support.</description>
     </item>
     
   </channel>

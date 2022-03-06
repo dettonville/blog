@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Platforms, Clusters, and Pipelines, oh my...</title>
+    <title>Categories on Infra Coder</title>
     <link>https://dettonville.github.io/categories/</link>
-    <description>Recent content in Categories on Platforms, Clusters, and Pipelines, oh my...</description>
+    <description>Recent content in Categories on Infra Coder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
@@ -37,7 +37,7 @@
     <item>
       <title>R</title>
       <link>https://dettonville.github.io/categories/r/</link>
-      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dettonville.github.io/categories/r/</guid>
       <description></description>
@@ -46,7 +46,7 @@
     <item>
       <title>web</title>
       <link>https://dettonville.github.io/categories/web/</link>
-      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dettonville.github.io/categories/web/</guid>
       <description></description>
@@ -67,6 +67,51 @@
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://dettonville.github.io/categories/packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax</title>
+      <link>https://dettonville.github.io/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://dettonville.github.io/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>تجربة</title>
+      <link>https://dettonville.github.io/categories/%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>تجربة مع فراغات</title>
+      <link>https://dettonville.github.io/categories/%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://dettonville.github.io/categories/test/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dettonville.github.io/categories/test/</guid>
       <description></description>
     </item>
     
