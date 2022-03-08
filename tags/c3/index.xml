@@ -1,21 +1,251 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>c3 on Infra Coder</title>
-    <link>https://dettonville.github.io/tags/c3/</link>
-    <description>Recent content in c3 on Infra Coder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/c3/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>c3</title>
-      <link>https://dettonville.github.io/packages/2018-08-19-c3-package/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/2018-08-19-c3-package/</guid>
-      <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting to create a chart using R and embedding it in a Rmarkdown document or Shiny App.
-The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>c3 on Infra Coder</title>
+        <link>https://dettonville.github.io/tags/c3/</link>
+        <description>Recent content in c3 on Infra Coder</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/c3/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>c3</title>
+        <link>https://dettonville.github.io/packages/2018-08-19-c3-package/</link>
+        <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/2018-08-19-c3-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2020_DSC9813.png" alt="Featured image of post c3" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://dettonville.github.io/rmarkdown-libs/c3/c3.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/c3/c3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/c3-binding/c3.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://zenodo.org/badge/latestdoi/60614778&#34;&gt;&lt;img src=&#34;https://zenodo.org/badge/60614778.svg&#34; alt=&#34;DOI&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/mrjoh3/c3/actions&#34;&gt;&lt;img src=&#34;https://github.com/mrjoh3/c3/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/c3&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/c3/branch/master/graph/badge.svg&#34; alt=&#34;codecov&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://cran.r-project.org/package=c3/&#34;&gt;&lt;img src=&#34;http://www.r-pkg.org/badges/version/c3&#34; alt=&#34;CRAN_Status_Badge&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://cran.r-project.org/package=c3&#34;&gt;&lt;img src=&#34;http://cranlogs.r-pkg.org/badges/c3&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;c3&lt;/code&gt; package is a wrapper, or &lt;a href=&#34;http://www.htmlwidgets.org/&#34;&gt;htmlwidget&lt;/a&gt;, for the &lt;a href=&#34;http://c3js.org/&#34;&gt;C3&lt;/a&gt; javascript charting library by &lt;a href=&#34;https://github.com/masayuki0812&#34;&gt;Masayuki Tanaka&lt;/a&gt;. You will find this package useful if you are wanting to create a chart using &lt;a href=&#34;https://www.r-project.org/&#34;&gt;R&lt;/a&gt; and embedding it in a Rmarkdown document or Shiny App.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;C3&lt;/code&gt; library is very versatile and includes a lot of options. Currently this package wraps most of the &lt;code&gt;C3&lt;/code&gt; &lt;a href=&#34;http://c3js.org/reference.html&#34;&gt;options object&lt;/a&gt;. Even with this current limitation a wide range of options are available.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You probably already guessed this bit.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;c3&amp;#39;)
+# OR
+devtools::install_github(&amp;quot;mrjoh3/c3&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;c3&lt;/code&gt; package is intended to be as simple and lightweight as possible. As a starting point the data input must be a &lt;code&gt;data.frame&lt;/code&gt; or &lt;code&gt;tibble&lt;/code&gt; with several options.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If a &lt;code&gt;data.frame&lt;/code&gt; without any options is passed all of the numeric columns will be plotted. This can be used in line and bar plots. Each column is a line or bar.&lt;/li&gt;
+&lt;li&gt;For more complex plots only 3 columns are used, those defined as &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; and &lt;code&gt;group&lt;/code&gt;. This requires a &lt;code&gt;data.frame&lt;/code&gt; with a vertical structure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;the-basics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Basics&lt;/h3&gt;
+&lt;p&gt;Where no options are supplied a simple line plot is produced by default. Where no x-axis is defined the plots are sequential. &lt;code&gt;Date&lt;/code&gt; x-axis can be parsed with not additional setting if in the format &lt;code&gt;%Y-%m-%d&lt;/code&gt; (ie ‘2014-01-01’)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(c3)
+data &amp;lt;- data.frame(a = abs(rnorm(20) * 10),
+                  b = abs(rnorm(20) * 10),
+                  date = seq(as.Date(&amp;quot;2014-01-01&amp;quot;), by = &amp;quot;month&amp;quot;, length.out = 20))
+c3(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;piping&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Piping&lt;/h3&gt;
+&lt;p&gt;The package also imports the &lt;a href=&#34;https://CRAN.R-project.org/package=magrittr&#34;&gt;magrittr&lt;/a&gt; piping function (&lt;code&gt;%&amp;gt;%&lt;/code&gt;) to simplify syntax.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;% c3() &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-line-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other Line Plots&lt;/h2&gt;
+&lt;p&gt;There are 5 different line plots available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;line&lt;/li&gt;
+&lt;li&gt;spline&lt;/li&gt;
+&lt;li&gt;step&lt;/li&gt;
+&lt;li&gt;area&lt;/li&gt;
+&lt;li&gt;area-step&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;spline&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Spline&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3() %&amp;gt;%
+  c3_line(&amp;#39;spline&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;spline&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;) %&amp;gt;%
+  c3_line(&amp;#39;area-step&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;area-step&#34;},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Plots&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data[1:10, ] %&amp;gt;%
+  c3() %&amp;gt;%
+  c3_bar(stacked = TRUE, 
+         rotate = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-5&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;bar&#34;,&#34;groups&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;type&#34;:&#34;category&#34;},&#34;rotated&#34;:true},&#34;bar&#34;:{&#34;zerobased&#34;:true,&#34;width&#34;:{&#34;ratio&#34;:0.6}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mixed-geometry-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Mixed Geometry Plots&lt;/h2&gt;
+&lt;p&gt;Mixed geometry currently only works with a horizontal &lt;code&gt;data.frame&lt;/code&gt; where each numeric column is plotted.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$c &amp;lt;- abs(rnorm(20) *10)
+data$d &amp;lt;- abs(rnorm(20) *10)
+data %&amp;gt;%
+  c3() %&amp;gt;%
+  c3_mixedGeom(type = &amp;#39;bar&amp;#39;, 
+               stacked = c(&amp;#39;b&amp;#39;,&amp;#39;d&amp;#39;),
+               types = list(a=&amp;#39;area&amp;#39;,
+                            c=&amp;#39;spline&amp;#39;)
+               )&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]},&#34;type&#34;:&#34;bar&#34;,&#34;types&#34;:{&#34;a&#34;:&#34;area&#34;,&#34;c&#34;:&#34;spline&#34;},&#34;groups&#34;:[&#34;b&#34;,&#34;d&#34;]},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;secondary-y-axis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Secondary Y Axis&lt;/h2&gt;
+&lt;p&gt;To use a secondary Y axis columns must first be matched to an axis and then the secondary axis made visible.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;% 
+  select(date, a, b) %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;,
+     axes = list(a = &amp;#39;y&amp;#39;,
+                 b = &amp;#39;y2&amp;#39;)) %&amp;gt;% 
+  c3_mixedGeom(types = list(a = &amp;#39;line&amp;#39;,
+                            b = &amp;#39;area&amp;#39;)) %&amp;gt;% 
+  y2Axis()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;axes&#34;:{&#34;a&#34;:&#34;y&#34;,&#34;b&#34;:&#34;y2&#34;},&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;line&#34;,&#34;types&#34;:{&#34;a&#34;:&#34;line&#34;,&#34;b&#34;:&#34;area&#34;}},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;date&#34;:&#34;Date&#34;,&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;},&#34;y2&#34;:{&#34;show&#34;:true}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scatter-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scatter Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;%
+  c3(x = &amp;#39;mpg&amp;#39;, 
+     y = &amp;#39;wt&amp;#39;, 
+     group = &amp;#39;cyl&amp;#39;) %&amp;gt;% 
+  c3_scatter()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;4&#34;:2.32,&#34;6&#34;:2.62,&#34;8&#34;:3.44,&#34;4_x&#34;:22.8,&#34;6_x&#34;:21,&#34;8_x&#34;:18.7},{&#34;4&#34;:3.19,&#34;6&#34;:2.875,&#34;8&#34;:3.57,&#34;4_x&#34;:24.4,&#34;6_x&#34;:21,&#34;8_x&#34;:14.3},{&#34;4&#34;:3.15,&#34;6&#34;:3.215,&#34;8&#34;:4.07,&#34;4_x&#34;:22.8,&#34;6_x&#34;:21.4,&#34;8_x&#34;:16.4},{&#34;4&#34;:2.2,&#34;6&#34;:3.46,&#34;8&#34;:3.73,&#34;4_x&#34;:32.4,&#34;6_x&#34;:18.1,&#34;8_x&#34;:17.3},{&#34;4&#34;:1.615,&#34;6&#34;:3.44,&#34;8&#34;:3.78,&#34;4_x&#34;:30.4,&#34;6_x&#34;:19.2,&#34;8_x&#34;:15.2},{&#34;4&#34;:1.835,&#34;6&#34;:3.44,&#34;8&#34;:5.25,&#34;4_x&#34;:33.9,&#34;6_x&#34;:17.8,&#34;8_x&#34;:10.4},{&#34;4&#34;:2.465,&#34;6&#34;:2.77,&#34;8&#34;:5.424,&#34;4_x&#34;:21.5,&#34;6_x&#34;:19.7,&#34;8_x&#34;:10.4},{&#34;4&#34;:1.935,&#34;8&#34;:5.345,&#34;4_x&#34;:27.3,&#34;8_x&#34;:14.7},{&#34;4&#34;:2.14,&#34;8&#34;:3.52,&#34;4_x&#34;:26,&#34;8_x&#34;:15.5},{&#34;4&#34;:1.513,&#34;8&#34;:3.435,&#34;4_x&#34;:30.4,&#34;8_x&#34;:15.2},{&#34;4&#34;:2.78,&#34;8&#34;:3.84,&#34;4_x&#34;:21.4,&#34;8_x&#34;:13.3},{&#34;8&#34;:3.845,&#34;8_x&#34;:19.2},{&#34;8&#34;:3.17,&#34;8_x&#34;:15.8},{&#34;8&#34;:3.57,&#34;8_x&#34;:15}],&#34;keys&#34;:{&#34;value&#34;:[&#34;4&#34;,&#34;6&#34;,&#34;8&#34;,&#34;4_x&#34;,&#34;6_x&#34;,&#34;8_x&#34;]},&#34;xs&#34;:{&#34;6&#34;:&#34;6_x&#34;,&#34;4&#34;:&#34;4_x&#34;,&#34;8&#34;:&#34;8_x&#34;},&#34;type&#34;:&#34;scatter&#34;},&#34;opts&#34;:{&#34;x&#34;:&#34;mpg&#34;,&#34;y&#34;:&#34;wt&#34;,&#34;types&#34;:{&#34;mpg&#34;:&#34;numeric&#34;,&#34;cyl&#34;:&#34;numeric&#34;,&#34;disp&#34;:&#34;numeric&#34;,&#34;hp&#34;:&#34;numeric&#34;,&#34;drat&#34;:&#34;numeric&#34;,&#34;wt&#34;:&#34;numeric&#34;,&#34;qsec&#34;:&#34;numeric&#34;,&#34;vs&#34;:&#34;numeric&#34;,&#34;am&#34;:&#34;numeric&#34;,&#34;gear&#34;:&#34;numeric&#34;,&#34;carb&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;mpg&#34;},&#34;y&#34;:{&#34;label&#34;:&#34;wt&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pie-charts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pie Charts&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(sugar = 20,
+           fat = 45,
+           salt = 10) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_pie()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;sugar&#34;:20,&#34;fat&#34;:45,&#34;salt&#34;:10}],&#34;keys&#34;:{&#34;value&#34;:[&#34;sugar&#34;,&#34;fat&#34;,&#34;salt&#34;]},&#34;type&#34;:&#34;pie&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;sugar&#34;:&#34;numeric&#34;,&#34;fat&#34;:&#34;numeric&#34;,&#34;salt&#34;:&#34;numeric&#34;}},&#34;pie&#34;:{&#34;expand&#34;:true,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;donut-charts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Donut Charts&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(red = 82, green = 33, blue = 93) %&amp;gt;% 
+  c3(colors = list(red = &amp;#39;red&amp;#39;,
+                   green = &amp;#39;green&amp;#39;,
+                   blue = &amp;#39;blue&amp;#39;)) %&amp;gt;% 
+  c3_donut(title = &amp;#39;#d053ee&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;colors&#34;:{&#34;red&#34;:&#34;red&#34;,&#34;green&#34;:&#34;green&#34;,&#34;blue&#34;:&#34;blue&#34;},&#34;json&#34;:[{&#34;red&#34;:82,&#34;green&#34;:33,&#34;blue&#34;:93}],&#34;keys&#34;:{&#34;value&#34;:[&#34;red&#34;,&#34;green&#34;,&#34;blue&#34;]},&#34;type&#34;:&#34;donut&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;red&#34;:&#34;numeric&#34;,&#34;green&#34;:&#34;numeric&#34;,&#34;blue&#34;:&#34;numeric&#34;}},&#34;donut&#34;:{&#34;expand&#34;:true,&#34;title&#34;:&#34;#d053ee&#34;,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gauge-charts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gauge Charts&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(data = 80) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_gauge()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:576px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;data&#34;:80}],&#34;keys&#34;:{&#34;value&#34;:[&#34;data&#34;]},&#34;type&#34;:&#34;gauge&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;data&#34;:&#34;numeric&#34;}},&#34;gauge&#34;:{&#34;label&#34;:null,&#34;min&#34;:0,&#34;max&#34;:100,&#34;units&#34;:null,&#34;width&#34;:null},&#34;color&#34;:{&#34;pattern&#34;:[&#34;#FF0000&#34;,&#34;#F97600&#34;,&#34;#F6C600&#34;,&#34;#60B044&#34;],&#34;threshold&#34;:{&#34;unit&#34;:&#34;value&#34;,&#34;max&#34;:100,&#34;values&#34;:[30,60,90,100]}},&#34;size&#34;:{&#34;height&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grid-lines-annotation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Grid Lines &amp;amp; Annotation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3() %&amp;gt;%
+  grid(&amp;#39;y&amp;#39;) %&amp;gt;%
+  grid(&amp;#39;x&amp;#39;, 
+       show = F, 
+       lines = data.frame(value = c(3, 10), 
+                          text= c(&amp;#39;Line 1&amp;#39;,&amp;#39;Line 2&amp;#39;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-12&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-12&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;grid&#34;:{&#34;y&#34;:{&#34;show&#34;:true},&#34;x&#34;:{&#34;show&#34;:false,&#34;lines&#34;:{&#34;value&#34;:[3,10],&#34;text&#34;:[&#34;Line 1&#34;,&#34;Line 2&#34;]}}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;region-highlighting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Region Highlighting&lt;/h2&gt;
+&lt;p&gt;To highlight regions pass a single &lt;code&gt;data.frame&lt;/code&gt; with columns &lt;code&gt;axis&lt;/code&gt;, &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; and &lt;code&gt;class&lt;/code&gt;. Multiple regions can be defined within the one &lt;code&gt;data.frame&lt;/code&gt; for any axis (&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt;, &lt;code&gt;y2&lt;/code&gt;). Each row in the &lt;code&gt;data.frame&lt;/code&gt; defines a separate region to be highlighted&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3() %&amp;gt;%
+  region(data.frame(axis = &amp;#39;x&amp;#39;,
+                    start = 5,
+                    end = 6))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-13&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-13&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;regions&#34;:{&#34;axis&#34;:[&#34;x&#34;],&#34;start&#34;:[5],&#34;end&#34;:[6]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sub-chart&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sub-chart&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;) %&amp;gt;%
+  subchart()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-14&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-14&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;}},&#34;subchart&#34;:{&#34;show&#34;:true,&#34;size&#34;:{&#34;height&#34;:20}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color-palette&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Color Palette&lt;/h2&gt;
+&lt;p&gt;Plot color palettes can be changed to either &lt;code&gt;RColorBrewer&lt;/code&gt; or &lt;code&gt;viridis&lt;/code&gt; palettes using either &lt;code&gt;RColorBrewer&lt;/code&gt; (S3 method) or &lt;code&gt;c3_viridus&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_pie() %&amp;gt;%
+  RColorBrewer()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-15&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-15&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;sugar&#34;:20,&#34;fat&#34;:45,&#34;salt&#34;:10,&#34;vegetables&#34;:60}],&#34;keys&#34;:{&#34;value&#34;:[&#34;sugar&#34;,&#34;fat&#34;,&#34;salt&#34;,&#34;vegetables&#34;]},&#34;type&#34;:&#34;pie&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;sugar&#34;:&#34;numeric&#34;,&#34;fat&#34;:&#34;numeric&#34;,&#34;salt&#34;:&#34;numeric&#34;,&#34;vegetables&#34;:&#34;numeric&#34;}},&#34;pie&#34;:{&#34;expand&#34;:true,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}},&#34;color&#34;:{&#34;pattern&#34;:[&#34;#D7191C&#34;,&#34;#FDAE61&#34;,&#34;#ABDDA4&#34;,&#34;#2B83BA&#34;]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_pie() %&amp;gt;%
+  c3_viridis()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-16&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-16&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;sugar&#34;:20,&#34;fat&#34;:45,&#34;salt&#34;:10,&#34;vegetables&#34;:60}],&#34;keys&#34;:{&#34;value&#34;:[&#34;sugar&#34;,&#34;fat&#34;,&#34;salt&#34;,&#34;vegetables&#34;]},&#34;type&#34;:&#34;pie&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;sugar&#34;:&#34;numeric&#34;,&#34;fat&#34;:&#34;numeric&#34;,&#34;salt&#34;:&#34;numeric&#34;,&#34;vegetables&#34;:&#34;numeric&#34;}},&#34;pie&#34;:{&#34;expand&#34;:true,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}},&#34;color&#34;:{&#34;pattern&#34;:[&#34;#440154&#34;,&#34;#31688E&#34;,&#34;#35B779&#34;,&#34;#FDE725&#34;]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;point-size&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Point Size&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;) %&amp;gt;%
+  point_options(r = 6, 
+                expand.r = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-17&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-17&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;}},&#34;point&#34;:{&#34;show&#34;:true,&#34;r&#34;:6,&#34;focus&#34;:{&#34;expand&#34;:{&#34;enabled&#34;:true,&#34;r&#34;:12}},&#34;select&#34;:{&#34;r&#34;:24}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;on-click&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;On Click&lt;/h2&gt;
+&lt;p&gt;Onclick, onmouseover and onmouseout are all available via the &lt;code&gt;c3&lt;/code&gt; function. To use wrap a js function as a character string to &lt;code&gt;htmlwidgets::JS()&lt;/code&gt;. Please see the &lt;a href=&#34;http://c3js.org/reference.html#data-onclick&#34;&gt;C3.js documentation&lt;/a&gt; and &lt;a href=&#34;http://c3js.org/samples/chart_pie.html&#34;&gt;examples&lt;/a&gt;. The example below should be enough to get you started.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;% 
+    c3(onclick = htmlwidgets::JS(&amp;#39;function(d, element){console.log(d)}&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tooltips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tooltips&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;C3&lt;/code&gt; tooltips are readily modified with the use of javascript functions. For further detail see the &lt;code&gt;C3.js&lt;/code&gt; &lt;a href=&#34;http://c3js.org/reference.html#tooltip-format-title&#34;&gt;documentation&lt;/a&gt;. Or for more advanced usage see the &lt;code&gt;C3.js&lt;/code&gt; &lt;a href=&#34;http://c3js.org/samples/tooltip_format.html&#34;&gt;examples&lt;/a&gt; page.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(htmlwidgets)
+data %&amp;gt;%
+  c3() %&amp;gt;%
+  tooltip(format = list(title = JS(&amp;quot;function (x) { return &amp;#39;Data &amp;#39; + x; }&amp;quot;),
+                        name = JS(&amp;#39;function (name, ratio, id, index) { return name; }&amp;#39;),
+                        value = JS(&amp;#39;function (value, ratio, id, index) { return ratio; }&amp;#39;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-18&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-18&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;tooltip&#34;:{&#34;show&#34;:true,&#34;grouped&#34;:true,&#34;format&#34;:{&#34;title&#34;:&#34;function (x) { return &#39;Data &#39; + x; }&#34;,&#34;name&#34;:&#34;function (name, ratio, id, index) { return name; }&#34;,&#34;value&#34;:&#34;function (value, ratio, id, index) { return ratio; }&#34;}}},&#34;evals&#34;:[&#34;tooltip.format.title&#34;,&#34;tooltip.format.name&#34;,&#34;tooltip.format.value&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

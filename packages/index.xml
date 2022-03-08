@@ -1,60 +1,685 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Packages on Infra Coder</title>
-    <link>https://dettonville.github.io/packages/</link>
-    <description>Recent content in Packages on Infra Coder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/packages/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ggtrack</title>
-      <link>https://dettonville.github.io/packages/ggtrack-package/</link>
-      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/ggtrack-package/</guid>
-      <description>ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
-    </item>
-    
-    <item>
-      <title>cytoscape</title>
-      <link>https://dettonville.github.io/packages/cytoscape-package/</link>
-      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/cytoscape-package/</guid>
-      <description>A HTMLWidget wrapper for the Cytoscape.js graph / network visualisation and analysis library. There are already a number of existing R packages for Cytoscape such as the Bioconductor package and the official Cytoscape Widget. The purpose of this package is to make the process of producing a basic chart as simple as possible.
-Installation devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)  A Minimal Example library(cytoscape) nodes &amp;lt;- data.</description>
-    </item>
-    
-    <item>
-      <title>mapedit.addin</title>
-      <link>https://dettonville.github.io/packages/mapedit-addin/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/mapedit-addin/</guid>
-      <description>mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
-    </item>
-    
-    <item>
-      <title>c3</title>
-      <link>https://dettonville.github.io/packages/2018-08-19-c3-package/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/2018-08-19-c3-package/</guid>
-      <description>The c3 package is a wrapper, or htmlwidget, for the C3 javascript charting library by Masayuki Tanaka. You will find this package useful if you are wanting to create a chart using R and embedding it in a Rmarkdown document or Shiny App.
-The C3 library is very versatile and includes a lot of options. Currently this package wraps most of the C3 options object.</description>
-    </item>
-    
-    <item>
-      <title>pier</title>
-      <link>https://dettonville.github.io/packages/pier-package/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/pier-package/</guid>
-      <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Packages on Infra Coder</title>
+        <link>https://dettonville.github.io/packages/</link>
+        <description>Recent content in Packages on Infra Coder</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/packages/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ggtrack</title>
+        <link>https://dettonville.github.io/packages/ggtrack-package/</link>
+        <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/ggtrack-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2020_DSC8761.png" alt="Featured image of post ggtrack" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;ggtrack&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;ggtrack&lt;/h1&gt;
+&lt;!-- badges: start --&gt;
+&lt;p&gt;&lt;a href=&#34;https://lifecycle.r-lib.org/articles/stages.html#stable&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/lifecycle-stable-brightgreen.svg&#34; alt=&#34;Lifecycle: stable&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/mrjoh3/ggtrack/actions&#34;&gt;&lt;img src=&#34;https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/ggtrack?branch=master&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg&#34; alt=&#34;Codecov test coverage&#34; /&gt;&lt;/a&gt;
+&lt;!-- badges: end --&gt;&lt;/p&gt;
+&lt;div style=&#34;float: right;&#34;&gt;
+&lt;img src=&#34;../../img/ggtrack-logo.svg&#34; width=&#34;280px&#34;&gt;
+&lt;/div&gt;
+&lt;p&gt;Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The &lt;code&gt;ggtrack&lt;/code&gt; package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.&lt;/p&gt;
+&lt;p&gt;The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.&lt;/p&gt;
+&lt;p&gt;QR codes can then be scanned using a phone scanner or the &lt;a href=&#34;https://github.com/brianwdavis/quadrangle&#34;&gt;quadrangle package&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ggtrack&lt;/code&gt; footer can also display a corporate logo and additional text.&lt;/p&gt;
+&lt;p&gt;You can find the source code at &lt;a href=&#34;https://github.com/mrjoh3/ggtrack&#34; class=&#34;uri&#34;&gt;https://github.com/mrjoh3/ggtrack&lt;/a&gt; and the documentation at &lt;a href=&#34;https://mrjoh3.github.io/ggtrack/&#34; class=&#34;uri&#34;&gt;https://mrjoh3.github.io/ggtrack/&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;development&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Development&lt;/h2&gt;
+&lt;p&gt;This package is still quite young but now contains most of the desired features. It now has a full testing suite and documentation. For future updates all efforts will be made to maintain a stable API. If you have any suggestions, or feature requests please submit an &lt;a href=&#34;https://github.com/mrjoh3/ggtrack/issues&#34;&gt;issue&lt;/a&gt;. All feedback is welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-minimum-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A Minimum Example&lt;/h2&gt;
+&lt;p&gt;To start you just need a &lt;code&gt;ggplot&lt;/code&gt; and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the &lt;a href=&#34;https://github.com/hrbrmstr/qrencoder&#34;&gt;qrencoder&lt;/a&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggtrack)
+library(ggplot2)
+library(grid)
+library(rWBclimate)
+library(ggthemes)
+
+temp &amp;lt;- get_historical_temp(&amp;#39;aus&amp;#39;, &amp;quot;year&amp;quot;)
+
+tp &amp;lt;- ggplot(temp, aes(x = year, y = data)) +
+  geom_path(color = &amp;#39;blue&amp;#39;) + geom_point(color = &amp;#39;darkblue&amp;#39;) +
+  labs(title = &amp;#39;Average Annual Temperature for Australia&amp;#39;,
+       y = &amp;#39;degrees celcius&amp;#39;) +
+  stat_smooth(se = TRUE, colour = &amp;quot;darkred&amp;quot;) +
+  theme_fivethirtyeight() 
+
+ggtrack(tp, 
+        qr_content = paste0(&amp;#39;Data accessed using R package: &amp;#39;,
+                            &amp;#39;https://github.com/ropensci/rWBclimate / &amp;#39;,
+                            &amp;#39;https://docs.ropensci.org/rWBclimate/&amp;#39;),
+        logo = &amp;#39;../../static/img/ggtrack-logo.svg&amp;#39;,
+        caption = paste0(&amp;#39;data accessed from the World Bank &amp;lt;br&amp;gt;&amp;#39;,
+                         &amp;#39;Climate Portal via the R package &amp;lt;br&amp;gt;&amp;#39;,
+                         &amp;#39;&amp;lt;span style=&amp;quot;color:blue&amp;quot;&amp;gt;rWBclimate&amp;lt;/span&amp;gt;.&amp;#39;),
+        plot.background = element_rect(fill = &amp;quot;#f0f0f0&amp;quot;, size = 0)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://dettonville.github.io/packages/2021-06-14-ggtrack-package_files/figure-html/example-1.png&#34; width=&#34;100%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;related-and-enabling-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Related and Enabling Packages&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;ggrack&lt;/code&gt; package makes use of many &lt;a href=&#34;https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20&#34;&gt;R packages&lt;/a&gt;. But I want to include a special thank-you to some packages without which the &lt;code&gt;ggtrack&lt;/code&gt; package would not be possible.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/hrbrmstr/qrencoder&#34;&gt;qrencoder&lt;/a&gt; package generate to QR codes that form the basis for much of &lt;code&gt;ggtrack&lt;/code&gt;. &lt;code&gt;qrencoder&lt;/code&gt; is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.&lt;/li&gt;
+&lt;li&gt;Without &lt;a href=&#34;https://github.com/tidyverse/ggplot2/&#34;&gt;ggplot2&lt;/a&gt; there would be little point to a package like &lt;code&gt;ggtrack&lt;/code&gt;. The entire banner object is a &lt;code&gt;ggplot&lt;/code&gt; with &lt;code&gt;theme_void&lt;/code&gt; and &lt;code&gt;annotation_custom&lt;/code&gt; used to place the three tracking elements.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;rasterGrob&lt;/code&gt; elements from the &lt;a href=&#34;https://github.com/cran/grid&#34;&gt;grid&lt;/a&gt; package make it possible to add both the QR code and arbitrary images such as logos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grid.arrange&lt;/code&gt; from &lt;a href=&#34;https://cran.r-project.org/package=gridExtra&#34;&gt;gridExtra&lt;/a&gt; makes it possible to stack the &lt;code&gt;ggplot&lt;/code&gt; object on top of the tracking banner.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/richfitz/stegasaur&#34;&gt;stegasaur&lt;/a&gt; is used the encode arbitrary text or R objects into the plot &lt;code&gt;PNG&lt;/code&gt;. This is very cool and &lt;a href=&#34;https://github.com/richfitz/stegasaur&#34;&gt;stegasaur&lt;/a&gt; is a great package that makes it really easy to encode and decode images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>cytoscape</title>
+        <link>https://dettonville.github.io/packages/cytoscape-package/</link>
+        <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/cytoscape-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2020_DSC9257.png" alt="Featured image of post cytoscape" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/cytoscape/cytoscape.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/cytoscape-binding/cytoscape.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/cola/cola.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/cytoscape-cola/cytoscape-cola.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://www.tidyverse.org/lifecycle/#experimental&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/lifecycle-experimental-orange.svg&#34; alt=&#34;lifecycle&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A HTMLWidget wrapper for the &lt;a href=&#34;http://js.cytoscape.org/&#34;&gt;Cytoscape.js&lt;/a&gt;
+graph / network visualisation and analysis library. There are already a
+number of existing &lt;code&gt;R&lt;/code&gt; packages for Cytoscape such as the &lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/RCy3.html&#34;&gt;Bioconductor
+package&lt;/a&gt;
+and the official &lt;a href=&#34;https://github.com/cytoscape/r-cytoscape.js&#34;&gt;Cytoscape
+Widget&lt;/a&gt;. The purpose of
+this package is to make the process of producing a basic chart as simple
+as possible.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;mrjoh3/cytoscape&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-minimal-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A Minimal Example&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(cytoscape)
+nodes &amp;lt;- data.frame(id = c(&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;))
+edges &amp;lt;- data.frame(id = &amp;#39;ab&amp;#39;, source = &amp;#39;a&amp;#39;, target = &amp;#39;b&amp;#39;)
+cytoscape(nodes = nodes, edges = edges) &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;edges&#34;:{&#34;id&#34;:[&#34;ab&#34;],&#34;source&#34;:[&#34;a&#34;],&#34;target&#34;:[&#34;b&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;grid&#34;,&#34;rows&#34;:1},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;styling-edges-and-nodes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Styling Edges and Nodes&lt;/h2&gt;
+&lt;p&gt;Nodes and edges can all be styled using CSS.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ct &amp;lt;- cytoscape(nodes = nodes, edges = edges)
+ct %&amp;gt;% node_style(&amp;#39;background-color&amp;#39; = &amp;#39;#ff0000&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;edges&#34;:{&#34;id&#34;:[&#34;ab&#34;],&#34;source&#34;:[&#34;a&#34;],&#34;target&#34;:[&#34;b&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;grid&#34;,&#34;rows&#34;:1},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#ff0000&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ct %&amp;gt;% edge_style(&amp;#39;line-color&amp;#39; = &amp;#39;#ff0000&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;edges&#34;:{&#34;id&#34;:[&#34;ab&#34;],&#34;source&#34;:[&#34;a&#34;],&#34;target&#34;:[&#34;b&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;grid&#34;,&#34;rows&#34;:1},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ff0000&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Creating data&lt;/h2&gt;
+&lt;p&gt;Every network chart requires two &lt;code&gt;data.frames&lt;/code&gt; one for the nodes and another for the edges. Often you will already have a &lt;code&gt;data.frame&lt;/code&gt; with the edge, or &lt;code&gt;source&lt;/code&gt;, &lt;code&gt;target&lt;/code&gt;. In the example below we have a &lt;code&gt;data.frame&lt;/code&gt; of Comtrade waste plastic exports for December 2017 where the source counrty and the destination country are deliniated. These fields need to be renamed to &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;target&lt;/code&gt; for &lt;code&gt;cytoscape&lt;/code&gt; to use it. For the &lt;code&gt;nodes&lt;/code&gt; &lt;code&gt;data.frame&lt;/code&gt; you need to create an &lt;code&gt;id&lt;/code&gt; field that contains all of the unique values found in the &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;target&lt;/code&gt; fields of the &lt;code&gt;edges&lt;/code&gt; &lt;code&gt;data.frame&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;- cytoscape::comtrade
+edges &amp;lt;- df %&amp;gt;%
+    dplyr::select(source = reporter,
+                  target = partner) %&amp;gt;%
+    dplyr::mutate(id = paste(source, &amp;#39;_&amp;#39;, target))
+nodes &amp;lt;- data.frame(id = unique(c(edges$source, edges$target)), stringsAsFactors = FALSE)
+           
+cytoscape(nodes = nodes, edges = edges) %&amp;gt;% 
+  layout(&amp;#39;grid&amp;#39;, rows = 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Kazakhstan&#34;,&#34;Japan&#34;,&#34;Kyrgyzstan&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Russian Federation&#34;,&#34;World&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Rep. of Korea&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Thailand&#34;,&#34;Mexico&#34;,&#34;Saudi Arabia&#34;,&#34;United Kingdom&#34;,&#34;Uruguay&#34;,&#34;Israel&#34;,&#34;Dominican Rep.&#34;,&#34;United States of America&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Nicaragua&#34;,&#34;Albania&#34;,&#34;Austria&#34;,&#34;Bahamas&#34;,&#34;Bulgaria&#34;,&#34;Cyprus&#34;,&#34;Italy&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;Poland&#34;,&#34;Romania&#34;,&#34;Switzerland&#34;,&#34;Turkey&#34;,&#34;Belgium&#34;,&#34;Sweden&#34;,&#34;Areas, nes&#34;,&#34;Uzbekistan&#34;,&#34;Bangladesh&#34;,&#34;Kenya&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Singapore&#34;,&#34;Nigeria&#34;,&#34;Denmark&#34;,&#34;Latvia&#34;,&#34;Lithuania&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Croatia&#34;]},&#34;edges&#34;:{&#34;source&#34;:[&#34;Armenia&#34;,&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Kazakhstan&#34;,&#34;Kazakhstan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Kyrgyzstan&#34;,&#34;Kyrgyzstan&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;],&#34;target&#34;:[&#34;Russian Federation&#34;,&#34;World&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Japan&#34;,&#34;Rep. of Korea&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;World&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Thailand&#34;,&#34;World&#34;,&#34;Mexico&#34;,&#34;Saudi Arabia&#34;,&#34;Spain&#34;,&#34;United Kingdom&#34;,&#34;Uruguay&#34;,&#34;Israel&#34;,&#34;Dominican Rep.&#34;,&#34;Paraguay&#34;,&#34;United States of America&#34;,&#34;World&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Nicaragua&#34;,&#34;World&#34;,&#34;Albania&#34;,&#34;Austria&#34;,&#34;Bahamas&#34;,&#34;Bulgaria&#34;,&#34;Cyprus&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Italy&#34;,&#34;Malaysia&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;Poland&#34;,&#34;Romania&#34;,&#34;Viet Nam&#34;,&#34;Switzerland&#34;,&#34;Thailand&#34;,&#34;Turkey&#34;,&#34;World&#34;,&#34;Belgium&#34;,&#34;Netherlands&#34;,&#34;Spain&#34;,&#34;Sweden&#34;,&#34;United Kingdom&#34;,&#34;United States of America&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Belgium&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Turkey&#34;,&#34;Rep. of Korea&#34;,&#34;Poland&#34;,&#34;Other Asia, nes&#34;,&#34;Areas, nes&#34;,&#34;World&#34;,&#34;Germany&#34;,&#34;United Kingdom&#34;,&#34;Uzbekistan&#34;,&#34;World&#34;,&#34;World&#34;,&#34;United States of America&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Russian Federation&#34;,&#34;Bangladesh&#34;,&#34;Kenya&#34;,&#34;South Africa&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Spain&#34;,&#34;Viet Nam&#34;,&#34;Belgium&#34;,&#34;Malaysia&#34;,&#34;Singapore&#34;,&#34;Indonesia&#34;,&#34;Rep. of Korea&#34;,&#34;Thailand&#34;,&#34;Nigeria&#34;,&#34;China&#34;,&#34;Myanmar&#34;,&#34;World&#34;,&#34;Uzbekistan&#34;,&#34;World&#34;,&#34;Austria&#34;,&#34;Denmark&#34;,&#34;Germany&#34;,&#34;Italy&#34;,&#34;Latvia&#34;,&#34;Lithuania&#34;,&#34;Malaysia&#34;,&#34;Netherlands&#34;,&#34;Poland&#34;,&#34;Sweden&#34;,&#34;United Kingdom&#34;,&#34;Brazil&#34;,&#34;World&#34;,&#34;Romania&#34;,&#34;World&#34;,&#34;Bulgaria&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;Other Asia, nes&#34;,&#34;India&#34;,&#34;Austria&#34;,&#34;Belgium&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Rep. of Korea&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Croatia&#34;,&#34;Czech Rep.&#34;,&#34;Netherlands&#34;,&#34;Poland&#34;,&#34;Thailand&#34;,&#34;Turkey&#34;,&#34;Italy&#34;,&#34;United Kingdom&#34;],&#34;id&#34;:[&#34;Armenia _ Russian Federation&#34;,&#34;Armenia _ World&#34;,&#34;Australia _ Myanmar&#34;,&#34;Australia _ China&#34;,&#34;Australia _ Portugal&#34;,&#34;Australia _ Germany&#34;,&#34;Australia _ China, Hong Kong SAR&#34;,&#34;Australia _ Indonesia&#34;,&#34;Australia _ Japan&#34;,&#34;Australia _ Rep. of Korea&#34;,&#34;Australia _ Malaysia&#34;,&#34;Australia _ New Zealand&#34;,&#34;Australia _ India&#34;,&#34;Australia _ Other Asia, nes&#34;,&#34;Australia _ World&#34;,&#34;Australia _ Viet Nam&#34;,&#34;Australia _ South Africa&#34;,&#34;Australia _ Spain&#34;,&#34;Australia _ Thailand&#34;,&#34;Brazil _ World&#34;,&#34;Brazil _ Mexico&#34;,&#34;Brazil _ Saudi Arabia&#34;,&#34;Brazil _ Spain&#34;,&#34;Brazil _ United Kingdom&#34;,&#34;Brazil _ Uruguay&#34;,&#34;Brazil _ Israel&#34;,&#34;Brazil _ Dominican Rep.&#34;,&#34;Brazil _ Paraguay&#34;,&#34;Brazil _ United States of America&#34;,&#34;El Salvador _ World&#34;,&#34;El Salvador _ Guatemala&#34;,&#34;El Salvador _ Honduras&#34;,&#34;El Salvador _ Nicaragua&#34;,&#34;Greece _ World&#34;,&#34;Greece _ Albania&#34;,&#34;Greece _ Austria&#34;,&#34;Greece _ Bahamas&#34;,&#34;Greece _ Bulgaria&#34;,&#34;Greece _ Cyprus&#34;,&#34;Greece _ China, Hong Kong SAR&#34;,&#34;Greece _ Indonesia&#34;,&#34;Greece _ Italy&#34;,&#34;Greece _ Malaysia&#34;,&#34;Greece _ Netherlands&#34;,&#34;Greece _ Pakistan&#34;,&#34;Greece _ Poland&#34;,&#34;Greece _ Romania&#34;,&#34;Greece _ Viet Nam&#34;,&#34;Greece _ Switzerland&#34;,&#34;Greece _ Thailand&#34;,&#34;Greece _ Turkey&#34;,&#34;Iceland _ World&#34;,&#34;Iceland _ Belgium&#34;,&#34;Iceland _ Netherlands&#34;,&#34;Iceland _ Spain&#34;,&#34;Iceland _ Sweden&#34;,&#34;Iceland _ United Kingdom&#34;,&#34;Ireland _ United States of America&#34;,&#34;Ireland _ Viet Nam&#34;,&#34;Ireland _ Malaysia&#34;,&#34;Ireland _ Belgium&#34;,&#34;Ireland _ Netherlands&#34;,&#34;Ireland _ Pakistan&#34;,&#34;Ireland _ China, Hong Kong SAR&#34;,&#34;Ireland _ Indonesia&#34;,&#34;Ireland _ Turkey&#34;,&#34;Ireland _ Rep. of Korea&#34;,&#34;Ireland _ Poland&#34;,&#34;Ireland _ Other Asia, nes&#34;,&#34;Ireland _ Areas, nes&#34;,&#34;Ireland _ World&#34;,&#34;Ireland _ Germany&#34;,&#34;Ireland _ United Kingdom&#34;,&#34;Kazakhstan _ Uzbekistan&#34;,&#34;Kazakhstan _ World&#34;,&#34;Japan _ World&#34;,&#34;Japan _ United States of America&#34;,&#34;Japan _ India&#34;,&#34;Japan _ Other Asia, nes&#34;,&#34;Japan _ China, Hong Kong SAR&#34;,&#34;Japan _ Russian Federation&#34;,&#34;Japan _ Bangladesh&#34;,&#34;Japan _ Kenya&#34;,&#34;Japan _ South Africa&#34;,&#34;Japan _ Philippines&#34;,&#34;Japan _ Czech Rep.&#34;,&#34;Japan _ Spain&#34;,&#34;Japan _ Viet Nam&#34;,&#34;Japan _ Belgium&#34;,&#34;Japan _ Malaysia&#34;,&#34;Japan _ Singapore&#34;,&#34;Japan _ Indonesia&#34;,&#34;Japan _ Rep. of Korea&#34;,&#34;Japan _ Thailand&#34;,&#34;Japan _ Nigeria&#34;,&#34;Japan _ China&#34;,&#34;Japan _ Myanmar&#34;,&#34;Kyrgyzstan _ World&#34;,&#34;Kyrgyzstan _ Uzbekistan&#34;,&#34;Norway _ World&#34;,&#34;Norway _ Austria&#34;,&#34;Norway _ Denmark&#34;,&#34;Norway _ Germany&#34;,&#34;Norway _ Italy&#34;,&#34;Norway _ Latvia&#34;,&#34;Norway _ Lithuania&#34;,&#34;Norway _ Malaysia&#34;,&#34;Norway _ Netherlands&#34;,&#34;Norway _ Poland&#34;,&#34;Norway _ Sweden&#34;,&#34;Norway _ United Kingdom&#34;,&#34;Paraguay _ Brazil&#34;,&#34;Paraguay _ World&#34;,&#34;Slovenia _ Romania&#34;,&#34;Slovenia _ World&#34;,&#34;Slovenia _ Bulgaria&#34;,&#34;Slovenia _ Germany&#34;,&#34;Slovenia _ China, Hong Kong SAR&#34;,&#34;Slovenia _ Hungary&#34;,&#34;Slovenia _ France&#34;,&#34;Slovenia _ Other Asia, nes&#34;,&#34;Slovenia _ India&#34;,&#34;Slovenia _ Austria&#34;,&#34;Slovenia _ Belgium&#34;,&#34;Slovenia _ Bosnia Herzegovina&#34;,&#34;Slovenia _ Rep. of Korea&#34;,&#34;Slovenia _ Serbia&#34;,&#34;Slovenia _ Slovakia&#34;,&#34;Slovenia _ Viet Nam&#34;,&#34;Slovenia _ Malaysia&#34;,&#34;Slovenia _ Croatia&#34;,&#34;Slovenia _ Czech Rep.&#34;,&#34;Slovenia _ Netherlands&#34;,&#34;Slovenia _ Poland&#34;,&#34;Slovenia _ Thailand&#34;,&#34;Slovenia _ Turkey&#34;,&#34;Slovenia _ Italy&#34;,&#34;Slovenia _ United Kingdom&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;grid&#34;,&#34;fit&#34;:true,&#34;padding&#34;:30,&#34;avoidOverlap&#34;:true,&#34;avoidOverlapPadding&#34;:10,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;condense&#34;:false,&#34;rows&#34;:4,&#34;animate&#34;:false,&#34;animationDuration&#34;:500},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;with-geographic-location&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;With Geographic Location&lt;/h2&gt;
+&lt;p&gt;You can use coordinates to fix the location of nodes. But the package is not spatially enabled and does not check or transform the coordinates you pass.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coords &amp;lt;- cytoscape::coords %&amp;gt;%
+  rename(x = lon,
+         y = lat) %&amp;gt;%
+  filter(id != &amp;#39;World&amp;#39;) %&amp;gt;%
+  mutate(y = -y) # this will depend on coordinates used
+edges &amp;lt;- filter(edges, 
+                source %in% coords$id,
+                target %in% coords$id)
+cytoscape(nodes = coords, edges = edges) %&amp;gt;% 
+  layout(&amp;#39;preset&amp;#39;) %&amp;gt;%
+  node_style(width = 3, height = 3, &amp;#39;font-size&amp;#39; = 8) %&amp;gt;%
+  edge_style(width = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-5&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Kazakhstan&#34;,&#34;Japan&#34;,&#34;Kyrgyzstan&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Russian Federation&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Saudi Arabia&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Bahamas&#34;,&#34;Romania&#34;,&#34;Sweden&#34;,&#34;Kenya&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Singapore&#34;,&#34;Nigeria&#34;,&#34;Latvia&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Croatia&#34;],&#34;x&#34;:[45.038189,133.775136,-51.92528,-88.89653,21.824312,-19.020835,-7.6920536,66.923684,138.252924,74.766098,8.468946,-58.443832,14.995463,105.318756,95.955974,104.195397,-8.224454,10.451526,114.109497,113.921327,101.975766,174.885971,78.96288,108.277199,22.937506,-3.74922,45.079162,-90.230759,-86.241905,-77.39628,24.96676,18.643501,37.906193,121.774017,15.472962,103.819836,8.675277,24.603189,19.5033041,2.213749,17.679076,21.005859,19.699024,15.2000001],&#34;y&#34;:[-40.069099,25.274398,14.235004,-13.794185,-39.074208,-64.963051,-53.1423672,-48.019573,-36.204824,-41.20438,-60.472024,23.442503,-46.151241,-61.52401,-21.916221,-35.86166,-39.399872,-51.165691,-22.396428,0.789275,-4.210484,40.900557,-20.593684,-14.058324,30.559482,-40.463667,-23.885942,-15.783471,-15.199999,-25.03428,-45.943161,-60.128161,0.023559,-12.879721,-49.817492,-1.352083,-9.081999,-56.879635,-47.162494,-46.227638,-43.915886,-44.016521,-48.669026,-45.1]},&#34;edges&#34;:{&#34;source&#34;:[&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;],&#34;target&#34;:[&#34;Russian Federation&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Japan&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Saudi Arabia&#34;,&#34;Spain&#34;,&#34;Paraguay&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Bahamas&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Malaysia&#34;,&#34;Romania&#34;,&#34;Viet Nam&#34;,&#34;Spain&#34;,&#34;Sweden&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Germany&#34;,&#34;India&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Russian Federation&#34;,&#34;Kenya&#34;,&#34;South Africa&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Spain&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Singapore&#34;,&#34;Indonesia&#34;,&#34;Nigeria&#34;,&#34;China&#34;,&#34;Myanmar&#34;,&#34;Germany&#34;,&#34;Latvia&#34;,&#34;Malaysia&#34;,&#34;Sweden&#34;,&#34;Brazil&#34;,&#34;Romania&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;India&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Croatia&#34;,&#34;Czech Rep.&#34;],&#34;id&#34;:[&#34;Armenia _ Russian Federation&#34;,&#34;Australia _ Myanmar&#34;,&#34;Australia _ China&#34;,&#34;Australia _ Portugal&#34;,&#34;Australia _ Germany&#34;,&#34;Australia _ China, Hong Kong SAR&#34;,&#34;Australia _ Indonesia&#34;,&#34;Australia _ Japan&#34;,&#34;Australia _ Malaysia&#34;,&#34;Australia _ New Zealand&#34;,&#34;Australia _ India&#34;,&#34;Australia _ Viet Nam&#34;,&#34;Australia _ South Africa&#34;,&#34;Australia _ Spain&#34;,&#34;Brazil _ Saudi Arabia&#34;,&#34;Brazil _ Spain&#34;,&#34;Brazil _ Paraguay&#34;,&#34;El Salvador _ Guatemala&#34;,&#34;El Salvador _ Honduras&#34;,&#34;Greece _ Bahamas&#34;,&#34;Greece _ China, Hong Kong SAR&#34;,&#34;Greece _ Indonesia&#34;,&#34;Greece _ Malaysia&#34;,&#34;Greece _ Romania&#34;,&#34;Greece _ Viet Nam&#34;,&#34;Iceland _ Spain&#34;,&#34;Iceland _ Sweden&#34;,&#34;Ireland _ Viet Nam&#34;,&#34;Ireland _ Malaysia&#34;,&#34;Ireland _ China, Hong Kong SAR&#34;,&#34;Ireland _ Indonesia&#34;,&#34;Ireland _ Germany&#34;,&#34;Japan _ India&#34;,&#34;Japan _ China, Hong Kong SAR&#34;,&#34;Japan _ Russian Federation&#34;,&#34;Japan _ Kenya&#34;,&#34;Japan _ South Africa&#34;,&#34;Japan _ Philippines&#34;,&#34;Japan _ Czech Rep.&#34;,&#34;Japan _ Spain&#34;,&#34;Japan _ Viet Nam&#34;,&#34;Japan _ Malaysia&#34;,&#34;Japan _ Singapore&#34;,&#34;Japan _ Indonesia&#34;,&#34;Japan _ Nigeria&#34;,&#34;Japan _ China&#34;,&#34;Japan _ Myanmar&#34;,&#34;Norway _ Germany&#34;,&#34;Norway _ Latvia&#34;,&#34;Norway _ Malaysia&#34;,&#34;Norway _ Sweden&#34;,&#34;Paraguay _ Brazil&#34;,&#34;Slovenia _ Romania&#34;,&#34;Slovenia _ Germany&#34;,&#34;Slovenia _ China, Hong Kong SAR&#34;,&#34;Slovenia _ Hungary&#34;,&#34;Slovenia _ France&#34;,&#34;Slovenia _ India&#34;,&#34;Slovenia _ Bosnia Herzegovina&#34;,&#34;Slovenia _ Serbia&#34;,&#34;Slovenia _ Slovakia&#34;,&#34;Slovenia _ Viet Nam&#34;,&#34;Slovenia _ Malaysia&#34;,&#34;Slovenia _ Croatia&#34;,&#34;Slovenia _ Czech Rep.&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;preset&#34;,&#34;fit&#34;:true,&#34;padding&#34;:30,&#34;avoidOverlap&#34;:true,&#34;avoidOverlapPadding&#34;:10,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;condense&#34;:false,&#34;animate&#34;:false,&#34;animationDuration&#34;:500},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;,&#34;width&#34;:3,&#34;height&#34;:3,&#34;font-size&#34;:8},&#34;edge_style&#34;:{&#34;width&#34;:1,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;image-node-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Image Node Example&lt;/h2&gt;
+&lt;p&gt;Replicate the &lt;code&gt;Cytograph.js&lt;/code&gt; &lt;a href=&#34;http://js.cytoscape.org/demos/images-breadthfirst-layout/&#34;&gt;images example&lt;/a&gt;. This example does not currently include the touch effects.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_nodes &amp;lt;- data.frame(id = c(&amp;#39;cat&amp;#39;,&amp;#39;bird&amp;#39;,&amp;#39;ladybug&amp;#39;,&amp;#39;aphid&amp;#39;,&amp;#39;rose&amp;#39;,&amp;#39;grasshopper&amp;#39;,&amp;#39;plant&amp;#39;,&amp;#39;wheat&amp;#39;),
+                        images = c(&amp;#39;https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg&amp;#39;,
+                                   &amp;#39;https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg&amp;#39;,
+                                   &amp;#39;https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg&amp;#39;,
+                                   &amp;#39;https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg&amp;#39;,
+                                   &amp;#39;https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg&amp;#39;,
+                                   &amp;#39;https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg&amp;#39;,
+                                   &amp;#39;https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg&amp;#39;,
+                                   &amp;#39;https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg&amp;#39;),
+                        stringsAsFactors = FALSE)
+img_edges &amp;lt;- data.frame(source = c(&amp;#39;cat&amp;#39;,&amp;#39;bird&amp;#39;,&amp;#39;bird&amp;#39;,&amp;#39;grasshopper&amp;#39;,&amp;#39;grasshopper&amp;#39;,&amp;#39;ladybug&amp;#39;,&amp;#39;aphid&amp;#39;),
+                        target = c(&amp;#39;bird&amp;#39;,&amp;#39;ladybug&amp;#39;,&amp;#39;grasshopper&amp;#39;,&amp;#39;plant&amp;#39;,&amp;#39;wheat&amp;#39;,&amp;#39;aphid&amp;#39;,&amp;#39;rose&amp;#39;),
+                        stringsAsFactors = FALSE)
+cytoscape(nodes = img_nodes,
+          edges = img_edges) %&amp;gt;%
+  layout(name = &amp;#39;breadthfirst&amp;#39;,
+         directed = TRUE,
+         padding = 10) %&amp;gt;%
+  node_style(&amp;#39;height&amp;#39; = 80,
+             &amp;#39;width&amp;#39; = 80,
+             &amp;#39;background-fit&amp;#39; = &amp;#39;cover&amp;#39;,
+             &amp;#39;border-color&amp;#39; = &amp;#39;#000&amp;#39;,
+             &amp;#39;border-width&amp;#39; = 3,
+             &amp;#39;border-opacity&amp;#39; = 0.5,
+             &amp;#39;label&amp;#39; = NULL) %&amp;gt;%
+  edge_style(&amp;#39;curve-style&amp;#39; = &amp;#39;bezier&amp;#39;,
+             &amp;#39;width&amp;#39; = 6,
+             &amp;#39;target-arrow-shape&amp;#39; = &amp;#39;triangle&amp;#39;,
+             &amp;#39;line-color&amp;#39; = &amp;#39;#ffaaaa&amp;#39;,
+             &amp;#39;target-arrow-color&amp;#39; = &amp;#39;#ffaaaa&amp;#39;) %&amp;gt;%
+  node_images()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;ladybug&#34;,&#34;aphid&#34;,&#34;rose&#34;,&#34;grasshopper&#34;,&#34;plant&#34;,&#34;wheat&#34;],&#34;images&#34;:[&#34;https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg&#34;,&#34;https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg&#34;,&#34;https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg&#34;,&#34;https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg&#34;,&#34;https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg&#34;,&#34;https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg&#34;,&#34;https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg&#34;,&#34;https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg&#34;]},&#34;edges&#34;:{&#34;source&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;bird&#34;,&#34;grasshopper&#34;,&#34;grasshopper&#34;,&#34;ladybug&#34;,&#34;aphid&#34;],&#34;target&#34;:[&#34;bird&#34;,&#34;ladybug&#34;,&#34;grasshopper&#34;,&#34;plant&#34;,&#34;wheat&#34;,&#34;aphid&#34;,&#34;rose&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;breadthfirst&#34;,&#34;fit&#34;:true,&#34;padding&#34;:10,&#34;avoidOverlap&#34;:true,&#34;avoidOverlapPadding&#34;:10,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;condense&#34;:false,&#34;animate&#34;:false,&#34;animationDuration&#34;:500,&#34;directed&#34;:true},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;height&#34;:80,&#34;width&#34;:80,&#34;background-fit&#34;:&#34;cover&#34;,&#34;border-color&#34;:&#34;#000&#34;,&#34;border-width&#34;:3,&#34;border-opacity&#34;:0.5},&#34;edge_style&#34;:{&#34;width&#34;:6,&#34;line-color&#34;:&#34;#ffaaaa&#34;,&#34;target-arrow-color&#34;:&#34;#ffaaaa&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;,&#34;curve-style&#34;:&#34;bezier&#34;},&#34;images&#34;:{&#34;id&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;ladybug&#34;,&#34;aphid&#34;,&#34;rose&#34;,&#34;grasshopper&#34;,&#34;plant&#34;,&#34;wheat&#34;],&#34;images&#34;:[&#34;https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg&#34;,&#34;https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg&#34;,&#34;https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg&#34;,&#34;https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg&#34;,&#34;https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg&#34;,&#34;https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg&#34;,&#34;https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg&#34;,&#34;https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg&#34;]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;node-gradient-background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Node Gradient Background&lt;/h2&gt;
+&lt;p&gt;Since &lt;code&gt;cytoscape&lt;/code&gt; version 3.3.0 it has been possible to include background gradients in node styles. This is included in this package as of version 0.0.2.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cytoscape(nodes = img_nodes,
+          edges = img_edges) %&amp;gt;%
+  layout(name = &amp;#39;breadthfirst&amp;#39;,
+         directed = TRUE,
+         padding = 10) %&amp;gt;%
+  node_style(&amp;quot;content&amp;quot; = &amp;quot;data(id)&amp;quot;,
+              &amp;quot;text-valign&amp;quot; = &amp;quot;center&amp;quot;,
+              &amp;quot;text-halign&amp;quot; = &amp;quot;center&amp;quot;,
+              &amp;#39;height&amp;#39; = 80,
+              &amp;#39;width&amp;#39; = 80,
+              &amp;quot;background-fill&amp;quot; = &amp;quot;radial-gradient&amp;quot;,
+              &amp;#39;background-fit&amp;#39; = &amp;#39;cover&amp;#39;,
+              &amp;quot;background-gradient-stop-colors&amp;quot; = &amp;quot;cyan magenta yellow&amp;quot;, 
+              &amp;quot;background-gradient-stop-positions&amp;quot; = &amp;quot;25 75 80&amp;quot;
+             ) &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;ladybug&#34;,&#34;aphid&#34;,&#34;rose&#34;,&#34;grasshopper&#34;,&#34;plant&#34;,&#34;wheat&#34;],&#34;images&#34;:[&#34;https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg&#34;,&#34;https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg&#34;,&#34;https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg&#34;,&#34;https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg&#34;,&#34;https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg&#34;,&#34;https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg&#34;,&#34;https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg&#34;,&#34;https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg&#34;]},&#34;edges&#34;:{&#34;source&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;bird&#34;,&#34;grasshopper&#34;,&#34;grasshopper&#34;,&#34;ladybug&#34;,&#34;aphid&#34;],&#34;target&#34;:[&#34;bird&#34;,&#34;ladybug&#34;,&#34;grasshopper&#34;,&#34;plant&#34;,&#34;wheat&#34;,&#34;aphid&#34;,&#34;rose&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;breadthfirst&#34;,&#34;fit&#34;:true,&#34;padding&#34;:10,&#34;avoidOverlap&#34;:true,&#34;avoidOverlapPadding&#34;:10,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;condense&#34;:false,&#34;animate&#34;:false,&#34;animationDuration&#34;:500,&#34;directed&#34;:true},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;,&#34;content&#34;:&#34;data(id)&#34;,&#34;text-valign&#34;:&#34;center&#34;,&#34;text-halign&#34;:&#34;center&#34;,&#34;height&#34;:80,&#34;width&#34;:80,&#34;background-fill&#34;:&#34;radial-gradient&#34;,&#34;background-fit&#34;:&#34;cover&#34;,&#34;background-gradient-stop-colors&#34;:&#34;cyan magenta yellow&#34;,&#34;background-gradient-stop-positions&#34;:&#34;25 75 80&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grouping-nodes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Grouping Nodes&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cytoscape.org/cytoscape.js-cola/demo-compound.html&#34;&gt;Compound graphs&lt;/a&gt; where nodes are grouped are also possible. Add &lt;code&gt;parent&lt;/code&gt; and &lt;code&gt;node_color&lt;/code&gt; columns to the nodes &lt;code&gt;data.frame&lt;/code&gt;. The final step is to add nodes for each of the groups, note the &lt;code&gt;bind_rows()&lt;/code&gt; function in the example below. Thanks to &lt;a href=&#34;https://github.com/gilhornung&#34;&gt;gilhornung&lt;/a&gt; for &lt;a href=&#34;https://github.com/mrjoh3/cytoscape/issues/8#issuecomment-475142230&#34;&gt;this example&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;- cytoscape::comtrade
+gp_nodes &amp;lt;- tibble(id = unique(c(df$reporter, df$partner))) %&amp;gt;% 
+  # Define node groups
+  mutate(parent = ifelse(id %in% c(&amp;quot;Nigeria&amp;quot;, &amp;quot;Kenya&amp;quot;, &amp;quot;South Africa&amp;quot;),
+                         &amp;quot;Africa&amp;quot;,
+                         &amp;quot;Not Africa&amp;quot;)) %&amp;gt;% 
+  # Define node colors
+  mutate(node_color = ifelse(parent == &amp;quot;Africa&amp;quot;,
+                             &amp;quot;forestgreen&amp;quot;,
+                             &amp;quot;darkorange&amp;quot;)) %&amp;gt;%
+  # Need to add the nodes for the two groups, Africa and &amp;quot;Not Africa&amp;quot;
+  bind_rows(data_frame(id = c(&amp;quot;Africa&amp;quot;, &amp;quot;Not Africa&amp;quot;), 
+                       node_color=&amp;quot;whitesmoke&amp;quot;))
+  
+gp_edges &amp;lt;- df %&amp;gt;%
+    dplyr::select(source = reporter,
+                  target = partner) %&amp;gt;%
+    dplyr::mutate(id = paste0(source, &amp;#39;-&amp;#39;, target))
+cytoscape(nodes = gp_nodes, edges = gp_edges) %&amp;gt;% 
+  node_style(&amp;#39;background-color&amp;#39; = &amp;#39;data(node_color)&amp;#39;) %&amp;gt;% 
+  cola_layout(avoidOverlap = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Kazakhstan&#34;,&#34;Japan&#34;,&#34;Kyrgyzstan&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Russian Federation&#34;,&#34;World&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Rep. of Korea&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Thailand&#34;,&#34;Mexico&#34;,&#34;Saudi Arabia&#34;,&#34;United Kingdom&#34;,&#34;Uruguay&#34;,&#34;Israel&#34;,&#34;Dominican Rep.&#34;,&#34;United States of America&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Nicaragua&#34;,&#34;Albania&#34;,&#34;Austria&#34;,&#34;Bahamas&#34;,&#34;Bulgaria&#34;,&#34;Cyprus&#34;,&#34;Italy&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;Poland&#34;,&#34;Romania&#34;,&#34;Switzerland&#34;,&#34;Turkey&#34;,&#34;Belgium&#34;,&#34;Sweden&#34;,&#34;Areas, nes&#34;,&#34;Uzbekistan&#34;,&#34;Bangladesh&#34;,&#34;Kenya&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Singapore&#34;,&#34;Nigeria&#34;,&#34;Denmark&#34;,&#34;Latvia&#34;,&#34;Lithuania&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Croatia&#34;,&#34;Africa&#34;,&#34;Not Africa&#34;],&#34;parent&#34;:[&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,&#34;Not Africa&#34;,null,null],&#34;node_color&#34;:[&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;forestgreen&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;forestgreen&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;forestgreen&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;darkorange&#34;,&#34;whitesmoke&#34;,&#34;whitesmoke&#34;]},&#34;edges&#34;:{&#34;source&#34;:[&#34;Armenia&#34;,&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Kazakhstan&#34;,&#34;Kazakhstan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Kyrgyzstan&#34;,&#34;Kyrgyzstan&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;],&#34;target&#34;:[&#34;Russian Federation&#34;,&#34;World&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Japan&#34;,&#34;Rep. of Korea&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;World&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Thailand&#34;,&#34;World&#34;,&#34;Mexico&#34;,&#34;Saudi Arabia&#34;,&#34;Spain&#34;,&#34;United Kingdom&#34;,&#34;Uruguay&#34;,&#34;Israel&#34;,&#34;Dominican Rep.&#34;,&#34;Paraguay&#34;,&#34;United States of America&#34;,&#34;World&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Nicaragua&#34;,&#34;World&#34;,&#34;Albania&#34;,&#34;Austria&#34;,&#34;Bahamas&#34;,&#34;Bulgaria&#34;,&#34;Cyprus&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Italy&#34;,&#34;Malaysia&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;Poland&#34;,&#34;Romania&#34;,&#34;Viet Nam&#34;,&#34;Switzerland&#34;,&#34;Thailand&#34;,&#34;Turkey&#34;,&#34;World&#34;,&#34;Belgium&#34;,&#34;Netherlands&#34;,&#34;Spain&#34;,&#34;Sweden&#34;,&#34;United Kingdom&#34;,&#34;United States of America&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Belgium&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Turkey&#34;,&#34;Rep. of Korea&#34;,&#34;Poland&#34;,&#34;Other Asia, nes&#34;,&#34;Areas, nes&#34;,&#34;World&#34;,&#34;Germany&#34;,&#34;United Kingdom&#34;,&#34;Uzbekistan&#34;,&#34;World&#34;,&#34;World&#34;,&#34;United States of America&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Russian Federation&#34;,&#34;Bangladesh&#34;,&#34;Kenya&#34;,&#34;South Africa&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Spain&#34;,&#34;Viet Nam&#34;,&#34;Belgium&#34;,&#34;Malaysia&#34;,&#34;Singapore&#34;,&#34;Indonesia&#34;,&#34;Rep. of Korea&#34;,&#34;Thailand&#34;,&#34;Nigeria&#34;,&#34;China&#34;,&#34;Myanmar&#34;,&#34;World&#34;,&#34;Uzbekistan&#34;,&#34;World&#34;,&#34;Austria&#34;,&#34;Denmark&#34;,&#34;Germany&#34;,&#34;Italy&#34;,&#34;Latvia&#34;,&#34;Lithuania&#34;,&#34;Malaysia&#34;,&#34;Netherlands&#34;,&#34;Poland&#34;,&#34;Sweden&#34;,&#34;United Kingdom&#34;,&#34;Brazil&#34;,&#34;World&#34;,&#34;Romania&#34;,&#34;World&#34;,&#34;Bulgaria&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;Other Asia, nes&#34;,&#34;India&#34;,&#34;Austria&#34;,&#34;Belgium&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Rep. of Korea&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Croatia&#34;,&#34;Czech Rep.&#34;,&#34;Netherlands&#34;,&#34;Poland&#34;,&#34;Thailand&#34;,&#34;Turkey&#34;,&#34;Italy&#34;,&#34;United Kingdom&#34;],&#34;id&#34;:[&#34;Armenia-Russian Federation&#34;,&#34;Armenia-World&#34;,&#34;Australia-Myanmar&#34;,&#34;Australia-China&#34;,&#34;Australia-Portugal&#34;,&#34;Australia-Germany&#34;,&#34;Australia-China, Hong Kong SAR&#34;,&#34;Australia-Indonesia&#34;,&#34;Australia-Japan&#34;,&#34;Australia-Rep. of Korea&#34;,&#34;Australia-Malaysia&#34;,&#34;Australia-New Zealand&#34;,&#34;Australia-India&#34;,&#34;Australia-Other Asia, nes&#34;,&#34;Australia-World&#34;,&#34;Australia-Viet Nam&#34;,&#34;Australia-South Africa&#34;,&#34;Australia-Spain&#34;,&#34;Australia-Thailand&#34;,&#34;Brazil-World&#34;,&#34;Brazil-Mexico&#34;,&#34;Brazil-Saudi Arabia&#34;,&#34;Brazil-Spain&#34;,&#34;Brazil-United Kingdom&#34;,&#34;Brazil-Uruguay&#34;,&#34;Brazil-Israel&#34;,&#34;Brazil-Dominican Rep.&#34;,&#34;Brazil-Paraguay&#34;,&#34;Brazil-United States of America&#34;,&#34;El Salvador-World&#34;,&#34;El Salvador-Guatemala&#34;,&#34;El Salvador-Honduras&#34;,&#34;El Salvador-Nicaragua&#34;,&#34;Greece-World&#34;,&#34;Greece-Albania&#34;,&#34;Greece-Austria&#34;,&#34;Greece-Bahamas&#34;,&#34;Greece-Bulgaria&#34;,&#34;Greece-Cyprus&#34;,&#34;Greece-China, Hong Kong SAR&#34;,&#34;Greece-Indonesia&#34;,&#34;Greece-Italy&#34;,&#34;Greece-Malaysia&#34;,&#34;Greece-Netherlands&#34;,&#34;Greece-Pakistan&#34;,&#34;Greece-Poland&#34;,&#34;Greece-Romania&#34;,&#34;Greece-Viet Nam&#34;,&#34;Greece-Switzerland&#34;,&#34;Greece-Thailand&#34;,&#34;Greece-Turkey&#34;,&#34;Iceland-World&#34;,&#34;Iceland-Belgium&#34;,&#34;Iceland-Netherlands&#34;,&#34;Iceland-Spain&#34;,&#34;Iceland-Sweden&#34;,&#34;Iceland-United Kingdom&#34;,&#34;Ireland-United States of America&#34;,&#34;Ireland-Viet Nam&#34;,&#34;Ireland-Malaysia&#34;,&#34;Ireland-Belgium&#34;,&#34;Ireland-Netherlands&#34;,&#34;Ireland-Pakistan&#34;,&#34;Ireland-China, Hong Kong SAR&#34;,&#34;Ireland-Indonesia&#34;,&#34;Ireland-Turkey&#34;,&#34;Ireland-Rep. of Korea&#34;,&#34;Ireland-Poland&#34;,&#34;Ireland-Other Asia, nes&#34;,&#34;Ireland-Areas, nes&#34;,&#34;Ireland-World&#34;,&#34;Ireland-Germany&#34;,&#34;Ireland-United Kingdom&#34;,&#34;Kazakhstan-Uzbekistan&#34;,&#34;Kazakhstan-World&#34;,&#34;Japan-World&#34;,&#34;Japan-United States of America&#34;,&#34;Japan-India&#34;,&#34;Japan-Other Asia, nes&#34;,&#34;Japan-China, Hong Kong SAR&#34;,&#34;Japan-Russian Federation&#34;,&#34;Japan-Bangladesh&#34;,&#34;Japan-Kenya&#34;,&#34;Japan-South Africa&#34;,&#34;Japan-Philippines&#34;,&#34;Japan-Czech Rep.&#34;,&#34;Japan-Spain&#34;,&#34;Japan-Viet Nam&#34;,&#34;Japan-Belgium&#34;,&#34;Japan-Malaysia&#34;,&#34;Japan-Singapore&#34;,&#34;Japan-Indonesia&#34;,&#34;Japan-Rep. of Korea&#34;,&#34;Japan-Thailand&#34;,&#34;Japan-Nigeria&#34;,&#34;Japan-China&#34;,&#34;Japan-Myanmar&#34;,&#34;Kyrgyzstan-World&#34;,&#34;Kyrgyzstan-Uzbekistan&#34;,&#34;Norway-World&#34;,&#34;Norway-Austria&#34;,&#34;Norway-Denmark&#34;,&#34;Norway-Germany&#34;,&#34;Norway-Italy&#34;,&#34;Norway-Latvia&#34;,&#34;Norway-Lithuania&#34;,&#34;Norway-Malaysia&#34;,&#34;Norway-Netherlands&#34;,&#34;Norway-Poland&#34;,&#34;Norway-Sweden&#34;,&#34;Norway-United Kingdom&#34;,&#34;Paraguay-Brazil&#34;,&#34;Paraguay-World&#34;,&#34;Slovenia-Romania&#34;,&#34;Slovenia-World&#34;,&#34;Slovenia-Bulgaria&#34;,&#34;Slovenia-Germany&#34;,&#34;Slovenia-China, Hong Kong SAR&#34;,&#34;Slovenia-Hungary&#34;,&#34;Slovenia-France&#34;,&#34;Slovenia-Other Asia, nes&#34;,&#34;Slovenia-India&#34;,&#34;Slovenia-Austria&#34;,&#34;Slovenia-Belgium&#34;,&#34;Slovenia-Bosnia Herzegovina&#34;,&#34;Slovenia-Rep. of Korea&#34;,&#34;Slovenia-Serbia&#34;,&#34;Slovenia-Slovakia&#34;,&#34;Slovenia-Viet Nam&#34;,&#34;Slovenia-Malaysia&#34;,&#34;Slovenia-Croatia&#34;,&#34;Slovenia-Czech Rep.&#34;,&#34;Slovenia-Netherlands&#34;,&#34;Slovenia-Poland&#34;,&#34;Slovenia-Thailand&#34;,&#34;Slovenia-Turkey&#34;,&#34;Slovenia-Italy&#34;,&#34;Slovenia-United Kingdom&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;cola&#34;,&#34;animate&#34;:true,&#34;refresh&#34;:1,&#34;maxSimulationTime&#34;:4000,&#34;ungrabifyWhileSimulating&#34;:false,&#34;fit&#34;:true,&#34;padding&#34;:30,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;ready&#34;:&#34;function(){}&#34;,&#34;stop&#34;:&#34;function(){}&#34;,&#34;randomize&#34;:false,&#34;avoidOverlap&#34;:true,&#34;handleDisconnected&#34;:true,&#34;nodeSpacing&#34;:&#34;function( node ){ return 10; }&#34;,&#34;infinite&#34;:false},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;data(node_color)&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[&#34;layout.ready&#34;,&#34;layout.stop&#34;,&#34;layout.nodeSpacing&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cytoscape-cola-layout&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cytoscape-Cola Layout&lt;/h2&gt;
+&lt;p&gt;Constraint based layouts provided through (&lt;a href=&#34;http://ialab.it.monash.edu/webcola/&#34;&gt;cola.js&lt;/a&gt;) can be used via the &lt;a href=&#34;https://github.com/cytoscape/cytoscape.js-cola&#34;&gt;cytoscape-cola plugin&lt;/a&gt;. All options available in the plugin &lt;a href=&#34;https://github.com/cytoscape/cytoscape.js-cola#api&#34;&gt;API&lt;/a&gt; are available but have not yet been tested.&lt;/p&gt;
+&lt;div id=&#34;basic-cola-layout&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Basic Cola Layout&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cytoscape(nodes = nodes, edges = edges) %&amp;gt;% 
+  cola_layout()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Kazakhstan&#34;,&#34;Japan&#34;,&#34;Kyrgyzstan&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Russian Federation&#34;,&#34;World&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Rep. of Korea&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Other Asia, nes&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Thailand&#34;,&#34;Mexico&#34;,&#34;Saudi Arabia&#34;,&#34;United Kingdom&#34;,&#34;Uruguay&#34;,&#34;Israel&#34;,&#34;Dominican Rep.&#34;,&#34;United States of America&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Nicaragua&#34;,&#34;Albania&#34;,&#34;Austria&#34;,&#34;Bahamas&#34;,&#34;Bulgaria&#34;,&#34;Cyprus&#34;,&#34;Italy&#34;,&#34;Netherlands&#34;,&#34;Pakistan&#34;,&#34;Poland&#34;,&#34;Romania&#34;,&#34;Switzerland&#34;,&#34;Turkey&#34;,&#34;Belgium&#34;,&#34;Sweden&#34;,&#34;Areas, nes&#34;,&#34;Uzbekistan&#34;,&#34;Bangladesh&#34;,&#34;Kenya&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Singapore&#34;,&#34;Nigeria&#34;,&#34;Denmark&#34;,&#34;Latvia&#34;,&#34;Lithuania&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Croatia&#34;]},&#34;edges&#34;:{&#34;source&#34;:[&#34;Armenia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Australia&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;Brazil&#34;,&#34;El Salvador&#34;,&#34;El Salvador&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Greece&#34;,&#34;Iceland&#34;,&#34;Iceland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Ireland&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Japan&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Norway&#34;,&#34;Paraguay&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;,&#34;Slovenia&#34;],&#34;target&#34;:[&#34;Russian Federation&#34;,&#34;Myanmar&#34;,&#34;China&#34;,&#34;Portugal&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Japan&#34;,&#34;Malaysia&#34;,&#34;New Zealand&#34;,&#34;India&#34;,&#34;Viet Nam&#34;,&#34;South Africa&#34;,&#34;Spain&#34;,&#34;Saudi Arabia&#34;,&#34;Spain&#34;,&#34;Paraguay&#34;,&#34;Guatemala&#34;,&#34;Honduras&#34;,&#34;Bahamas&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Malaysia&#34;,&#34;Romania&#34;,&#34;Viet Nam&#34;,&#34;Spain&#34;,&#34;Sweden&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Indonesia&#34;,&#34;Germany&#34;,&#34;India&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Russian Federation&#34;,&#34;Kenya&#34;,&#34;South Africa&#34;,&#34;Philippines&#34;,&#34;Czech Rep.&#34;,&#34;Spain&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Singapore&#34;,&#34;Indonesia&#34;,&#34;Nigeria&#34;,&#34;China&#34;,&#34;Myanmar&#34;,&#34;Germany&#34;,&#34;Latvia&#34;,&#34;Malaysia&#34;,&#34;Sweden&#34;,&#34;Brazil&#34;,&#34;Romania&#34;,&#34;Germany&#34;,&#34;China, Hong Kong SAR&#34;,&#34;Hungary&#34;,&#34;France&#34;,&#34;India&#34;,&#34;Bosnia Herzegovina&#34;,&#34;Serbia&#34;,&#34;Slovakia&#34;,&#34;Viet Nam&#34;,&#34;Malaysia&#34;,&#34;Croatia&#34;,&#34;Czech Rep.&#34;],&#34;id&#34;:[&#34;Armenia _ Russian Federation&#34;,&#34;Australia _ Myanmar&#34;,&#34;Australia _ China&#34;,&#34;Australia _ Portugal&#34;,&#34;Australia _ Germany&#34;,&#34;Australia _ China, Hong Kong SAR&#34;,&#34;Australia _ Indonesia&#34;,&#34;Australia _ Japan&#34;,&#34;Australia _ Malaysia&#34;,&#34;Australia _ New Zealand&#34;,&#34;Australia _ India&#34;,&#34;Australia _ Viet Nam&#34;,&#34;Australia _ South Africa&#34;,&#34;Australia _ Spain&#34;,&#34;Brazil _ Saudi Arabia&#34;,&#34;Brazil _ Spain&#34;,&#34;Brazil _ Paraguay&#34;,&#34;El Salvador _ Guatemala&#34;,&#34;El Salvador _ Honduras&#34;,&#34;Greece _ Bahamas&#34;,&#34;Greece _ China, Hong Kong SAR&#34;,&#34;Greece _ Indonesia&#34;,&#34;Greece _ Malaysia&#34;,&#34;Greece _ Romania&#34;,&#34;Greece _ Viet Nam&#34;,&#34;Iceland _ Spain&#34;,&#34;Iceland _ Sweden&#34;,&#34;Ireland _ Viet Nam&#34;,&#34;Ireland _ Malaysia&#34;,&#34;Ireland _ China, Hong Kong SAR&#34;,&#34;Ireland _ Indonesia&#34;,&#34;Ireland _ Germany&#34;,&#34;Japan _ India&#34;,&#34;Japan _ China, Hong Kong SAR&#34;,&#34;Japan _ Russian Federation&#34;,&#34;Japan _ Kenya&#34;,&#34;Japan _ South Africa&#34;,&#34;Japan _ Philippines&#34;,&#34;Japan _ Czech Rep.&#34;,&#34;Japan _ Spain&#34;,&#34;Japan _ Viet Nam&#34;,&#34;Japan _ Malaysia&#34;,&#34;Japan _ Singapore&#34;,&#34;Japan _ Indonesia&#34;,&#34;Japan _ Nigeria&#34;,&#34;Japan _ China&#34;,&#34;Japan _ Myanmar&#34;,&#34;Norway _ Germany&#34;,&#34;Norway _ Latvia&#34;,&#34;Norway _ Malaysia&#34;,&#34;Norway _ Sweden&#34;,&#34;Paraguay _ Brazil&#34;,&#34;Slovenia _ Romania&#34;,&#34;Slovenia _ Germany&#34;,&#34;Slovenia _ China, Hong Kong SAR&#34;,&#34;Slovenia _ Hungary&#34;,&#34;Slovenia _ France&#34;,&#34;Slovenia _ India&#34;,&#34;Slovenia _ Bosnia Herzegovina&#34;,&#34;Slovenia _ Serbia&#34;,&#34;Slovenia _ Slovakia&#34;,&#34;Slovenia _ Viet Nam&#34;,&#34;Slovenia _ Malaysia&#34;,&#34;Slovenia _ Croatia&#34;,&#34;Slovenia _ Czech Rep.&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;cola&#34;,&#34;animate&#34;:true,&#34;refresh&#34;:1,&#34;maxSimulationTime&#34;:4000,&#34;ungrabifyWhileSimulating&#34;:false,&#34;fit&#34;:true,&#34;padding&#34;:30,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;ready&#34;:&#34;function(){}&#34;,&#34;stop&#34;:&#34;function(){}&#34;,&#34;randomize&#34;:false,&#34;avoidOverlap&#34;:true,&#34;handleDisconnected&#34;:true,&#34;nodeSpacing&#34;:&#34;function( node ){ return 10; }&#34;,&#34;infinite&#34;:false},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[&#34;layout.ready&#34;,&#34;layout.stop&#34;,&#34;layout.nodeSpacing&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cola-node-allignment&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cola Node Allignment&lt;/h3&gt;
+&lt;p&gt;To use the Cola &lt;code&gt;alignment&lt;/code&gt; variable you need to pass a javascript object or function. You can do this using &lt;code&gt;htmltools::JS()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;aln_nodes &amp;lt;- data.frame(id = c(&amp;#39;cat&amp;#39;,&amp;#39;bird&amp;#39;,&amp;#39;ladybug&amp;#39;,&amp;#39;grasshopper&amp;#39;,&amp;#39;wheat&amp;#39;),
+                        stringsAsFactors = FALSE)
+aln_edges &amp;lt;- data.frame(source = c(&amp;#39;cat&amp;#39;, &amp;#39;bird&amp;#39;,   &amp;#39;bird&amp;#39;,       &amp;#39;grasshopper&amp;#39;),
+                        target = c(&amp;#39;bird&amp;#39;,&amp;#39;ladybug&amp;#39;,&amp;#39;grasshopper&amp;#39;,&amp;#39;wheat&amp;#39;      ),
+                        stringsAsFactors = FALSE)
+opts = htmlwidgets::JS(&amp;#39;function( node ){ &amp;#39;,
+                       &amp;#39;console.log(node._private.data.id);&amp;#39;,
+                       &amp;#39;if (node._private.data.id === &amp;quot;cat&amp;quot;) {return { x: 0} }&amp;#39;,
+                       &amp;#39;else if (node._private.data.id === &amp;quot;bird&amp;quot;) {return { x: 0, y: 0 } }&amp;#39;,
+                       &amp;#39;else if (node._private.data.id === &amp;quot;ladybug&amp;quot;) {return { x: 0} }&amp;#39;,
+                       &amp;#39;else if (node._private.data.id === &amp;quot;wheat&amp;quot;) {return {y: 0 } }&amp;#39;,
+                       &amp;#39;else if (node._private.data.id === &amp;quot;grasshopper&amp;quot;) {return {y: 0 } }&amp;#39;,
+                       &amp;#39;}&amp;#39;)
+cytoscape(nodes = aln_nodes, edges = aln_edges) %&amp;gt;% 
+  cola_layout(alignment = opts)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:{&#34;id&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;ladybug&#34;,&#34;grasshopper&#34;,&#34;wheat&#34;]},&#34;edges&#34;:{&#34;source&#34;:[&#34;cat&#34;,&#34;bird&#34;,&#34;bird&#34;,&#34;grasshopper&#34;],&#34;target&#34;:[&#34;bird&#34;,&#34;ladybug&#34;,&#34;grasshopper&#34;,&#34;wheat&#34;]},&#34;json&#34;:null,&#34;layout&#34;:{&#34;name&#34;:&#34;cola&#34;,&#34;animate&#34;:true,&#34;refresh&#34;:1,&#34;maxSimulationTime&#34;:4000,&#34;ungrabifyWhileSimulating&#34;:false,&#34;fit&#34;:true,&#34;padding&#34;:30,&#34;nodeDimensionsIncludeLabels&#34;:false,&#34;ready&#34;:&#34;function(){}&#34;,&#34;stop&#34;:&#34;function(){}&#34;,&#34;randomize&#34;:false,&#34;avoidOverlap&#34;:true,&#34;handleDisconnected&#34;:true,&#34;nodeSpacing&#34;:&#34;function( node ){ return 10; }&#34;,&#34;alignment&#34;:&#34;function( node ){ \nconsole.log(node._private.data.id);\nif (node._private.data.id === \&#34;cat\&#34;) {return { x: 0} }\nelse if (node._private.data.id === \&#34;bird\&#34;) {return { x: 0, y: 0 } }\nelse if (node._private.data.id === \&#34;ladybug\&#34;) {return { x: 0} }\nelse if (node._private.data.id === \&#34;wheat\&#34;) {return {y: 0 } }\nelse if (node._private.data.id === \&#34;grasshopper\&#34;) {return {y: 0 } }\n}&#34;,&#34;infinite&#34;:false},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[&#34;layout.ready&#34;,&#34;layout.stop&#34;,&#34;layout.nodeSpacing&#34;,&#34;layout.alignment&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;shiny-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Shiny Example&lt;/h2&gt;
+&lt;p&gt;A minimal shiny example can be run from the &lt;code&gt;cytoscape&lt;/code&gt; package of from &lt;code&gt;inst/shiny/minimum_shiny&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shiny::runApp(system.file(&amp;#39;shiny/minimum_shiny&amp;#39;, package = &amp;#39;cytoscape&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pass-json-object&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pass JSON Object&lt;/h2&gt;
+&lt;p&gt;If you already have a complete &lt;code&gt;JSON&lt;/code&gt; this can be passed through directly as a character string. The &lt;code&gt;JSON&lt;/code&gt; character is parsed in &lt;code&gt;javascript&lt;/code&gt; using &lt;code&gt;JSON.parse()&lt;/code&gt; so it is good practice to first test your &lt;code&gt;JSON&lt;/code&gt; is properly formed. On the &lt;code&gt;R&lt;/code&gt; side you can use &lt;code&gt;jsonlite::fromJSON()&lt;/code&gt; or the web-service &lt;a href=&#34;http://json.parser.online.fr/&#34; class=&#34;uri&#34;&gt;http://json.parser.online.fr/&lt;/a&gt; can sometimes give more meaningfull error messages.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;json &amp;lt;- &amp;#39;{
+&amp;quot;elements&amp;quot;:[
+    {
+      &amp;quot;data&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;a&amp;quot; } 
+    },
+    {
+      &amp;quot;data&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;b&amp;quot; }
+    },
+    {
+      &amp;quot;data&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;ab&amp;quot;, &amp;quot;source&amp;quot;: &amp;quot;a&amp;quot;, &amp;quot;target&amp;quot;: &amp;quot;b&amp;quot; }
+    }
+  ],
+&amp;quot;style&amp;quot;: [ 
+  {
+    &amp;quot;selector&amp;quot;: &amp;quot;node&amp;quot;,
+    &amp;quot;style&amp;quot;: {
+      &amp;quot;background-color&amp;quot;: &amp;quot;#666&amp;quot;,
+      &amp;quot;label&amp;quot;: &amp;quot;data(id)&amp;quot;
+    }
+  },
+  {
+    &amp;quot;selector&amp;quot;: &amp;quot;edge&amp;quot;,
+    &amp;quot;style&amp;quot;: {
+      &amp;quot;width&amp;quot;: 3,
+      &amp;quot;line-color&amp;quot;: &amp;quot;#ccc&amp;quot;,
+      &amp;quot;target-arrow-color&amp;quot;: &amp;quot;#ccc&amp;quot;,
+      &amp;quot;target-arrow-shape&amp;quot;: &amp;quot;triangle&amp;quot;
+    }
+  }
+],
+&amp;quot;layout&amp;quot;: {
+  &amp;quot;name&amp;quot;: &amp;quot;grid&amp;quot;,
+  &amp;quot;rows&amp;quot;: 1
+}
+}&amp;#39;
+cytoscape(json = json)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;cytoscape html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;message&#34;:null,&#34;nodes&#34;:null,&#34;edges&#34;:null,&#34;json&#34;:&#34;{\n\&#34;elements\&#34;:[\n    {\n      \&#34;data\&#34;: { \&#34;id\&#34;: \&#34;a\&#34; } \n    },\n    {\n      \&#34;data\&#34;: { \&#34;id\&#34;: \&#34;b\&#34; }\n    },\n    {\n      \&#34;data\&#34;: { \&#34;id\&#34;: \&#34;ab\&#34;, \&#34;source\&#34;: \&#34;a\&#34;, \&#34;target\&#34;: \&#34;b\&#34; }\n    }\n  ],\n\&#34;style\&#34;: [ \n  {\n    \&#34;selector\&#34;: \&#34;node\&#34;,\n    \&#34;style\&#34;: {\n      \&#34;background-color\&#34;: \&#34;#666\&#34;,\n      \&#34;label\&#34;: \&#34;data(id)\&#34;\n    }\n  },\n  {\n    \&#34;selector\&#34;: \&#34;edge\&#34;,\n    \&#34;style\&#34;: {\n      \&#34;width\&#34;: 3,\n      \&#34;line-color\&#34;: \&#34;#ccc\&#34;,\n      \&#34;target-arrow-color\&#34;: \&#34;#ccc\&#34;,\n      \&#34;target-arrow-shape\&#34;: \&#34;triangle\&#34;\n    }\n  }\n],\n\&#34;layout\&#34;: {\n  \&#34;name\&#34;: \&#34;grid\&#34;,\n  \&#34;rows\&#34;: 1\n}\n}&#34;,&#34;layout&#34;:{&#34;name&#34;:&#34;grid&#34;,&#34;rows&#34;:1},&#34;node_style&#34;:{&#34;background-color&#34;:&#34;#666&#34;,&#34;label&#34;:&#34;data(id)&#34;},&#34;edge_style&#34;:{&#34;width&#34;:3,&#34;line-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-color&#34;:&#34;#ccc&#34;,&#34;target-arrow-shape&#34;:&#34;triangle&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>mapedit.addin</title>
+        <link>https://dettonville.github.io/packages/mapedit-addin/</link>
+        <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/mapedit-addin/</guid>
+        <description>
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;mapedit.addin&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;mapedit.addin&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tidyverse.org/lifecycle/#experimental&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/lifecycle-experimental-orange.svg&#34; alt=&#34;lifecycle&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://travis-ci.org/mrjoh3/mapedit.addin&#34;&gt;&lt;img src=&#34;https://travis-ci.org/mrjoh3/mapedit.addin.svg?branch=master&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The goal of &lt;code&gt;mapedit.addin&lt;/code&gt; is to simplify the creation of spatial data by wrapping the &lt;a href=&#34;https://github.com/r-spatial/mapedit&#34;&gt;mapedit&lt;/a&gt; package. As you can see in the code below the &lt;code&gt;mapedit&lt;/code&gt; package already makes the process very simple.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(mapview)
+library(mapedit)
+new_spatial_data &amp;lt;- mapview() %&amp;gt;%
+  editMap()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All &lt;code&gt;mappedit.addin&lt;/code&gt; does is wrap this piece of code in an &lt;code&gt;RStudio&lt;/code&gt; addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools. It is also possible to link &lt;code&gt;mapedit.addin&lt;/code&gt; to keyboard shortcuts, further simplifying the process (see &lt;a href=&#34;https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You can install the current version of &lt;code&gt;mapedit.addin&lt;/code&gt; from &lt;a href=&#34;https://github.com/mrjoh3/mapedit.addin&#34;&gt;Github&lt;/a&gt; with:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;mrjoh3/mapedit.addin&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;This simple addin allows you to interactively create an &lt;code&gt;sf&lt;/code&gt; spatial object that can then be saved and used in your code. To use, just open the addin add some geometry to the map and click &lt;code&gt;Done&lt;/code&gt; when completed.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://dettonville.github.io/pkg/2018-12-26-mapedit-addin_files/mapedit_addin.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;mapedit addin&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Selecting text within the &lt;code&gt;RStudio&lt;/code&gt; IDE will modify the behavior of the addin. Where no text is selected the addin will save an &lt;code&gt;sf&lt;/code&gt; object called &lt;code&gt;geom&lt;/code&gt; into &lt;code&gt;.GlobalEnv&lt;/code&gt;. To save a spatial object to file, the &lt;code&gt;Save&lt;/code&gt; switch must be toggled using the addin interface. A file called &lt;code&gt;saved_geometry.geojson&lt;/code&gt; will be created in the current working directory. If text is selected in &lt;code&gt;RStudio&lt;/code&gt; this will be used for naming both the &lt;code&gt;sf&lt;/code&gt; object and the created file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;adding-objects-to-the-map&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Adding objects to the map&lt;/h2&gt;
+&lt;p&gt;If the text selected in &lt;code&gt;RStudio&lt;/code&gt; IDE is the name of an existing &lt;code&gt;sf&lt;/code&gt; object then the addin will add this object to the &lt;code&gt;mapedit&lt;/code&gt; map and zoom to its bounds. When a spatial object is passed to the map in this way, any new geometry is added to it using &lt;a href=&#34;https://r-spatial.github.io/sf/reference/bind.html&#34;&gt;rbind&lt;/a&gt;. It is not currently possible to edit existing geometry.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;saving-to-file&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Saving to File&lt;/h2&gt;
+&lt;p&gt;Spatial objects are saved to file using &lt;code&gt;sf::write_sf&lt;/code&gt;. File names can be set by selecting text inside &lt;code&gt;RStudio&lt;/code&gt; or via the naming bar at the bottom of the addin. The file naming bar can also be used to add file paths and to change output extensions.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://dettonville.github.io/pkg/2018-12-26-mapedit-addin_files/save_file_bar.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;image bar&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The text seen in the naming bar is passed directly to &lt;code&gt;write_sf&lt;/code&gt;. Most file drivers will be guessed by the extension. See &lt;code&gt;sf::st_drivers()&lt;/code&gt; or &lt;a href=&#34;https://www.gdal.org/ogr_formats.html&#34;&gt;OGR formats&lt;/a&gt; for details; only &lt;code&gt;.geojson&lt;/code&gt; and &lt;code&gt;.shp&lt;/code&gt; have been tested.&lt;/p&gt;
+&lt;p&gt;Note that the function &lt;code&gt;write_sf&lt;/code&gt; is called with options &lt;code&gt;delete_layer = TRUE&lt;/code&gt; and &lt;code&gt;delete_dsn = TRUE&lt;/code&gt;. This means that existing files with the same name are over-written.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;future&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Future&lt;/h2&gt;
+&lt;p&gt;Future updates will give the user more control over:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;the starting point of the map (currently zooms to world or input object)&lt;/li&gt;
+&lt;li&gt;the name of output object (completed)&lt;/li&gt;
+&lt;li&gt;file name (completed)&lt;/li&gt;
+&lt;li&gt;add more option when saving to file&lt;/li&gt;
+&lt;li&gt;edit existing geometry&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>c3</title>
+        <link>https://dettonville.github.io/packages/2018-08-19-c3-package/</link>
+        <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/2018-08-19-c3-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2020_DSC9813.png" alt="Featured image of post c3" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://dettonville.github.io/rmarkdown-libs/c3/c3.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/c3/c3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/c3-binding/c3.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://zenodo.org/badge/latestdoi/60614778&#34;&gt;&lt;img src=&#34;https://zenodo.org/badge/60614778.svg&#34; alt=&#34;DOI&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/mrjoh3/c3/actions&#34;&gt;&lt;img src=&#34;https://github.com/mrjoh3/c3/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/c3&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/c3/branch/master/graph/badge.svg&#34; alt=&#34;codecov&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://cran.r-project.org/package=c3/&#34;&gt;&lt;img src=&#34;http://www.r-pkg.org/badges/version/c3&#34; alt=&#34;CRAN_Status_Badge&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://cran.r-project.org/package=c3&#34;&gt;&lt;img src=&#34;http://cranlogs.r-pkg.org/badges/c3&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;c3&lt;/code&gt; package is a wrapper, or &lt;a href=&#34;http://www.htmlwidgets.org/&#34;&gt;htmlwidget&lt;/a&gt;, for the &lt;a href=&#34;http://c3js.org/&#34;&gt;C3&lt;/a&gt; javascript charting library by &lt;a href=&#34;https://github.com/masayuki0812&#34;&gt;Masayuki Tanaka&lt;/a&gt;. You will find this package useful if you are wanting to create a chart using &lt;a href=&#34;https://www.r-project.org/&#34;&gt;R&lt;/a&gt; and embedding it in a Rmarkdown document or Shiny App.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;C3&lt;/code&gt; library is very versatile and includes a lot of options. Currently this package wraps most of the &lt;code&gt;C3&lt;/code&gt; &lt;a href=&#34;http://c3js.org/reference.html&#34;&gt;options object&lt;/a&gt;. Even with this current limitation a wide range of options are available.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You probably already guessed this bit.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;c3&amp;#39;)
+# OR
+devtools::install_github(&amp;quot;mrjoh3/c3&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;c3&lt;/code&gt; package is intended to be as simple and lightweight as possible. As a starting point the data input must be a &lt;code&gt;data.frame&lt;/code&gt; or &lt;code&gt;tibble&lt;/code&gt; with several options.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If a &lt;code&gt;data.frame&lt;/code&gt; without any options is passed all of the numeric columns will be plotted. This can be used in line and bar plots. Each column is a line or bar.&lt;/li&gt;
+&lt;li&gt;For more complex plots only 3 columns are used, those defined as &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; and &lt;code&gt;group&lt;/code&gt;. This requires a &lt;code&gt;data.frame&lt;/code&gt; with a vertical structure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;the-basics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Basics&lt;/h3&gt;
+&lt;p&gt;Where no options are supplied a simple line plot is produced by default. Where no x-axis is defined the plots are sequential. &lt;code&gt;Date&lt;/code&gt; x-axis can be parsed with not additional setting if in the format &lt;code&gt;%Y-%m-%d&lt;/code&gt; (ie ‘2014-01-01’)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(c3)
+data &amp;lt;- data.frame(a = abs(rnorm(20) * 10),
+                  b = abs(rnorm(20) * 10),
+                  date = seq(as.Date(&amp;quot;2014-01-01&amp;quot;), by = &amp;quot;month&amp;quot;, length.out = 20))
+c3(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;piping&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Piping&lt;/h3&gt;
+&lt;p&gt;The package also imports the &lt;a href=&#34;https://CRAN.R-project.org/package=magrittr&#34;&gt;magrittr&lt;/a&gt; piping function (&lt;code&gt;%&amp;gt;%&lt;/code&gt;) to simplify syntax.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;% c3() &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-line-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other Line Plots&lt;/h2&gt;
+&lt;p&gt;There are 5 different line plots available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;line&lt;/li&gt;
+&lt;li&gt;spline&lt;/li&gt;
+&lt;li&gt;step&lt;/li&gt;
+&lt;li&gt;area&lt;/li&gt;
+&lt;li&gt;area-step&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;spline&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Spline&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3() %&amp;gt;%
+  c3_line(&amp;#39;spline&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;spline&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;) %&amp;gt;%
+  c3_line(&amp;#39;area-step&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;area-step&#34;},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bar Plots&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data[1:10, ] %&amp;gt;%
+  c3() %&amp;gt;%
+  c3_bar(stacked = TRUE, 
+         rotate = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-5&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;bar&#34;,&#34;groups&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;type&#34;:&#34;category&#34;},&#34;rotated&#34;:true},&#34;bar&#34;:{&#34;zerobased&#34;:true,&#34;width&#34;:{&#34;ratio&#34;:0.6}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mixed-geometry-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Mixed Geometry Plots&lt;/h2&gt;
+&lt;p&gt;Mixed geometry currently only works with a horizontal &lt;code&gt;data.frame&lt;/code&gt; where each numeric column is plotted.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$c &amp;lt;- abs(rnorm(20) *10)
+data$d &amp;lt;- abs(rnorm(20) *10)
+data %&amp;gt;%
+  c3() %&amp;gt;%
+  c3_mixedGeom(type = &amp;#39;bar&amp;#39;, 
+               stacked = c(&amp;#39;b&amp;#39;,&amp;#39;d&amp;#39;),
+               types = list(a=&amp;#39;area&amp;#39;,
+                            c=&amp;#39;spline&amp;#39;)
+               )&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]},&#34;type&#34;:&#34;bar&#34;,&#34;types&#34;:{&#34;a&#34;:&#34;area&#34;,&#34;c&#34;:&#34;spline&#34;},&#34;groups&#34;:[&#34;b&#34;,&#34;d&#34;]},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;secondary-y-axis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Secondary Y Axis&lt;/h2&gt;
+&lt;p&gt;To use a secondary Y axis columns must first be matched to an axis and then the secondary axis made visible.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;% 
+  select(date, a, b) %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;,
+     axes = list(a = &amp;#39;y&amp;#39;,
+                 b = &amp;#39;y2&amp;#39;)) %&amp;gt;% 
+  c3_mixedGeom(types = list(a = &amp;#39;line&amp;#39;,
+                            b = &amp;#39;area&amp;#39;)) %&amp;gt;% 
+  y2Axis()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;axes&#34;:{&#34;a&#34;:&#34;y&#34;,&#34;b&#34;:&#34;y2&#34;},&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;]},&#34;type&#34;:&#34;line&#34;,&#34;types&#34;:{&#34;a&#34;:&#34;line&#34;,&#34;b&#34;:&#34;area&#34;}},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;date&#34;:&#34;Date&#34;,&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;},&#34;y2&#34;:{&#34;show&#34;:true}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scatter-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scatter Plot&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;%
+  c3(x = &amp;#39;mpg&amp;#39;, 
+     y = &amp;#39;wt&amp;#39;, 
+     group = &amp;#39;cyl&amp;#39;) %&amp;gt;% 
+  c3_scatter()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;4&#34;:2.32,&#34;6&#34;:2.62,&#34;8&#34;:3.44,&#34;4_x&#34;:22.8,&#34;6_x&#34;:21,&#34;8_x&#34;:18.7},{&#34;4&#34;:3.19,&#34;6&#34;:2.875,&#34;8&#34;:3.57,&#34;4_x&#34;:24.4,&#34;6_x&#34;:21,&#34;8_x&#34;:14.3},{&#34;4&#34;:3.15,&#34;6&#34;:3.215,&#34;8&#34;:4.07,&#34;4_x&#34;:22.8,&#34;6_x&#34;:21.4,&#34;8_x&#34;:16.4},{&#34;4&#34;:2.2,&#34;6&#34;:3.46,&#34;8&#34;:3.73,&#34;4_x&#34;:32.4,&#34;6_x&#34;:18.1,&#34;8_x&#34;:17.3},{&#34;4&#34;:1.615,&#34;6&#34;:3.44,&#34;8&#34;:3.78,&#34;4_x&#34;:30.4,&#34;6_x&#34;:19.2,&#34;8_x&#34;:15.2},{&#34;4&#34;:1.835,&#34;6&#34;:3.44,&#34;8&#34;:5.25,&#34;4_x&#34;:33.9,&#34;6_x&#34;:17.8,&#34;8_x&#34;:10.4},{&#34;4&#34;:2.465,&#34;6&#34;:2.77,&#34;8&#34;:5.424,&#34;4_x&#34;:21.5,&#34;6_x&#34;:19.7,&#34;8_x&#34;:10.4},{&#34;4&#34;:1.935,&#34;8&#34;:5.345,&#34;4_x&#34;:27.3,&#34;8_x&#34;:14.7},{&#34;4&#34;:2.14,&#34;8&#34;:3.52,&#34;4_x&#34;:26,&#34;8_x&#34;:15.5},{&#34;4&#34;:1.513,&#34;8&#34;:3.435,&#34;4_x&#34;:30.4,&#34;8_x&#34;:15.2},{&#34;4&#34;:2.78,&#34;8&#34;:3.84,&#34;4_x&#34;:21.4,&#34;8_x&#34;:13.3},{&#34;8&#34;:3.845,&#34;8_x&#34;:19.2},{&#34;8&#34;:3.17,&#34;8_x&#34;:15.8},{&#34;8&#34;:3.57,&#34;8_x&#34;:15}],&#34;keys&#34;:{&#34;value&#34;:[&#34;4&#34;,&#34;6&#34;,&#34;8&#34;,&#34;4_x&#34;,&#34;6_x&#34;,&#34;8_x&#34;]},&#34;xs&#34;:{&#34;6&#34;:&#34;6_x&#34;,&#34;4&#34;:&#34;4_x&#34;,&#34;8&#34;:&#34;8_x&#34;},&#34;type&#34;:&#34;scatter&#34;},&#34;opts&#34;:{&#34;x&#34;:&#34;mpg&#34;,&#34;y&#34;:&#34;wt&#34;,&#34;types&#34;:{&#34;mpg&#34;:&#34;numeric&#34;,&#34;cyl&#34;:&#34;numeric&#34;,&#34;disp&#34;:&#34;numeric&#34;,&#34;hp&#34;:&#34;numeric&#34;,&#34;drat&#34;:&#34;numeric&#34;,&#34;wt&#34;:&#34;numeric&#34;,&#34;qsec&#34;:&#34;numeric&#34;,&#34;vs&#34;:&#34;numeric&#34;,&#34;am&#34;:&#34;numeric&#34;,&#34;gear&#34;:&#34;numeric&#34;,&#34;carb&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;mpg&#34;},&#34;y&#34;:{&#34;label&#34;:&#34;wt&#34;}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pie-charts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pie Charts&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(sugar = 20,
+           fat = 45,
+           salt = 10) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_pie()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;sugar&#34;:20,&#34;fat&#34;:45,&#34;salt&#34;:10}],&#34;keys&#34;:{&#34;value&#34;:[&#34;sugar&#34;,&#34;fat&#34;,&#34;salt&#34;]},&#34;type&#34;:&#34;pie&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;sugar&#34;:&#34;numeric&#34;,&#34;fat&#34;:&#34;numeric&#34;,&#34;salt&#34;:&#34;numeric&#34;}},&#34;pie&#34;:{&#34;expand&#34;:true,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;donut-charts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Donut Charts&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(red = 82, green = 33, blue = 93) %&amp;gt;% 
+  c3(colors = list(red = &amp;#39;red&amp;#39;,
+                   green = &amp;#39;green&amp;#39;,
+                   blue = &amp;#39;blue&amp;#39;)) %&amp;gt;% 
+  c3_donut(title = &amp;#39;#d053ee&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;colors&#34;:{&#34;red&#34;:&#34;red&#34;,&#34;green&#34;:&#34;green&#34;,&#34;blue&#34;:&#34;blue&#34;},&#34;json&#34;:[{&#34;red&#34;:82,&#34;green&#34;:33,&#34;blue&#34;:93}],&#34;keys&#34;:{&#34;value&#34;:[&#34;red&#34;,&#34;green&#34;,&#34;blue&#34;]},&#34;type&#34;:&#34;donut&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;red&#34;:&#34;numeric&#34;,&#34;green&#34;:&#34;numeric&#34;,&#34;blue&#34;:&#34;numeric&#34;}},&#34;donut&#34;:{&#34;expand&#34;:true,&#34;title&#34;:&#34;#d053ee&#34;,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gauge-charts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gauge Charts&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(data = 80) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_gauge()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:576px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;data&#34;:80}],&#34;keys&#34;:{&#34;value&#34;:[&#34;data&#34;]},&#34;type&#34;:&#34;gauge&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;data&#34;:&#34;numeric&#34;}},&#34;gauge&#34;:{&#34;label&#34;:null,&#34;min&#34;:0,&#34;max&#34;:100,&#34;units&#34;:null,&#34;width&#34;:null},&#34;color&#34;:{&#34;pattern&#34;:[&#34;#FF0000&#34;,&#34;#F97600&#34;,&#34;#F6C600&#34;,&#34;#60B044&#34;],&#34;threshold&#34;:{&#34;unit&#34;:&#34;value&#34;,&#34;max&#34;:100,&#34;values&#34;:[30,60,90,100]}},&#34;size&#34;:{&#34;height&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grid-lines-annotation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Grid Lines &amp;amp; Annotation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3() %&amp;gt;%
+  grid(&amp;#39;y&amp;#39;) %&amp;gt;%
+  grid(&amp;#39;x&amp;#39;, 
+       show = F, 
+       lines = data.frame(value = c(3, 10), 
+                          text= c(&amp;#39;Line 1&amp;#39;,&amp;#39;Line 2&amp;#39;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-12&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-12&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;grid&#34;:{&#34;y&#34;:{&#34;show&#34;:true},&#34;x&#34;:{&#34;show&#34;:false,&#34;lines&#34;:{&#34;value&#34;:[3,10],&#34;text&#34;:[&#34;Line 1&#34;,&#34;Line 2&#34;]}}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;region-highlighting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Region Highlighting&lt;/h2&gt;
+&lt;p&gt;To highlight regions pass a single &lt;code&gt;data.frame&lt;/code&gt; with columns &lt;code&gt;axis&lt;/code&gt;, &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; and &lt;code&gt;class&lt;/code&gt;. Multiple regions can be defined within the one &lt;code&gt;data.frame&lt;/code&gt; for any axis (&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt;, &lt;code&gt;y2&lt;/code&gt;). Each row in the &lt;code&gt;data.frame&lt;/code&gt; defines a separate region to be highlighted&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3() %&amp;gt;%
+  region(data.frame(axis = &amp;#39;x&amp;#39;,
+                    start = 5,
+                    end = 6))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-13&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-13&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;regions&#34;:{&#34;axis&#34;:[&#34;x&#34;],&#34;start&#34;:[5],&#34;end&#34;:[6]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sub-chart&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sub-chart&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;) %&amp;gt;%
+  subchart()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-14&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-14&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;}},&#34;subchart&#34;:{&#34;show&#34;:true,&#34;size&#34;:{&#34;height&#34;:20}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color-palette&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Color Palette&lt;/h2&gt;
+&lt;p&gt;Plot color palettes can be changed to either &lt;code&gt;RColorBrewer&lt;/code&gt; or &lt;code&gt;viridis&lt;/code&gt; palettes using either &lt;code&gt;RColorBrewer&lt;/code&gt; (S3 method) or &lt;code&gt;c3_viridus&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_pie() %&amp;gt;%
+  RColorBrewer()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-15&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-15&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;sugar&#34;:20,&#34;fat&#34;:45,&#34;salt&#34;:10,&#34;vegetables&#34;:60}],&#34;keys&#34;:{&#34;value&#34;:[&#34;sugar&#34;,&#34;fat&#34;,&#34;salt&#34;,&#34;vegetables&#34;]},&#34;type&#34;:&#34;pie&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;sugar&#34;:&#34;numeric&#34;,&#34;fat&#34;:&#34;numeric&#34;,&#34;salt&#34;:&#34;numeric&#34;,&#34;vegetables&#34;:&#34;numeric&#34;}},&#34;pie&#34;:{&#34;expand&#34;:true,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}},&#34;color&#34;:{&#34;pattern&#34;:[&#34;#D7191C&#34;,&#34;#FDAE61&#34;,&#34;#ABDDA4&#34;,&#34;#2B83BA&#34;]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(sugar = 20, 
+           fat = 45, 
+           salt = 10, 
+           vegetables = 60) %&amp;gt;% 
+  c3() %&amp;gt;% 
+  c3_pie() %&amp;gt;%
+  c3_viridis()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-16&#34; style=&#34;width:384px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-16&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;sugar&#34;:20,&#34;fat&#34;:45,&#34;salt&#34;:10,&#34;vegetables&#34;:60}],&#34;keys&#34;:{&#34;value&#34;:[&#34;sugar&#34;,&#34;fat&#34;,&#34;salt&#34;,&#34;vegetables&#34;]},&#34;type&#34;:&#34;pie&#34;},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;sugar&#34;:&#34;numeric&#34;,&#34;fat&#34;:&#34;numeric&#34;,&#34;salt&#34;:&#34;numeric&#34;,&#34;vegetables&#34;:&#34;numeric&#34;}},&#34;pie&#34;:{&#34;expand&#34;:true,&#34;label&#34;:{&#34;show&#34;:true,&#34;threshold&#34;:null,&#34;format&#34;:null}},&#34;color&#34;:{&#34;pattern&#34;:[&#34;#440154&#34;,&#34;#31688E&#34;,&#34;#35B779&#34;,&#34;#FDE725&#34;]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;point-size&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Point Size&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+  c3(x = &amp;#39;date&amp;#39;) %&amp;gt;%
+  point_options(r = 6, 
+                expand.r = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-17&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-17&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;json&#34;:[{&#34;date&#34;:&#34;2014-01-01&#34;,&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;date&#34;:&#34;2014-02-01&#34;,&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;date&#34;:&#34;2014-03-01&#34;,&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;date&#34;:&#34;2014-04-01&#34;,&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;date&#34;:&#34;2014-05-01&#34;,&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;date&#34;:&#34;2014-06-01&#34;,&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;date&#34;:&#34;2014-07-01&#34;,&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;date&#34;:&#34;2014-08-01&#34;,&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;date&#34;:&#34;2014-09-01&#34;,&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;date&#34;:&#34;2014-10-01&#34;,&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;date&#34;:&#34;2014-11-01&#34;,&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;date&#34;:&#34;2014-12-01&#34;,&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;date&#34;:&#34;2015-01-01&#34;,&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;date&#34;:&#34;2015-02-01&#34;,&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;date&#34;:&#34;2015-03-01&#34;,&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;date&#34;:&#34;2015-04-01&#34;,&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;date&#34;:&#34;2015-05-01&#34;,&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;date&#34;:&#34;2015-06-01&#34;,&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;date&#34;:&#34;2015-07-01&#34;,&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;date&#34;:&#34;2015-08-01&#34;,&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;date&#34;,&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:&#34;date&#34;,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;axis&#34;:{&#34;x&#34;:{&#34;label&#34;:&#34;date&#34;,&#34;type&#34;:&#34;timeseries&#34;}},&#34;point&#34;:{&#34;show&#34;:true,&#34;r&#34;:6,&#34;focus&#34;:{&#34;expand&#34;:{&#34;enabled&#34;:true,&#34;r&#34;:12}},&#34;select&#34;:{&#34;r&#34;:24}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;on-click&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;On Click&lt;/h2&gt;
+&lt;p&gt;Onclick, onmouseover and onmouseout are all available via the &lt;code&gt;c3&lt;/code&gt; function. To use wrap a js function as a character string to &lt;code&gt;htmlwidgets::JS()&lt;/code&gt;. Please see the &lt;a href=&#34;http://c3js.org/reference.html#data-onclick&#34;&gt;C3.js documentation&lt;/a&gt; and &lt;a href=&#34;http://c3js.org/samples/chart_pie.html&#34;&gt;examples&lt;/a&gt;. The example below should be enough to get you started.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;% 
+    c3(onclick = htmlwidgets::JS(&amp;#39;function(d, element){console.log(d)}&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tooltips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tooltips&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;C3&lt;/code&gt; tooltips are readily modified with the use of javascript functions. For further detail see the &lt;code&gt;C3.js&lt;/code&gt; &lt;a href=&#34;http://c3js.org/reference.html#tooltip-format-title&#34;&gt;documentation&lt;/a&gt;. Or for more advanced usage see the &lt;code&gt;C3.js&lt;/code&gt; &lt;a href=&#34;http://c3js.org/samples/tooltip_format.html&#34;&gt;examples&lt;/a&gt; page.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(htmlwidgets)
+data %&amp;gt;%
+  c3() %&amp;gt;%
+  tooltip(format = list(title = JS(&amp;quot;function (x) { return &amp;#39;Data &amp;#39; + x; }&amp;quot;),
+                        name = JS(&amp;#39;function (name, ratio, id, index) { return name; }&amp;#39;),
+                        value = JS(&amp;#39;function (value, ratio, id, index) { return ratio; }&amp;#39;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-18&#34; style=&#34;width:768px;height:288px;&#34; class=&#34;c3 html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-18&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;json&#34;:[{&#34;a&#34;:3.1117,&#34;b&#34;:2.3017,&#34;c&#34;:7.2439,&#34;d&#34;:17.4095},{&#34;a&#34;:17.0862,&#34;b&#34;:10.694,&#34;c&#34;:13.6638,&#34;d&#34;:3.1856},{&#34;a&#34;:3.825,&#34;b&#34;:2.0261,&#34;c&#34;:15.0458,&#34;d&#34;:7.0912},{&#34;a&#34;:11.4072,&#34;b&#34;:3.6927,&#34;c&#34;:2.8797,&#34;d&#34;:12.0041},{&#34;a&#34;:11.406,&#34;b&#34;:0.0353,&#34;c&#34;:8.9712,&#34;d&#34;:10.1689},{&#34;a&#34;:23.733,&#34;b&#34;:14.2648,&#34;c&#34;:0.3302,&#34;d&#34;:10.9258},{&#34;a&#34;:0.5788,&#34;b&#34;:10.6984,&#34;c&#34;:4.4398,&#34;d&#34;:17.3292},{&#34;a&#34;:4.2553,&#34;b&#34;:12.8693,&#34;c&#34;:6.2203,&#34;d&#34;:15.3503},{&#34;a&#34;:10.1077,&#34;b&#34;:1.7371,&#34;c&#34;:35.0099,&#34;d&#34;:11.365},{&#34;a&#34;:15.554,&#34;b&#34;:0.2083,&#34;c&#34;:7.1742,&#34;d&#34;:8.9436},{&#34;a&#34;:9.4136,&#34;b&#34;:1.2435,&#34;c&#34;:3.7285,&#34;d&#34;:2.4639},{&#34;a&#34;:1.9082,&#34;b&#34;:7.9019,&#34;c&#34;:1.3812,&#34;d&#34;:1.8862},{&#34;a&#34;:6.1603,&#34;b&#34;:9.0881,&#34;c&#34;:21.1608,&#34;d&#34;:12.2124},{&#34;a&#34;:13.4972,&#34;b&#34;:12.834,&#34;c&#34;:6.9984,&#34;d&#34;:12.66},{&#34;a&#34;:17.2235,&#34;b&#34;:19.6967,&#34;c&#34;:0.8674,&#34;d&#34;:4.3806},{&#34;a&#34;:3.5616,&#34;b&#34;:10.8549,&#34;c&#34;:2.551,&#34;d&#34;:18.5254},{&#34;a&#34;:3.0565,&#34;b&#34;:23.2342,&#34;c&#34;:0.8959,&#34;d&#34;:17.226},{&#34;a&#34;:11.8535,&#34;b&#34;:10.8972,&#34;c&#34;:0.4319,&#34;d&#34;:10.6879},{&#34;a&#34;:7.8465,&#34;b&#34;:2.8756,&#34;c&#34;:2.7706,&#34;d&#34;:6.2682},{&#34;a&#34;:0.3425,&#34;b&#34;:0.8499,&#34;c&#34;:0.5899,&#34;d&#34;:7.671}],&#34;keys&#34;:{&#34;value&#34;:[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;d&#34;]}},&#34;opts&#34;:{&#34;x&#34;:null,&#34;y&#34;:null,&#34;types&#34;:{&#34;a&#34;:&#34;numeric&#34;,&#34;b&#34;:&#34;numeric&#34;,&#34;date&#34;:&#34;Date&#34;,&#34;c&#34;:&#34;numeric&#34;,&#34;d&#34;:&#34;numeric&#34;}},&#34;tooltip&#34;:{&#34;show&#34;:true,&#34;grouped&#34;:true,&#34;format&#34;:{&#34;title&#34;:&#34;function (x) { return &#39;Data &#39; + x; }&#34;,&#34;name&#34;:&#34;function (name, ratio, id, index) { return name; }&#34;,&#34;value&#34;:&#34;function (value, ratio, id, index) { return ratio; }&#34;}}},&#34;evals&#34;:[&#34;tooltip.format.title&#34;,&#34;tooltip.format.name&#34;,&#34;tooltip.format.value&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>pier</title>
+        <link>https://dettonville.github.io/packages/pier-package/</link>
+        <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/pier-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2021_DSC1137.png" alt="Featured image of post pier" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/d3pie/d3pie.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/pier-binding/pier.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://zenodo.org/badge/latestdoi/56191948&#34;&gt;&lt;img src=&#34;https://zenodo.org/badge/56191948.svg&#34; alt=&#34;DOI&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://travis-ci.org/mrjoh3/pier&#34;&gt;&lt;img src=&#34;https://travis-ci.org/mrjoh3/pier.svg?branch=master&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/pier&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg&#34; alt=&#34;codecov&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;pier&lt;/code&gt; package (pronounced pie-r) is a wrapper, or &lt;a href=&#34;http://www.htmlwidgets.org/&#34;&gt;htmlwidget&lt;/a&gt;, for the &lt;a href=&#34;http://d3pie.org/&#34;&gt;d3pie&lt;/a&gt; javascript library by &lt;a href=&#34;https://github.com/benkeen&#34;&gt;Benjamin Keen&lt;/a&gt;. If you are just wanting to generate a pie chart the d3pie website has a fantastic &lt;a href=&#34;http://d3pie.org/#generator&#34;&gt;generator&lt;/a&gt; that will create the code that you need. If you are wanting create a chart using &lt;a href=&#34;https://www.r-project.org/&#34;&gt;R&lt;/a&gt; for embedding in a Rmarkdown document or Shiny App, then you are in the right place.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;d3pie&lt;/code&gt; library is very versatile and includes a lot of options. Currently this package only wraps the &lt;a href=&#34;http://d3pie.org/#docs-configuration&#34;&gt;configuration object&lt;/a&gt;. Even with this current limitation a wide range of options are available.&lt;/p&gt;
+&lt;p&gt;Currently the intention is to wrap the entire &lt;a href=&#34;http://d3pie.org/#docs-api&#34;&gt;d3pie&lt;/a&gt; api.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You probably already guessed this bit.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;mrjoh3/pier&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;pier&lt;/code&gt; package is intended to be as simple and lightweight as possible. As a starting point the data input must be a &lt;code&gt;data.frame&lt;/code&gt; with three required columns: &lt;code&gt;label&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt; and &lt;code&gt;color&lt;/code&gt;. From this point most of the defaults from &lt;code&gt;d3pie&lt;/code&gt; are carried over. Note that all examples here have lost their interactivity.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(pier)
+
+data &amp;lt;- data.frame(label = c(&amp;#39;Environment&amp;#39;,&amp;#39;Education&amp;#39;,&amp;#39;Business&amp;#39;,&amp;#39;Community&amp;#39;),
+                   value = c(104,119,638,1250),
+                   color = RColorBrewer::brewer.pal(4, &amp;#39;Spectral&amp;#39;))
+
+pier(data) %&amp;gt;% pie.size(height = 350)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;pier html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;sortOrder&#34;:&#34;none&#34;,&#34;content&#34;:[{&#34;label&#34;:&#34;Environment&#34;,&#34;value&#34;:104,&#34;color&#34;:&#34;#D7191C&#34;},{&#34;label&#34;:&#34;Education&#34;,&#34;value&#34;:119,&#34;color&#34;:&#34;#FDAE61&#34;},{&#34;label&#34;:&#34;Business&#34;,&#34;value&#34;:638,&#34;color&#34;:&#34;#ABDDA4&#34;},{&#34;label&#34;:&#34;Community&#34;,&#34;value&#34;:1250,&#34;color&#34;:&#34;#2B83BA&#34;}]},&#34;settings&#34;:null,&#34;size&#34;:{&#34;canvasHeight&#34;:350,&#34;pieInnerRadius&#34;:[],&#34;pieOuterRadius&#34;:&#34;90%&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;advanced-usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Advanced Usage&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+    pier() %&amp;gt;%
+    pie.size(inner=70, outer=100, width = 500, height = 350) %&amp;gt;%
+    pie.header(text=&amp;#39;Segments&amp;#39;, font=&amp;#39;Impact&amp;#39;, location=&amp;#39;pie-center&amp;#39;) %&amp;gt;%
+    pie.subtitle(text=&amp;#39;by Type&amp;#39;) %&amp;gt;%
+    pie.footer(text=&amp;#39;Economic Segments using fake data.&amp;#39;,
+               location = &amp;#39;bottom-left&amp;#39;) %&amp;gt;%
+    pie.tooltips()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;pier html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;sortOrder&#34;:&#34;none&#34;,&#34;content&#34;:[{&#34;label&#34;:&#34;Environment&#34;,&#34;value&#34;:104,&#34;color&#34;:&#34;#D7191C&#34;},{&#34;label&#34;:&#34;Education&#34;,&#34;value&#34;:119,&#34;color&#34;:&#34;#FDAE61&#34;},{&#34;label&#34;:&#34;Business&#34;,&#34;value&#34;:638,&#34;color&#34;:&#34;#ABDDA4&#34;},{&#34;label&#34;:&#34;Community&#34;,&#34;value&#34;:1250,&#34;color&#34;:&#34;#2B83BA&#34;}]},&#34;settings&#34;:null,&#34;size&#34;:{&#34;canvasWidth&#34;:500,&#34;canvasHeight&#34;:350,&#34;pieInnerRadius&#34;:&#34;70%&#34;,&#34;pieOuterRadius&#34;:&#34;100%&#34;},&#34;header&#34;:{&#34;title&#34;:{&#34;text&#34;:&#34;Segments&#34;,&#34;font&#34;:&#34;Impact&#34;},&#34;location&#34;:&#34;pie-center&#34;,&#34;subtitle&#34;:{&#34;text&#34;:&#34;by Type&#34;}},&#34;footer&#34;:{&#34;text&#34;:&#34;Economic Segments using fake data.&#34;,&#34;location&#34;:&#34;bottom-left&#34;},&#34;tooltips&#34;:{&#34;enabled&#34;:true,&#34;type&#34;:&#34;placeholder&#34;,&#34;string&#34;:&#34;{label}: {value}, {percentage}%&#34;,&#34;styles&#34;:{&#34;fadeInSpeed&#34;:250,&#34;backgroundColor&#34;:&#34;#000000&#34;,&#34;backgroundOpacity&#34;:0.5,&#34;color&#34;:&#34;#efefef&#34;,&#34;borderRadius&#34;:2,&#34;font&#34;:&#34;arial&#34;,&#34;fontSize&#34;:10,&#34;padding&#34;:4}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

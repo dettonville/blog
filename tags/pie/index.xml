@@ -1,20 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pie on Infra Coder</title>
-    <link>https://dettonville.github.io/tags/pie/</link>
-    <description>Recent content in pie on Infra Coder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/pie/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>pier</title>
-      <link>https://dettonville.github.io/packages/pier-package/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/pier-package/</guid>
-      <description>The pier package (pronounced pie-r) is a wrapper, or htmlwidget, for the d3pie javascript library by Benjamin Keen. If you are just wanting to generate a pie chart the d3pie website has a fantastic generator that will create the code that you need. If you are wanting create a chart using R for embedding in a Rmarkdown document or Shiny App, then you are in the right place.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>pie on Infra Coder</title>
+        <link>https://dettonville.github.io/tags/pie/</link>
+        <description>Recent content in pie on Infra Coder</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/pie/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>pier</title>
+        <link>https://dettonville.github.io/packages/pier-package/</link>
+        <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/pier-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2021_DSC1137.png" alt="Featured image of post pier" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/d3pie/d3pie.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/pier-binding/pier.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://zenodo.org/badge/latestdoi/56191948&#34;&gt;&lt;img src=&#34;https://zenodo.org/badge/56191948.svg&#34; alt=&#34;DOI&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://travis-ci.org/mrjoh3/pier&#34;&gt;&lt;img src=&#34;https://travis-ci.org/mrjoh3/pier.svg?branch=master&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/pier&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg&#34; alt=&#34;codecov&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;pier&lt;/code&gt; package (pronounced pie-r) is a wrapper, or &lt;a href=&#34;http://www.htmlwidgets.org/&#34;&gt;htmlwidget&lt;/a&gt;, for the &lt;a href=&#34;http://d3pie.org/&#34;&gt;d3pie&lt;/a&gt; javascript library by &lt;a href=&#34;https://github.com/benkeen&#34;&gt;Benjamin Keen&lt;/a&gt;. If you are just wanting to generate a pie chart the d3pie website has a fantastic &lt;a href=&#34;http://d3pie.org/#generator&#34;&gt;generator&lt;/a&gt; that will create the code that you need. If you are wanting create a chart using &lt;a href=&#34;https://www.r-project.org/&#34;&gt;R&lt;/a&gt; for embedding in a Rmarkdown document or Shiny App, then you are in the right place.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;d3pie&lt;/code&gt; library is very versatile and includes a lot of options. Currently this package only wraps the &lt;a href=&#34;http://d3pie.org/#docs-configuration&#34;&gt;configuration object&lt;/a&gt;. Even with this current limitation a wide range of options are available.&lt;/p&gt;
+&lt;p&gt;Currently the intention is to wrap the entire &lt;a href=&#34;http://d3pie.org/#docs-api&#34;&gt;d3pie&lt;/a&gt; api.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You probably already guessed this bit.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;mrjoh3/pier&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;pier&lt;/code&gt; package is intended to be as simple and lightweight as possible. As a starting point the data input must be a &lt;code&gt;data.frame&lt;/code&gt; with three required columns: &lt;code&gt;label&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt; and &lt;code&gt;color&lt;/code&gt;. From this point most of the defaults from &lt;code&gt;d3pie&lt;/code&gt; are carried over. Note that all examples here have lost their interactivity.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(pier)
+
+data &amp;lt;- data.frame(label = c(&amp;#39;Environment&amp;#39;,&amp;#39;Education&amp;#39;,&amp;#39;Business&amp;#39;,&amp;#39;Community&amp;#39;),
+                   value = c(104,119,638,1250),
+                   color = RColorBrewer::brewer.pal(4, &amp;#39;Spectral&amp;#39;))
+
+pier(data) %&amp;gt;% pie.size(height = 350)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:768px;height:480px;&#34; class=&#34;pier html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;sortOrder&#34;:&#34;none&#34;,&#34;content&#34;:[{&#34;label&#34;:&#34;Environment&#34;,&#34;value&#34;:104,&#34;color&#34;:&#34;#D7191C&#34;},{&#34;label&#34;:&#34;Education&#34;,&#34;value&#34;:119,&#34;color&#34;:&#34;#FDAE61&#34;},{&#34;label&#34;:&#34;Business&#34;,&#34;value&#34;:638,&#34;color&#34;:&#34;#ABDDA4&#34;},{&#34;label&#34;:&#34;Community&#34;,&#34;value&#34;:1250,&#34;color&#34;:&#34;#2B83BA&#34;}]},&#34;settings&#34;:null,&#34;size&#34;:{&#34;canvasHeight&#34;:350,&#34;pieInnerRadius&#34;:[],&#34;pieOuterRadius&#34;:&#34;90%&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;advanced-usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Advanced Usage&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data %&amp;gt;%
+    pier() %&amp;gt;%
+    pie.size(inner=70, outer=100, width = 500, height = 350) %&amp;gt;%
+    pie.header(text=&amp;#39;Segments&amp;#39;, font=&amp;#39;Impact&amp;#39;, location=&amp;#39;pie-center&amp;#39;) %&amp;gt;%
+    pie.subtitle(text=&amp;#39;by Type&amp;#39;) %&amp;gt;%
+    pie.footer(text=&amp;#39;Economic Segments using fake data.&amp;#39;,
+               location = &amp;#39;bottom-left&amp;#39;) %&amp;gt;%
+    pie.tooltips()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;pier html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:{&#34;sortOrder&#34;:&#34;none&#34;,&#34;content&#34;:[{&#34;label&#34;:&#34;Environment&#34;,&#34;value&#34;:104,&#34;color&#34;:&#34;#D7191C&#34;},{&#34;label&#34;:&#34;Education&#34;,&#34;value&#34;:119,&#34;color&#34;:&#34;#FDAE61&#34;},{&#34;label&#34;:&#34;Business&#34;,&#34;value&#34;:638,&#34;color&#34;:&#34;#ABDDA4&#34;},{&#34;label&#34;:&#34;Community&#34;,&#34;value&#34;:1250,&#34;color&#34;:&#34;#2B83BA&#34;}]},&#34;settings&#34;:null,&#34;size&#34;:{&#34;canvasWidth&#34;:500,&#34;canvasHeight&#34;:350,&#34;pieInnerRadius&#34;:&#34;70%&#34;,&#34;pieOuterRadius&#34;:&#34;100%&#34;},&#34;header&#34;:{&#34;title&#34;:{&#34;text&#34;:&#34;Segments&#34;,&#34;font&#34;:&#34;Impact&#34;},&#34;location&#34;:&#34;pie-center&#34;,&#34;subtitle&#34;:{&#34;text&#34;:&#34;by Type&#34;}},&#34;footer&#34;:{&#34;text&#34;:&#34;Economic Segments using fake data.&#34;,&#34;location&#34;:&#34;bottom-left&#34;},&#34;tooltips&#34;:{&#34;enabled&#34;:true,&#34;type&#34;:&#34;placeholder&#34;,&#34;string&#34;:&#34;{label}: {value}, {percentage}%&#34;,&#34;styles&#34;:{&#34;fadeInSpeed&#34;:250,&#34;backgroundColor&#34;:&#34;#000000&#34;,&#34;backgroundOpacity&#34;:0.5,&#34;color&#34;:&#34;#efefef&#34;,&#34;borderRadius&#34;:2,&#34;font&#34;:&#34;arial&#34;,&#34;fontSize&#34;:10,&#34;padding&#34;:4}}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

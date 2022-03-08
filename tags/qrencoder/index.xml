@@ -1,20 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>qrencoder on Infra Coder</title>
-    <link>https://dettonville.github.io/tags/qrencoder/</link>
-    <description>Recent content in qrencoder on Infra Coder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/qrencoder/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ggtrack</title>
-      <link>https://dettonville.github.io/packages/ggtrack-package/</link>
-      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/ggtrack-package/</guid>
-      <description>ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>qrencoder on Infra Coder</title>
+        <link>https://dettonville.github.io/tags/qrencoder/</link>
+        <description>Recent content in qrencoder on Infra Coder</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/qrencoder/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ggtrack</title>
+        <link>https://dettonville.github.io/packages/ggtrack-package/</link>
+        <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/ggtrack-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2020_DSC8761.png" alt="Featured image of post ggtrack" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;ggtrack&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;ggtrack&lt;/h1&gt;
+&lt;!-- badges: start --&gt;
+&lt;p&gt;&lt;a href=&#34;https://lifecycle.r-lib.org/articles/stages.html#stable&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/lifecycle-stable-brightgreen.svg&#34; alt=&#34;Lifecycle: stable&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/mrjoh3/ggtrack/actions&#34;&gt;&lt;img src=&#34;https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/ggtrack?branch=master&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg&#34; alt=&#34;Codecov test coverage&#34; /&gt;&lt;/a&gt;
+&lt;!-- badges: end --&gt;&lt;/p&gt;
+&lt;div style=&#34;float: right;&#34;&gt;
+&lt;img src=&#34;../../img/ggtrack-logo.svg&#34; width=&#34;280px&#34;&gt;
+&lt;/div&gt;
+&lt;p&gt;Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The &lt;code&gt;ggtrack&lt;/code&gt; package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.&lt;/p&gt;
+&lt;p&gt;The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.&lt;/p&gt;
+&lt;p&gt;QR codes can then be scanned using a phone scanner or the &lt;a href=&#34;https://github.com/brianwdavis/quadrangle&#34;&gt;quadrangle package&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ggtrack&lt;/code&gt; footer can also display a corporate logo and additional text.&lt;/p&gt;
+&lt;p&gt;You can find the source code at &lt;a href=&#34;https://github.com/mrjoh3/ggtrack&#34; class=&#34;uri&#34;&gt;https://github.com/mrjoh3/ggtrack&lt;/a&gt; and the documentation at &lt;a href=&#34;https://mrjoh3.github.io/ggtrack/&#34; class=&#34;uri&#34;&gt;https://mrjoh3.github.io/ggtrack/&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;development&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Development&lt;/h2&gt;
+&lt;p&gt;This package is still quite young but now contains most of the desired features. It now has a full testing suite and documentation. For future updates all efforts will be made to maintain a stable API. If you have any suggestions, or feature requests please submit an &lt;a href=&#34;https://github.com/mrjoh3/ggtrack/issues&#34;&gt;issue&lt;/a&gt;. All feedback is welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-minimum-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A Minimum Example&lt;/h2&gt;
+&lt;p&gt;To start you just need a &lt;code&gt;ggplot&lt;/code&gt; and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the &lt;a href=&#34;https://github.com/hrbrmstr/qrencoder&#34;&gt;qrencoder&lt;/a&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggtrack)
+library(ggplot2)
+library(grid)
+library(rWBclimate)
+library(ggthemes)
+
+temp &amp;lt;- get_historical_temp(&amp;#39;aus&amp;#39;, &amp;quot;year&amp;quot;)
+
+tp &amp;lt;- ggplot(temp, aes(x = year, y = data)) +
+  geom_path(color = &amp;#39;blue&amp;#39;) + geom_point(color = &amp;#39;darkblue&amp;#39;) +
+  labs(title = &amp;#39;Average Annual Temperature for Australia&amp;#39;,
+       y = &amp;#39;degrees celcius&amp;#39;) +
+  stat_smooth(se = TRUE, colour = &amp;quot;darkred&amp;quot;) +
+  theme_fivethirtyeight() 
+
+ggtrack(tp, 
+        qr_content = paste0(&amp;#39;Data accessed using R package: &amp;#39;,
+                            &amp;#39;https://github.com/ropensci/rWBclimate / &amp;#39;,
+                            &amp;#39;https://docs.ropensci.org/rWBclimate/&amp;#39;),
+        logo = &amp;#39;../../static/img/ggtrack-logo.svg&amp;#39;,
+        caption = paste0(&amp;#39;data accessed from the World Bank &amp;lt;br&amp;gt;&amp;#39;,
+                         &amp;#39;Climate Portal via the R package &amp;lt;br&amp;gt;&amp;#39;,
+                         &amp;#39;&amp;lt;span style=&amp;quot;color:blue&amp;quot;&amp;gt;rWBclimate&amp;lt;/span&amp;gt;.&amp;#39;),
+        plot.background = element_rect(fill = &amp;quot;#f0f0f0&amp;quot;, size = 0)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://dettonville.github.io/packages/2021-06-14-ggtrack-package_files/figure-html/example-1.png&#34; width=&#34;100%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;related-and-enabling-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Related and Enabling Packages&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;ggrack&lt;/code&gt; package makes use of many &lt;a href=&#34;https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20&#34;&gt;R packages&lt;/a&gt;. But I want to include a special thank-you to some packages without which the &lt;code&gt;ggtrack&lt;/code&gt; package would not be possible.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/hrbrmstr/qrencoder&#34;&gt;qrencoder&lt;/a&gt; package generate to QR codes that form the basis for much of &lt;code&gt;ggtrack&lt;/code&gt;. &lt;code&gt;qrencoder&lt;/code&gt; is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.&lt;/li&gt;
+&lt;li&gt;Without &lt;a href=&#34;https://github.com/tidyverse/ggplot2/&#34;&gt;ggplot2&lt;/a&gt; there would be little point to a package like &lt;code&gt;ggtrack&lt;/code&gt;. The entire banner object is a &lt;code&gt;ggplot&lt;/code&gt; with &lt;code&gt;theme_void&lt;/code&gt; and &lt;code&gt;annotation_custom&lt;/code&gt; used to place the three tracking elements.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;rasterGrob&lt;/code&gt; elements from the &lt;a href=&#34;https://github.com/cran/grid&#34;&gt;grid&lt;/a&gt; package make it possible to add both the QR code and arbitrary images such as logos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grid.arrange&lt;/code&gt; from &lt;a href=&#34;https://cran.r-project.org/package=gridExtra&#34;&gt;gridExtra&lt;/a&gt; makes it possible to stack the &lt;code&gt;ggplot&lt;/code&gt; object on top of the tracking banner.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/richfitz/stegasaur&#34;&gt;stegasaur&lt;/a&gt; is used the encode arbitrary text or R objects into the plot &lt;code&gt;PNG&lt;/code&gt;. This is very cool and &lt;a href=&#34;https://github.com/richfitz/stegasaur&#34;&gt;stegasaur&lt;/a&gt; is a great package that makes it really easy to encode and decode images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

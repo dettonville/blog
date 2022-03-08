@@ -1,31 +1,145 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>packages on Infra Coder</title>
-    <link>https://dettonville.github.io/categories/packages/</link>
-    <description>Recent content in packages on Infra Coder</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/categories/packages/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ggtrack</title>
-      <link>https://dettonville.github.io/packages/ggtrack-package/</link>
-      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/ggtrack-package/</guid>
-      <description>ggtrack     Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The ggtrack package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</description>
-    </item>
-    
-    <item>
-      <title>mapedit.addin</title>
-      <link>https://dettonville.github.io/packages/mapedit-addin/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://dettonville.github.io/packages/mapedit-addin/</guid>
-      <description>mapedit.addin  
-The goal of mapedit.addin is to simplify the creation of spatial data by wrapping the mapedit package. As you can see in the code below the mapedit package already makes the process very simple.
-library(mapview) library(mapedit) new_spatial_data &amp;lt;- mapview() %&amp;gt;% editMap() All mappedit.addin does is wrap this piece of code in an RStudio addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools.</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>packages on Infra Coder</title>
+        <link>https://dettonville.github.io/categories/packages/</link>
+        <description>Recent content in packages on Infra Coder</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/categories/packages/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ggtrack</title>
+        <link>https://dettonville.github.io/packages/ggtrack-package/</link>
+        <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/ggtrack-package/</guid>
+        <description>&lt;img src="https://dettonville.github.io/img/MRJ_2020_DSC8761.png" alt="Featured image of post ggtrack" /&gt;
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;ggtrack&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;ggtrack&lt;/h1&gt;
+&lt;!-- badges: start --&gt;
+&lt;p&gt;&lt;a href=&#34;https://lifecycle.r-lib.org/articles/stages.html#stable&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/lifecycle-stable-brightgreen.svg&#34; alt=&#34;Lifecycle: stable&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/mrjoh3/ggtrack/actions&#34;&gt;&lt;img src=&#34;https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg&#34; alt=&#34;R-CMD-check&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://codecov.io/gh/mrjoh3/ggtrack?branch=master&#34;&gt;&lt;img src=&#34;https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg&#34; alt=&#34;Codecov test coverage&#34; /&gt;&lt;/a&gt;
+&lt;!-- badges: end --&gt;&lt;/p&gt;
+&lt;div style=&#34;float: right;&#34;&gt;
+&lt;img src=&#34;../../img/ggtrack-logo.svg&#34; width=&#34;280px&#34;&gt;
+&lt;/div&gt;
+&lt;p&gt;Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The &lt;code&gt;ggtrack&lt;/code&gt; package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.&lt;/p&gt;
+&lt;p&gt;The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.&lt;/p&gt;
+&lt;p&gt;QR codes can then be scanned using a phone scanner or the &lt;a href=&#34;https://github.com/brianwdavis/quadrangle&#34;&gt;quadrangle package&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ggtrack&lt;/code&gt; footer can also display a corporate logo and additional text.&lt;/p&gt;
+&lt;p&gt;You can find the source code at &lt;a href=&#34;https://github.com/mrjoh3/ggtrack&#34; class=&#34;uri&#34;&gt;https://github.com/mrjoh3/ggtrack&lt;/a&gt; and the documentation at &lt;a href=&#34;https://mrjoh3.github.io/ggtrack/&#34; class=&#34;uri&#34;&gt;https://mrjoh3.github.io/ggtrack/&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;development&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Development&lt;/h2&gt;
+&lt;p&gt;This package is still quite young but now contains most of the desired features. It now has a full testing suite and documentation. For future updates all efforts will be made to maintain a stable API. If you have any suggestions, or feature requests please submit an &lt;a href=&#34;https://github.com/mrjoh3/ggtrack/issues&#34;&gt;issue&lt;/a&gt;. All feedback is welcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-minimum-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A Minimum Example&lt;/h2&gt;
+&lt;p&gt;To start you just need a &lt;code&gt;ggplot&lt;/code&gt; and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the &lt;a href=&#34;https://github.com/hrbrmstr/qrencoder&#34;&gt;qrencoder&lt;/a&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggtrack)
+library(ggplot2)
+library(grid)
+library(rWBclimate)
+library(ggthemes)
+
+temp &amp;lt;- get_historical_temp(&amp;#39;aus&amp;#39;, &amp;quot;year&amp;quot;)
+
+tp &amp;lt;- ggplot(temp, aes(x = year, y = data)) +
+  geom_path(color = &amp;#39;blue&amp;#39;) + geom_point(color = &amp;#39;darkblue&amp;#39;) +
+  labs(title = &amp;#39;Average Annual Temperature for Australia&amp;#39;,
+       y = &amp;#39;degrees celcius&amp;#39;) +
+  stat_smooth(se = TRUE, colour = &amp;quot;darkred&amp;quot;) +
+  theme_fivethirtyeight() 
+
+ggtrack(tp, 
+        qr_content = paste0(&amp;#39;Data accessed using R package: &amp;#39;,
+                            &amp;#39;https://github.com/ropensci/rWBclimate / &amp;#39;,
+                            &amp;#39;https://docs.ropensci.org/rWBclimate/&amp;#39;),
+        logo = &amp;#39;../../static/img/ggtrack-logo.svg&amp;#39;,
+        caption = paste0(&amp;#39;data accessed from the World Bank &amp;lt;br&amp;gt;&amp;#39;,
+                         &amp;#39;Climate Portal via the R package &amp;lt;br&amp;gt;&amp;#39;,
+                         &amp;#39;&amp;lt;span style=&amp;quot;color:blue&amp;quot;&amp;gt;rWBclimate&amp;lt;/span&amp;gt;.&amp;#39;),
+        plot.background = element_rect(fill = &amp;quot;#f0f0f0&amp;quot;, size = 0)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://dettonville.github.io/packages/2021-06-14-ggtrack-package_files/figure-html/example-1.png&#34; width=&#34;100%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;related-and-enabling-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Related and Enabling Packages&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;ggrack&lt;/code&gt; package makes use of many &lt;a href=&#34;https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20&#34;&gt;R packages&lt;/a&gt;. But I want to include a special thank-you to some packages without which the &lt;code&gt;ggtrack&lt;/code&gt; package would not be possible.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/hrbrmstr/qrencoder&#34;&gt;qrencoder&lt;/a&gt; package generate to QR codes that form the basis for much of &lt;code&gt;ggtrack&lt;/code&gt;. &lt;code&gt;qrencoder&lt;/code&gt; is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.&lt;/li&gt;
+&lt;li&gt;Without &lt;a href=&#34;https://github.com/tidyverse/ggplot2/&#34;&gt;ggplot2&lt;/a&gt; there would be little point to a package like &lt;code&gt;ggtrack&lt;/code&gt;. The entire banner object is a &lt;code&gt;ggplot&lt;/code&gt; with &lt;code&gt;theme_void&lt;/code&gt; and &lt;code&gt;annotation_custom&lt;/code&gt; used to place the three tracking elements.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;rasterGrob&lt;/code&gt; elements from the &lt;a href=&#34;https://github.com/cran/grid&#34;&gt;grid&lt;/a&gt; package make it possible to add both the QR code and arbitrary images such as logos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grid.arrange&lt;/code&gt; from &lt;a href=&#34;https://cran.r-project.org/package=gridExtra&#34;&gt;gridExtra&lt;/a&gt; makes it possible to stack the &lt;code&gt;ggplot&lt;/code&gt; object on top of the tracking banner.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/richfitz/stegasaur&#34;&gt;stegasaur&lt;/a&gt; is used the encode arbitrary text or R objects into the plot &lt;code&gt;PNG&lt;/code&gt;. This is very cool and &lt;a href=&#34;https://github.com/richfitz/stegasaur&#34;&gt;stegasaur&lt;/a&gt; is a great package that makes it really easy to encode and decode images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>mapedit.addin</title>
+        <link>https://dettonville.github.io/packages/mapedit-addin/</link>
+        <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/packages/mapedit-addin/</guid>
+        <description>
+&lt;script src=&#34;https://dettonville.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;mapedit.addin&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;mapedit.addin&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.tidyverse.org/lifecycle/#experimental&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/lifecycle-experimental-orange.svg&#34; alt=&#34;lifecycle&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;https://travis-ci.org/mrjoh3/mapedit.addin&#34;&gt;&lt;img src=&#34;https://travis-ci.org/mrjoh3/mapedit.addin.svg?branch=master&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The goal of &lt;code&gt;mapedit.addin&lt;/code&gt; is to simplify the creation of spatial data by wrapping the &lt;a href=&#34;https://github.com/r-spatial/mapedit&#34;&gt;mapedit&lt;/a&gt; package. As you can see in the code below the &lt;code&gt;mapedit&lt;/code&gt; package already makes the process very simple.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(mapview)
+library(mapedit)
+new_spatial_data &amp;lt;- mapview() %&amp;gt;%
+  editMap()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All &lt;code&gt;mappedit.addin&lt;/code&gt; does is wrap this piece of code in an &lt;code&gt;RStudio&lt;/code&gt; addin. This means that the process of creating spatial data and saving it to file is completed using only GUI tools. It is also possible to link &lt;code&gt;mapedit.addin&lt;/code&gt; to keyboard shortcuts, further simplifying the process (see &lt;a href=&#34;https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;You can install the current version of &lt;code&gt;mapedit.addin&lt;/code&gt; from &lt;a href=&#34;https://github.com/mrjoh3/mapedit.addin&#34;&gt;Github&lt;/a&gt; with:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;mrjoh3/mapedit.addin&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;This simple addin allows you to interactively create an &lt;code&gt;sf&lt;/code&gt; spatial object that can then be saved and used in your code. To use, just open the addin add some geometry to the map and click &lt;code&gt;Done&lt;/code&gt; when completed.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://dettonville.github.io/pkg/2018-12-26-mapedit-addin_files/mapedit_addin.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;mapedit addin&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Selecting text within the &lt;code&gt;RStudio&lt;/code&gt; IDE will modify the behavior of the addin. Where no text is selected the addin will save an &lt;code&gt;sf&lt;/code&gt; object called &lt;code&gt;geom&lt;/code&gt; into &lt;code&gt;.GlobalEnv&lt;/code&gt;. To save a spatial object to file, the &lt;code&gt;Save&lt;/code&gt; switch must be toggled using the addin interface. A file called &lt;code&gt;saved_geometry.geojson&lt;/code&gt; will be created in the current working directory. If text is selected in &lt;code&gt;RStudio&lt;/code&gt; this will be used for naming both the &lt;code&gt;sf&lt;/code&gt; object and the created file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;adding-objects-to-the-map&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Adding objects to the map&lt;/h2&gt;
+&lt;p&gt;If the text selected in &lt;code&gt;RStudio&lt;/code&gt; IDE is the name of an existing &lt;code&gt;sf&lt;/code&gt; object then the addin will add this object to the &lt;code&gt;mapedit&lt;/code&gt; map and zoom to its bounds. When a spatial object is passed to the map in this way, any new geometry is added to it using &lt;a href=&#34;https://r-spatial.github.io/sf/reference/bind.html&#34;&gt;rbind&lt;/a&gt;. It is not currently possible to edit existing geometry.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;saving-to-file&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Saving to File&lt;/h2&gt;
+&lt;p&gt;Spatial objects are saved to file using &lt;code&gt;sf::write_sf&lt;/code&gt;. File names can be set by selecting text inside &lt;code&gt;RStudio&lt;/code&gt; or via the naming bar at the bottom of the addin. The file naming bar can also be used to add file paths and to change output extensions.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://dettonville.github.io/pkg/2018-12-26-mapedit-addin_files/save_file_bar.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;image bar&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The text seen in the naming bar is passed directly to &lt;code&gt;write_sf&lt;/code&gt;. Most file drivers will be guessed by the extension. See &lt;code&gt;sf::st_drivers()&lt;/code&gt; or &lt;a href=&#34;https://www.gdal.org/ogr_formats.html&#34;&gt;OGR formats&lt;/a&gt; for details; only &lt;code&gt;.geojson&lt;/code&gt; and &lt;code&gt;.shp&lt;/code&gt; have been tested.&lt;/p&gt;
+&lt;p&gt;Note that the function &lt;code&gt;write_sf&lt;/code&gt; is called with options &lt;code&gt;delete_layer = TRUE&lt;/code&gt; and &lt;code&gt;delete_dsn = TRUE&lt;/code&gt;. This means that existing files with the same name are over-written.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;future&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Future&lt;/h2&gt;
+&lt;p&gt;Future updates will give the user more control over:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;the starting point of the map (currently zooms to world or input object)&lt;/li&gt;
+&lt;li&gt;the name of output object (completed)&lt;/li&gt;
+&lt;li&gt;file name (completed)&lt;/li&gt;
+&lt;li&gt;add more option when saving to file&lt;/li&gt;
+&lt;li&gt;edit existing geometry&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
