@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine'><title>Ansible considerations for app container configurations</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine'><title>Ansible methods for configuring application variables</title>
 
 <link rel='canonical' href='https://dettonville.github.io/p/ansible-for-app-configuration/'>
 
 <link rel="stylesheet" href="/scss/style.min.0867610fd3b558dff6d70fe8db371a941cdde8714bbda96857533e7efe6f230b.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<meta property='og:title' content='Ansible considerations for app container configurations'>
+<meta property='og:title' content='Ansible methods for configuring application variables'>
 <meta property='og:description' content='Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine'>
 <meta property='og:url' content='https://dettonville.github.io/p/ansible-for-app-configuration/'>
 <meta property='og:site_name' content='Infra Coder'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ansible' /><meta property='article:tag' content='openshift' /><meta property='article:tag' content='awx' /><meta property='article:published_time' content='2022-03-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-05T00:00:00&#43;00:00'/><meta property='og:image' content='https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg' />
 <meta name="twitter:site" content="@lj020326">
-    <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="Ansible considerations for app container configurations">
+    <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="Ansible methods for configuring application variables">
 <meta name="twitter:description" content="Method used to store application variables when running the same ansible app container setup play multiple times on a single target machine"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg' />
 <link rel="icon" href="icons/favicon.ico">
@@ -47,7 +47,7 @@
         }
     })();
 </script>
-<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -149,7 +149,7 @@
                         width="800" 
                         height="500" 
                         loading="lazy"
-                        alt="Featured image of post Ansible considerations for app container configurations" />
+                        alt="Featured image of post Ansible methods for configuring application variables" />
                 
             </a>
         </div>
@@ -176,7 +176,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/ansible-for-app-configuration/">Ansible considerations for app container configurations</a>
+            <a href="/p/ansible-for-app-configuration/">Ansible methods for configuring application variables</a>
         </h2>
     
         
@@ -228,7 +228,8 @@
     <section class="article-content">
     
     
-    <p>Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.</p>
+    <h2 id="application-configuration-variables">Application Configuration Variables</h2>
+<p>Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.</p>
 <p>At the time of playbook execution, Ansible applies variable precedence to derive the value/state for a given variable.</p>
 <p>Ansible observes an order of precedence to derive the value for a variable.</p>
 <p>Basically, a variable definition higher in the precedent list will override the lower level variable setting.</p>
@@ -620,7 +621,39 @@
             >
 
             </main>
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#application-configuration-variables">Application Configuration Variables</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
         </div>
         <script 

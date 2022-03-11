@@ -287,12 +287,13 @@ MIIEpAIBAAKCAQEA2nnL3m5sKvoSy37OZ8DQCTjTIPVmCJt/M02KgDt53+baYAFu1TIkC3Yk+HK1
 </description>
         </item>
         <item>
-        <title>Ansible considerations for app container configurations</title>
+        <title>Ansible methods for configuring application variables</title>
         <link>https://dettonville.github.io/p/ansible-for-app-configuration/</link>
         <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
         
         <guid>https://dettonville.github.io/p/ansible-for-app-configuration/</guid>
-        <description>&lt;img src="https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg" alt="Featured image of post Ansible considerations for app container configurations" /&gt;&lt;p&gt;Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.&lt;/p&gt;
+        <description>&lt;img src="https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg" alt="Featured image of post Ansible methods for configuring application variables" /&gt;&lt;h2 id=&#34;application-configuration-variables&#34;&gt;Application Configuration Variables&lt;/h2&gt;
+&lt;p&gt;Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.&lt;/p&gt;
 &lt;p&gt;At the time of playbook execution, Ansible applies variable precedence to derive the value/state for a given variable.&lt;/p&gt;
 &lt;p&gt;Ansible observes an order of precedence to derive the value for a variable.&lt;/p&gt;
 &lt;p&gt;Basically, a variable definition higher in the precedent list will override the lower level variable setting.&lt;/p&gt;
@@ -1075,6 +1076,147 @@ $$&lt;/p&gt;</description>
 }&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+        </item>
+        <item>
+        <title></title>
+        <link>https://dettonville.github.io/p/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/p/</guid>
+        <description>&lt;p&gt;The tutorial section on &lt;a class=&#34;link&#34; href=&#34;http://gohugo.io/tutorials/github-pages-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub deployment 140&lt;/a&gt; describes a rather complex approach using Git subtrees. There are two much simpler approaches which I thought are worth sharing.&lt;/p&gt;
+&lt;p&gt;This is based on the assumption that you are using a project page (no user or organization page, &lt;a class=&#34;link&#34; href=&#34;https://help.github.com/articles/user-organization-and-project-pages/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;see here 98&lt;/a&gt; for the difference) and that your remote is called “upstream”.&lt;/p&gt;
+&lt;h2 id=&#34;publish-from-docs-folder-on-master-branch&#34;&gt;Publish from /docs folder on master branch&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;As described 48&lt;/a&gt; in the GitHub Pages docs, you can deploy from a folder called &lt;em&gt;docs&lt;/em&gt; on your master branch. This requires to change the Hugo publish directory in the site config:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;publishDir: &amp;#34;docs&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;After running &lt;code&gt;hugo&lt;/code&gt;, push your master branch to the upstream repo and choose the docs folder as the website source (&amp;ldquo;Settings &amp;quot; -&amp;gt; “GitHub Pages” -&amp;gt; “Source” -&amp;gt; “master branch /docs folder”). If that option isn’t enabled, you like haven’t pushed your &lt;em&gt;docs&lt;/em&gt; folder yet.&lt;/p&gt;
+&lt;p&gt;This is the simplest approach but requires the usage of a non-standard publish directory (GitHub Pages cannot be configured to use another directory than &lt;em&gt;docs&lt;/em&gt; currenty). Also the presence of generated files on the master branch may not be to eveyone’s taste.&lt;/p&gt;
+&lt;h2 id=&#34;deployment-to-gh-pages-branch&#34;&gt;Deployment to gh-pages branch&lt;/h2&gt;
+&lt;p&gt;The easiest way to sync the state of the &lt;em&gt;public&lt;/em&gt; directory with your “gh-pages” branch is to create a clone of your repo under &lt;em&gt;public&lt;/em&gt;, commit the changes and push them to the “gh-pages” branch in your local repo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;# remove previous publication
+rm -rf public
+mkdir public
+
+# clone gh-pages branch from the local repo into a repo located within &amp;#34;public&amp;#34;
+git clone .git --branch gh-pages public
+  
+# generate
+hugo
+  
+# commit the changes in the clone and push them back to the local gh-pages branch    
+cd public &amp;amp;&amp;amp; git add --all &amp;amp;&amp;amp; git commit -m &amp;#34;Publishing to gh-pages&amp;#34; &amp;amp;&amp;amp; git push origin gh-pages
+
+# publish
+git push upstream gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;That’s my preferred approach as it keeps sources and generated HTML in two different branches, uses the default &lt;em&gt;public&lt;/em&gt; folder and also keeps the histories of source branch and “gh-pages” branch fully separated from each other (unlike the subtree approach). Don’t forget to add &lt;em&gt;public&lt;/em&gt; to your &lt;em&gt;.gitignore&lt;/em&gt; file.&lt;/p&gt;
+&lt;p&gt;I’m using a script which does this plus a few sanity checks (work area is clean etc.) which you can find in &lt;a class=&#34;link&#34; href=&#34;https://github.com/lj020326/dettonville.org/blob/main/scripts/publish.sh&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;my repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note that if you are on Git 2.5 or later, the new worktree feature can be used alternatively, avoiding the cloning of the repo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git worktree add -B gh-pages public upstream/gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;This checks out the “gh-pages” branch into &lt;em&gt;public&lt;/em&gt;, but it’s linked to the local repo. I.e. if you commit the changes in &lt;em&gt;public&lt;/em&gt; that affects the local “gh-pages” branch directly, no further push is needed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;created&#34;&gt;created&lt;/h4&gt;
+&lt;p&gt;Jan &amp;lsquo;17&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;/p&gt;
+&lt;h4 id=&#34;last-reply&#34;&gt;last reply&lt;/h4&gt;
+&lt;p&gt;](&lt;a class=&#34;link&#34; href=&#34;https://discourse.gohugo.io/t/simple-deployment-to-gh-pages/5003/6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://discourse.gohugo.io/t/simple-deployment-to-gh-pages/5003/6&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://discourse.gohugo.io/t/simple-deployment-to-gh-pages/5003/6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;/a&gt;Jul &amp;lsquo;17&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;7.8k&lt;/p&gt;
+&lt;h4 id=&#34;views&#34;&gt;views&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;4&lt;/p&gt;
+&lt;h4 id=&#34;users&#34;&gt;users&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3&lt;/p&gt;
+&lt;h4 id=&#34;likes&#34;&gt;likes&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;5&lt;/p&gt;
+&lt;h4 id=&#34;links&#34;&gt;links&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjc6.discourse-cdn.com/standard10/user_avatar/discourse.gohugo.io/rdwatters/64/2848_2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjc6.discourse-cdn.com/standard10/user_avatar/discourse.gohugo.io/okabrionz/64/2853_2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://discourse.gohugo.io/u/gunnarmorling&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@gunnarmorling&lt;/a&gt; This is good stuff and much simple than the gut modules. I think that tutorial was written before a lot of GitHub pages recent improvements (they now make it so that you can basically make any repo a GH Pages site with the click of a button). I think your pointers would be a good addition to the docs.&lt;/p&gt;
+&lt;p&gt;Thanks! I’ll see whether I can file a pull request for the doc page on GH deployment.&lt;/p&gt;
+&lt;p&gt;Please file a PR. And just replace the page that is there already. I wrote the part about sub trees, and I guess most of it is out of date by now. And it is good to not give the users too many options. Confuses them.&lt;/p&gt;
+&lt;p&gt;Delete public folder &amp;gt; create a new empty public folder &amp;gt; clone gh-pages /.git into the public folder &amp;gt; push the public folder to the gh-pages. This method is so simple.&lt;br&gt;
+Do you have any ideas about How to make it quickly I mean (1-click publish to gh-pages)?&lt;/p&gt;
+&lt;h3 id=&#34;hello-looks-like-youre-enjoying-the-discussion-but-you-havent-signed-up-for-an-account-yet&#34;&gt;Hello! Looks like you’re enjoying the discussion, but you haven’t signed up for an account yet.&lt;/h3&gt;
+&lt;p&gt;When you create an account, we remember exactly what you’ve read, so you always come right back where you left off. You also get notifications, here and via email, whenever someone replies to you. And you can like posts to share the love. &lt;img src=&#34;https://emoji.discourse-cdn.com/twitter/heartpulse.png?v=12&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;heartpulse&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
         </item>
         
     </channel>

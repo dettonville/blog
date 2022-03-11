@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.
-Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required.'><title></title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='The tutorial section on GitHub deployment 140 describes a rather complex approach using Git subtrees. There are two much simpler approaches which I thought are worth sharing.
+This is based on the assumption that you are using a project page (no user or organization page, see here 98 for the difference) and that your remote is called “upstream”.
+Publish from /docs folder on master branch As described 48 in the GitHub Pages docs, you can deploy from a folder called docs on your master branch.'><title></title>
 
 <link rel='canonical' href='https://dettonville.github.io/p/'>
 
@@ -10,15 +11,17 @@ Ansible Galaxy is already configured by default, however if you want your Red Ha
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 <meta property='og:title' content=''>
-<meta property='og:description' content='Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.
-Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required.'>
+<meta property='og:description' content='The tutorial section on GitHub deployment 140 describes a rather complex approach using Git subtrees. There are two much simpler approaches which I thought are worth sharing.
+This is based on the assumption that you are using a project page (no user or organization page, see here 98 for the difference) and that your remote is called “upstream”.
+Publish from /docs folder on master branch As described 48 in the GitHub Pages docs, you can deploy from a folder called docs on your master branch.'>
 <meta property='og:url' content='https://dettonville.github.io/p/'>
 <meta property='og:site_name' content='Infra Coder'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='og:image' content='https://dettonville.github.io/img/logo.jpg' />
 <meta name="twitter:site" content="@lj020326">
     <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="">
-<meta name="twitter:description" content="Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.
-Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required."><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="The tutorial section on GitHub deployment 140 describes a rather complex approach using Git subtrees. There are two much simpler approaches which I thought are worth sharing.
+This is based on the assumption that you are using a project page (no user or organization page, see here 98 for the difference) and that your remote is called “upstream”.
+Publish from /docs folder on master branch As described 48 in the GitHub Pages docs, you can deploy from a folder called docs on your master branch."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://dettonville.github.io/img/logo.jpg' />
 <link rel="icon" href="icons/favicon.ico">
 <link rel="icon" type="image/png" href="icons/favicon.png">
@@ -172,7 +175,7 @@ Ansible Galaxy is already configured by default, however if you want your Red Ha
 
 
                 <time class="article-time--reading">
-                    8 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -186,73 +189,25 @@ Ansible Galaxy is already configured by default, however if you want your Red Ha
     <section class="article-content">
     
     
-    <p>Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.</p>
-<p>Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required. They are addressed in a the chapter <a class="link" href="https://goetzrieger.github.io/ansible-collections/6-automation-hub-and-galaxy/"  target="_blank" rel="noopener"
-    >Use Automation Hub</a> in this lab.</p>
-<p>In this exercise you will learn how to define an Ansible Collection as a requirement in a format recognized by Red Hat Ansible Tower. We’ll be using the <code>ansible.posix</code> collection again from Ansible Galaxy. As you probably know for Ansible Tower to access the needed bits and pieces a version control system is needed. For the sake of keeping this lab setup easy, we’ll set up a local Git server for this.</p>
-<h2 id="set-up-a-local-git-server">Set up a Local Git Server</h2>
-<p>So, let’s get started. We have to create a simplistic Git server on our control host. Typically you would work with GitHub, GitLab, Gitea, or any other Git server.</p>
-<p>Make sure to run these steps from your users home directory!</p>
+    <p>The tutorial section on <a class="link" href="http://gohugo.io/tutorials/github-pages-blog/"  target="_blank" rel="noopener"
+    >GitHub deployment 140</a> describes a rather complex approach using Git subtrees. There are two much simpler approaches which I thought are worth sharing.</p>
+<p>This is based on the assumption that you are using a project page (no user or organization page, <a class="link" href="https://help.github.com/articles/user-organization-and-project-pages/"  target="_blank" rel="noopener"
+    >see here 98</a> for the difference) and that your remote is called “upstream”.</p>
+<h2 id="publish-from-docs-folder-on-master-branch">Publish from /docs folder on master branch</h2>
+<p><a class="link" href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch"  target="_blank" rel="noopener"
+    >As described 48</a> in the GitHub Pages docs, you can deploy from a folder called <em>docs</em> on your master branch. This requires to change the Hugo publish directory in the site config:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 ~]$ wget https://raw.githubusercontent.com/goetzrieger/ansible-labs-summit2020/master/content/ansible-collections/4-using-collections-from-tower/simple_git.yml
-[student@ansible-1 ~]$ ansible-playbook simple_git.yml -e &#34;git_project=tower_collections&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">publishDir: &#34;docs&#34;
 </code></pre></td></tr></table>
 </div>
-</div><p>Next we will clone the repository on the control host. To enable you to work with git on the command line the SSH key for user <em>ec2-user</em> was already added to the Git user <em>git</em>. Next, clone the repository on the control machine:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 ~]$ git clone git@ansible-1:projects/tower_collections
-# Message &#34;warning: You appear to have cloned an empty repository.&#34; is OK and can be ignored
-[student@ansible-1 ~]$ git config --global push.default simple
-[student@ansible-1 ~]$ git config --global user.name &#34;Your Name&#34;
-[student@ansible-1 ~]$ git config --global user.email you@example.com
-[student@ansible-1 ~]$ cd tower_collections/
-</code></pre></td></tr></table>
-</div>
-</div><p>The repository is currently empty. The three config commands are just there to avoid warnings from Git.</p>
-<p>You now have a local Git server that can be accessed via SSH from Tower.</p>
-<h2 id="create-content-for-the-ansible-tower-project">Create Content for the Ansible Tower Project</h2>
-<p>Red Hat Ansible Tower can download and install Ansible Collections automatically before executing a Job Template. If a <code>collections/requirements.yml</code> exists in your project, it will be parsed and the Ansible Collections specified in this file will be automatically installed.</p>
-<p>Starting with Red Hat Ansible Tower 3.6 the working directory for the Job Template is in <code>/tmp</code>. Since the Ansible Collection is downloaded into this directory before the Job Template is executed, you will not find temporary files of your Ansible Collection in <code>/var/lib/awx/projects/</code>.</p>
-<p>The format of the <code>requirements.yml</code> for Ansible Collections is very similar to the one for roles, however it is very important to store in the folder <code>collections</code>.</p>
-<p>Let’s create the files needed to see how you can use collections in Ansible Tower. This is of course just a simple example. First create the <code>collections</code> directory in your Git repo (you should have changed into <code>tower_collections</code> already above):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 tower_collections]$ mkdir collections
-[student@ansible-1 tower_collections]$ cd collections
-</code></pre></td></tr></table>
-</div>
-</div><p>Then create the <code>requirements.yml</code> file listing the collection(s) you need:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">---
-collections:
-- ansible.posix
-</code></pre></td></tr></table>
-</div>
-</div><p>As this is a simple example we’ll just add a Playbook to the Git repo now. Normally you would have a lot more content in your project repository. So what could we do as an example instead of using the <code>ansible.posix</code> collection again? Let’s create a Playbook to configure an <code>at</code> job:</p>
+</div><p>After running <code>hugo</code>, push your master branch to the upstream repo and choose the docs folder as the website source (&ldquo;Settings &quot; -&gt; “GitHub Pages” -&gt; “Source” -&gt; “master branch /docs folder”). If that option isn’t enabled, you like haven’t pushed your <em>docs</em> folder yet.</p>
+<p>This is the simplest approach but requires the usage of a non-standard publish directory (GitHub Pages cannot be configured to use another directory than <em>docs</em> currenty). Also the presence of generated files on the master branch may not be to eveyone’s taste.</p>
+<h2 id="deployment-to-gh-pages-branch">Deployment to gh-pages branch</h2>
+<p>The easiest way to sync the state of the <em>public</em> directory with your “gh-pages” branch is to create a clone of your repo under <em>public</em>, commit the changes and push them to the “gh-pages” branch in your local repo:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -272,192 +227,101 @@ collections:
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">---
-- name: Install AT Job
-  hosts: all
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># remove previous publication
+rm -rf public
+mkdir public
 
-  tasks:
-  - name: at command needs to be installed
-    yum:
-      name: at
-      state: present
+# clone gh-pages branch from the local repo into a repo located within &#34;public&#34;
+git clone .git --branch gh-pages public
+  
+# generate
+hugo
+  
+# commit the changes in the clone and push them back to the local gh-pages branch    
+cd public &amp;&amp; git add --all &amp;&amp; git commit -m &#34;Publishing to gh-pages&#34; &amp;&amp; git push origin gh-pages
 
-  - name: Schedule a command to execute in 20 minutes as root
-    ansible.posix.at:
-      command: ls -d / &gt;/dev/null
-      count: 20
-      units: minutes
+# publish
+git push upstream gh-pages
 </code></pre></td></tr></table>
 </div>
-</div><p>Save the file as <code>configure_at_job.yml</code>.</p>
-<p>Note the usage of the Fully Qualified Collection Name in the Playbook</p>
-<p>Make sure everything looks fine:</p>
+</div><p>That’s my preferred approach as it keeps sources and generated HTML in two different branches, uses the default <em>public</em> folder and also keeps the histories of source branch and “gh-pages” branch fully separated from each other (unlike the subtree approach). Don’t forget to add <em>public</em> to your <em>.gitignore</em> file.</p>
+<p>I’m using a script which does this plus a few sanity checks (work area is clean etc.) which you can find in <a class="link" href="https://github.com/lj020326/dettonville.org/blob/main/scripts/publish.sh"  target="_blank" rel="noopener"
+    >my repo</a>.</p>
+<p>Note that if you are on Git 2.5 or later, the new worktree feature can be used alternatively, avoiding the cloning of the repo:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 tower_collections]$ tree
-.
-├── collections
-│   └── requirements.yml
-└── configure_at_job.yml
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git worktree add -B gh-pages public upstream/gh-pages
 </code></pre></td></tr></table>
 </div>
-</div><p>So far you created the code only locally on the control host, now you are ready to add it to the repository and push it:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 tower_collections]$ git add collections configure_at_job.yml
-[student@ansible-1 tower_collections]$ git commit -m &#34;Adding requirements.yml and playbook&#34;
-[student@ansible-1 tower_collections]$ git push
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="create-the-project-and-job-template">Create the Project and Job Template</h2>
-<p>Now it’s time to access your Ansible Tower web UI if you haven’t done so out of curiosity already. Point your browser to the URL you were given on the lab landing page, similar to <code>https://student&lt;N&gt;.&lt;LABID&gt;.open.redhat.com</code> (replace <code>&lt;N&gt;</code> with your student number and <code>&lt;LABID&gt;</code> with the ID of this lab) and log in as <code>admin</code>. You can find the password again on the lab landing page.</p>
-<p>To run your new Playbook in Ansible Tower you have to configure a number of objects:</p>
+</div><p>This checks out the “gh-pages” branch into <em>public</em>, but it’s linked to the local repo. I.e. if you commit the changes in <em>public</em> that affects the local “gh-pages” branch directly, no further push is needed.</p>
 <ul>
-<li>An <strong>Inventory</strong> with the managed hosts</li>
-<li><strong>Machine Credentials</strong> to access the managed hosts</li>
-<li>Git <strong>Credentials</strong> to access your Git repository via SSH</li>
-<li>The Git repo as <strong>Project</strong></li>
-<li>A <strong>Job Template</strong> to run the Playbook</li>
-</ul>
-<p>We’ll be a bit verbose for students new to Ansible Tower. If you are an Ansible Tower old-hand, just skip through and finish the configuration steps shown.</p>
-<h2 id="inventory-and-machine-credentials">Inventory and Machine Credentials</h2>
-<p>The inventory <strong>Workshop Inventory</strong> and the machine credentials <strong>Workshop Credentials</strong> have already been created in your lab environment.</p>
-<h2 id="configure-scm-credentials">Configure SCM Credentials</h2>
-<p>Now we will configure the credentials to access our the Git repo on your control host via SSH. In the <strong>RESOURCES</strong> menu choose <strong>Credentials</strong>. Now:</p>
-<p>Click the <a class="link" href="img/green_plus.png?classes=inline" ><img src="/img/green_plus.png?classes=inline"
+<li>
+<h4 id="created">created</h4>
+<p>Jan &lsquo;17</p>
+</li>
+<li>
+<p>[</p>
+<h4 id="last-reply">last reply</h4>
+<p>](<a class="link" href="https://discourse.gohugo.io/t/simple-deployment-to-gh-pages/5003/6"  target="_blank" rel="noopener"
+    >https://discourse.gohugo.io/t/simple-deployment-to-gh-pages/5003/6</a>)</p>
+<p><a class="link" href="https://discourse.gohugo.io/t/simple-deployment-to-gh-pages/5003/6"  target="_blank" rel="noopener"
+    ></a>Jul &lsquo;17</p>
+</li>
+<li>
+<p>7.8k</p>
+<h4 id="views">views</h4>
+</li>
+<li>
+<p>4</p>
+<h4 id="users">users</h4>
+</li>
+<li>
+<p>3</p>
+<h4 id="likes">likes</h4>
+</li>
+<li>
+<p>5</p>
+<h4 id="links">links</h4>
+</li>
+<li>
+<p><img src="https://sjc6.discourse-cdn.com/standard10/user_avatar/discourse.gohugo.io/rdwatters/64/2848_2.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="plus"
 	
-	
-></a> button to add new credentials</p>
-<ul>
-<li><strong>NAME:</strong> Git Credentials</li>
-<li><strong>ORGANIZATION:</strong> Click on the magnifying glass, pick <strong>Default</strong> and click <strong>SELECT</strong></li>
-<li><strong>CREDENTIAL TYPE:</strong> Click on the magnifying glass, pick <strong>Source Control</strong> as type and click <strong>SELECT</strong> (you will have to use the search or cycle through the types to find it).</li>
-<li><strong>USERNAME:</strong> ec2-user</li>
-</ul>
-<p>As we are using SSH key authentication, you have to provide an SSH private key that can be used to access the host with the Git repo as the user <code>git</code>.</p>
-<p>The Playbook we used to configure Git added the SSH private key to the <code>authorized_keys</code> of user <code>git</code></p>
-<p>Bring up your code-server terminal on Tower and use <code>cat</code> to get the SSH private key:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[ansible-1 ~]$ cat ~/.ssh/aws-private.pem
------BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEA2nnL3m5sKvoSy37OZ8DQCTjTIPVmCJt/M02KgDt53+baYAFu1TIkC3Yk+HK1
-[...]
------END RSA PRIVATE KEY-----
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>
-<p>Copy the <strong>complete private key</strong> (including “BEGIN” and “END” lines) from the output and paste it into the <strong>SSH PRIVATE KEY</strong> field in the web UI.</p>
-</li>
-<li>
-<p>Click <strong>SAVE</strong></p>
-</li>
-</ul>
-<p>You have now setup credentials to access the Git repo on your control host.</p>
-<h2 id="set-up-the-project">Set up the Project</h2>
-<p>It’s time to set up the Tower Project pointing to your Git repository holding your Playbook and collections requirements file.</p>
-<ul>
-<li>Go to <strong>RESOURCES → Projects</strong> in the side menu view click the <a class="link" href="img/green_plus.png?classes=inline" ><img src="/img/green_plus.png?classes=inline"
+></p>
+<p><img src="https://sjc6.discourse-cdn.com/standard10/user_avatar/discourse.gohugo.io/okabrionz/64/2853_2.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="plus"
 	
-	
-></a> button. Fill in the form:</li>
-<li><strong>NAME:</strong> Collections Repo</li>
-<li><strong>ORGANIZATION:</strong> Default</li>
-<li><strong>SCM TYPE:</strong> Git</li>
+></p>
+</li>
 </ul>
-<p>Now you need the URL to access the repo. You could get the URL in Github as <strong>Clone URL</strong>. Enter the URL into the Project configuration:</p>
-<ul>
-<li><strong>SCM URL:</strong> git@ansible-1:projects/tower_collections</li>
-<li><strong>SCM CREDENTIAL:</strong> Click the magnifying glass and choose <code>Git Credentials</code>, click <strong>SELECT</strong></li>
-<li><strong>SCM UPDATE OPTIONS:</strong> Tick the first three boxes to always get a fresh copy of the repository and to update the repository when launching a job.</li>
-<li>Click <strong>SAVE</strong></li>
-</ul>
-<p>The new Project will be synced automatically after creation. If everything went fine, you should see a green icon to the left of the new Project.</p>
-<h2 id="create-the-job-template-and-run-it">Create the Job Template and run it</h2>
-<p>The last step is to create a Job Template to run the Playbook. Go to the <strong>Templates</strong> view, click the <a class="link" href="https://goetzrieger.github.io/images/green_plus.png?classes=inline"  target="_blank" rel="noopener"
-    ><img src="https://goetzrieger.github.io/images/green_plus.png?classes=inline"
+<p><a class="link" href="https://discourse.gohugo.io/u/gunnarmorling"  target="_blank" rel="noopener"
+    >@gunnarmorling</a> This is good stuff and much simple than the gut modules. I think that tutorial was written before a lot of GitHub pages recent improvements (they now make it so that you can basically make any repo a GH Pages site with the click of a button). I think your pointers would be a good addition to the docs.</p>
+<p>Thanks! I’ll see whether I can file a pull request for the doc page on GH deployment.</p>
+<p>Please file a PR. And just replace the page that is there already. I wrote the part about sub trees, and I guess most of it is out of date by now. And it is good to not give the users too many options. Confuses them.</p>
+<p>Delete public folder &gt; create a new empty public folder &gt; clone gh-pages /.git into the public folder &gt; push the public folder to the gh-pages. This method is so simple.<br>
+Do you have any ideas about How to make it quickly I mean (1-click publish to gh-pages)?</p>
+<h3 id="hello-looks-like-youre-enjoying-the-discussion-but-you-havent-signed-up-for-an-account-yet">Hello! Looks like you’re enjoying the discussion, but you haven’t signed up for an account yet.</h3>
+<p>When you create an account, we remember exactly what you’ve read, so you always come right back where you left off. You also get notifications, here and via email, whenever someone replies to you. And you can like posts to share the love. <img src="https://emoji.discourse-cdn.com/twitter/heartpulse.png?v=12"
 	
 	
 	
 	loading="lazy"
 	
-		alt="plus"
+		alt="heartpulse"
 	
 	
-></a> button and choose <strong>Job Template</strong>.</p>
-<ul>
-<li>
-<p><strong>NAME:</strong> Install AT Job</p>
-</li>
-<li>
-<p><strong>JOB TYPE:</strong> Run</p>
-</li>
-<li>
-<p><strong>INVENTORY:</strong> Workshop Inventory</p>
-</li>
-<li>
-<p><strong>PROJECT:</strong> Collections Repo</p>
-</li>
-<li>
-<p><strong>PLAYBOOK:</strong> <code>configure_at_job.yml</code></p>
-</li>
-<li>
-<p><strong>CREDENTIAL:</strong> Workshop Credentials</p>
-</li>
-<li>
-<p>We need to run the tasks as root so check <strong>Enable privilege escalation</strong></p>
-</li>
-<li>
-<p>Click <strong>SAVE</strong></p>
-</li>
-</ul>
-<p>You can start the job by directly clicking the blue <strong>LAUNCH</strong> button, or by clicking on the rocket in the Job Templates overview. After launching the Job Template, you are automatically brought to the job overview where you can follow the playbook execution in real time.</p>
-<p>After the Job has finished bring up your VSCode terminal, as the job was run on all three managed nodes and the control/ Ansible Tower node, you can simply check the result here. Run <code>sudo at -l</code> and you should see your job was scheduled successfully.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>Since Red Hat Ansible Tower does only check for updates in the repository in which you stored your Playbook, it might not do a refresh if there was a change in the Ansible Collection used by your Playbook. This happens particularly if you also combine Roles and Collections.</p>
-<p>In this case you should check the option <strong>Delete on Update</strong> which will delete the entire local directory during a refresh.</p>
-<p>If there is a problem while parsing your <code>requirements.yml</code> it’s worth testing it with the <code>ansible-galaxy</code> command. As a reminder, Red Hat Ansible Tower basically also just runs the command for you with the appropriate parameters, so testing this works manually makes a lot of sense.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ansible-galaxy collection install -r collections/requirements.yml -f
-</code></pre></td></tr></table>
-</div>
-</div><p>The <code>-f</code> switch will forces a fresh installation of the specified Ansible Collections, otherwise <code>ansible-galaxy</code> will only install it, if it wasn’t already installed. You can also use the <code>--force-with-deps</code> switch to make sure Ansible Collections which have dependencies to others are refreshed as well.</p>
+></p>
 
 </section>
 
@@ -649,14 +513,22 @@ MIIEpAIBAAKCAQEA2nnL3m5sKvoSy37OZ8DQCTjTIPVmCJt/M02KgDt53+baYAFu1TIkC3Yk+HK1
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#set-up-a-local-git-server">Set up a Local Git Server</a></li>
-    <li><a href="#create-content-for-the-ansible-tower-project">Create Content for the Ansible Tower Project</a></li>
-    <li><a href="#create-the-project-and-job-template">Create the Project and Job Template</a></li>
-    <li><a href="#inventory-and-machine-credentials">Inventory and Machine Credentials</a></li>
-    <li><a href="#configure-scm-credentials">Configure SCM Credentials</a></li>
-    <li><a href="#set-up-the-project">Set up the Project</a></li>
-    <li><a href="#create-the-job-template-and-run-it">Create the Job Template and run it</a></li>
-    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#publish-from-docs-folder-on-master-branch">Publish from /docs folder on master branch</a></li>
+    <li><a href="#deployment-to-gh-pages-branch">Deployment to gh-pages branch</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#created">created</a></li>
+            <li><a href="#last-reply">last reply</a></li>
+            <li><a href="#views">views</a></li>
+            <li><a href="#users">users</a></li>
+            <li><a href="#likes">likes</a></li>
+            <li><a href="#links">links</a></li>
+          </ol>
+        </li>
+        <li><a href="#hello-looks-like-youre-enjoying-the-discussion-but-you-havent-signed-up-for-an-account-yet">Hello! Looks like you’re enjoying the discussion, but you haven’t signed up for an account yet.</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>

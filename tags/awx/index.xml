@@ -7,12 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/tags/awx/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Ansible considerations for app container configurations</title>
+        <title>Ansible methods for configuring application variables</title>
         <link>https://dettonville.github.io/p/ansible-for-app-configuration/</link>
         <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
         
         <guid>https://dettonville.github.io/p/ansible-for-app-configuration/</guid>
-        <description>&lt;img src="https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg" alt="Featured image of post Ansible considerations for app container configurations" /&gt;&lt;p&gt;Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.&lt;/p&gt;
+        <description>&lt;img src="https://dettonville.github.io/p/ansible-for-app-configuration/header-bg.jpg" alt="Featured image of post Ansible methods for configuring application variables" /&gt;&lt;h2 id=&#34;application-configuration-variables&#34;&gt;Application Configuration Variables&lt;/h2&gt;
+&lt;p&gt;Ansible has many scopes to store a variable state/value enabling flexibility for configurations in a hardware/virtual machine inventory.&lt;/p&gt;
 &lt;p&gt;At the time of playbook execution, Ansible applies variable precedence to derive the value/state for a given variable.&lt;/p&gt;
 &lt;p&gt;Ansible observes an order of precedence to derive the value for a variable.&lt;/p&gt;
 &lt;p&gt;Basically, a variable definition higher in the precedent list will override the lower level variable setting.&lt;/p&gt;
