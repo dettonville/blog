@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.
+Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required.'><title></title>
+
+<link rel='canonical' href='https://dettonville.github.io/p/'>
+
+<link rel="stylesheet" href="/scss/style.min.0867610fd3b558dff6d70fe8db371a941cdde8714bbda96857533e7efe6f230b.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/a11y-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<meta property='og:title' content=''>
+<meta property='og:description' content='Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.
+Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required.'>
+<meta property='og:url' content='https://dettonville.github.io/p/'>
+<meta property='og:site_name' content='Infra Coder'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='og:image' content='https://dettonville.github.io/img/logo.jpg' />
+<meta name="twitter:site" content="@lj020326">
+    <meta name="twitter:creator" content="@lj020326"><meta name="twitter:title" content="">
+<meta name="twitter:description" content="Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.
+Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://dettonville.github.io/img/logo.jpg' />
+<link rel="icon" href="icons/favicon.ico">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huaabb0978faacaa40734d3cfe1c918d1b_224298_300x0_resize_box_3.png" width="300"
+                            height="301" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://dettonville.github.io">Infra Coder</a></h1>
+        <h2 class="site-description">A blog about infrastruction automation, including but not limited to platform and pipeline automation, and data analytics but also anything spatial, visual or interesting.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/'>
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/'>
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/'>
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.</p>
+<p>Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required. They are addressed in a the chapter <a class="link" href="https://goetzrieger.github.io/ansible-collections/6-automation-hub-and-galaxy/"  target="_blank" rel="noopener"
+    >Use Automation Hub</a> in this lab.</p>
+<p>In this exercise you will learn how to define an Ansible Collection as a requirement in a format recognized by Red Hat Ansible Tower. We’ll be using the <code>ansible.posix</code> collection again from Ansible Galaxy. As you probably know for Ansible Tower to access the needed bits and pieces a version control system is needed. For the sake of keeping this lab setup easy, we’ll set up a local Git server for this.</p>
+<h2 id="set-up-a-local-git-server">Set up a Local Git Server</h2>
+<p>So, let’s get started. We have to create a simplistic Git server on our control host. Typically you would work with GitHub, GitLab, Gitea, or any other Git server.</p>
+<p>Make sure to run these steps from your users home directory!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 ~]$ wget https://raw.githubusercontent.com/goetzrieger/ansible-labs-summit2020/master/content/ansible-collections/4-using-collections-from-tower/simple_git.yml
+[student@ansible-1 ~]$ ansible-playbook simple_git.yml -e &#34;git_project=tower_collections&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>Next we will clone the repository on the control host. To enable you to work with git on the command line the SSH key for user <em>ec2-user</em> was already added to the Git user <em>git</em>. Next, clone the repository on the control machine:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 ~]$ git clone git@ansible-1:projects/tower_collections
+# Message &#34;warning: You appear to have cloned an empty repository.&#34; is OK and can be ignored
+[student@ansible-1 ~]$ git config --global push.default simple
+[student@ansible-1 ~]$ git config --global user.name &#34;Your Name&#34;
+[student@ansible-1 ~]$ git config --global user.email you@example.com
+[student@ansible-1 ~]$ cd tower_collections/
+</code></pre></td></tr></table>
+</div>
+</div><p>The repository is currently empty. The three config commands are just there to avoid warnings from Git.</p>
+<p>You now have a local Git server that can be accessed via SSH from Tower.</p>
+<h2 id="create-content-for-the-ansible-tower-project">Create Content for the Ansible Tower Project</h2>
+<p>Red Hat Ansible Tower can download and install Ansible Collections automatically before executing a Job Template. If a <code>collections/requirements.yml</code> exists in your project, it will be parsed and the Ansible Collections specified in this file will be automatically installed.</p>
+<p>Starting with Red Hat Ansible Tower 3.6 the working directory for the Job Template is in <code>/tmp</code>. Since the Ansible Collection is downloaded into this directory before the Job Template is executed, you will not find temporary files of your Ansible Collection in <code>/var/lib/awx/projects/</code>.</p>
+<p>The format of the <code>requirements.yml</code> for Ansible Collections is very similar to the one for roles, however it is very important to store in the folder <code>collections</code>.</p>
+<p>Let’s create the files needed to see how you can use collections in Ansible Tower. This is of course just a simple example. First create the <code>collections</code> directory in your Git repo (you should have changed into <code>tower_collections</code> already above):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 tower_collections]$ mkdir collections
+[student@ansible-1 tower_collections]$ cd collections
+</code></pre></td></tr></table>
+</div>
+</div><p>Then create the <code>requirements.yml</code> file listing the collection(s) you need:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">---
+collections:
+- ansible.posix
+</code></pre></td></tr></table>
+</div>
+</div><p>As this is a simple example we’ll just add a Playbook to the Git repo now. Normally you would have a lot more content in your project repository. So what could we do as an example instead of using the <code>ansible.posix</code> collection again? Let’s create a Playbook to configure an <code>at</code> job:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">---
+- name: Install AT Job
+  hosts: all
+
+  tasks:
+  - name: at command needs to be installed
+    yum:
+      name: at
+      state: present
+
+  - name: Schedule a command to execute in 20 minutes as root
+    ansible.posix.at:
+      command: ls -d / &gt;/dev/null
+      count: 20
+      units: minutes
+</code></pre></td></tr></table>
+</div>
+</div><p>Save the file as <code>configure_at_job.yml</code>.</p>
+<p>Note the usage of the Fully Qualified Collection Name in the Playbook</p>
+<p>Make sure everything looks fine:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 tower_collections]$ tree
+.
+├── collections
+│   └── requirements.yml
+└── configure_at_job.yml
+</code></pre></td></tr></table>
+</div>
+</div><p>So far you created the code only locally on the control host, now you are ready to add it to the repository and push it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[student@ansible-1 tower_collections]$ git add collections configure_at_job.yml
+[student@ansible-1 tower_collections]$ git commit -m &#34;Adding requirements.yml and playbook&#34;
+[student@ansible-1 tower_collections]$ git push
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="create-the-project-and-job-template">Create the Project and Job Template</h2>
+<p>Now it’s time to access your Ansible Tower web UI if you haven’t done so out of curiosity already. Point your browser to the URL you were given on the lab landing page, similar to <code>https://student&lt;N&gt;.&lt;LABID&gt;.open.redhat.com</code> (replace <code>&lt;N&gt;</code> with your student number and <code>&lt;LABID&gt;</code> with the ID of this lab) and log in as <code>admin</code>. You can find the password again on the lab landing page.</p>
+<p>To run your new Playbook in Ansible Tower you have to configure a number of objects:</p>
+<ul>
+<li>An <strong>Inventory</strong> with the managed hosts</li>
+<li><strong>Machine Credentials</strong> to access the managed hosts</li>
+<li>Git <strong>Credentials</strong> to access your Git repository via SSH</li>
+<li>The Git repo as <strong>Project</strong></li>
+<li>A <strong>Job Template</strong> to run the Playbook</li>
+</ul>
+<p>We’ll be a bit verbose for students new to Ansible Tower. If you are an Ansible Tower old-hand, just skip through and finish the configuration steps shown.</p>
+<h2 id="inventory-and-machine-credentials">Inventory and Machine Credentials</h2>
+<p>The inventory <strong>Workshop Inventory</strong> and the machine credentials <strong>Workshop Credentials</strong> have already been created in your lab environment.</p>
+<h2 id="configure-scm-credentials">Configure SCM Credentials</h2>
+<p>Now we will configure the credentials to access our the Git repo on your control host via SSH. In the <strong>RESOURCES</strong> menu choose <strong>Credentials</strong>. Now:</p>
+<p>Click the <a class="link" href="img/green_plus.png?classes=inline" ><img src="/img/green_plus.png?classes=inline"
+	
+	
+	
+	loading="lazy"
+	
+		alt="plus"
+	
+	
+></a> button to add new credentials</p>
+<ul>
+<li><strong>NAME:</strong> Git Credentials</li>
+<li><strong>ORGANIZATION:</strong> Click on the magnifying glass, pick <strong>Default</strong> and click <strong>SELECT</strong></li>
+<li><strong>CREDENTIAL TYPE:</strong> Click on the magnifying glass, pick <strong>Source Control</strong> as type and click <strong>SELECT</strong> (you will have to use the search or cycle through the types to find it).</li>
+<li><strong>USERNAME:</strong> ec2-user</li>
+</ul>
+<p>As we are using SSH key authentication, you have to provide an SSH private key that can be used to access the host with the Git repo as the user <code>git</code>.</p>
+<p>The Playbook we used to configure Git added the SSH private key to the <code>authorized_keys</code> of user <code>git</code></p>
+<p>Bring up your code-server terminal on Tower and use <code>cat</code> to get the SSH private key:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[ansible-1 ~]$ cat ~/.ssh/aws-private.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA2nnL3m5sKvoSy37OZ8DQCTjTIPVmCJt/M02KgDt53+baYAFu1TIkC3Yk+HK1
+[...]
+-----END RSA PRIVATE KEY-----
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Copy the <strong>complete private key</strong> (including “BEGIN” and “END” lines) from the output and paste it into the <strong>SSH PRIVATE KEY</strong> field in the web UI.</p>
+</li>
+<li>
+<p>Click <strong>SAVE</strong></p>
+</li>
+</ul>
+<p>You have now setup credentials to access the Git repo on your control host.</p>
+<h2 id="set-up-the-project">Set up the Project</h2>
+<p>It’s time to set up the Tower Project pointing to your Git repository holding your Playbook and collections requirements file.</p>
+<ul>
+<li>Go to <strong>RESOURCES → Projects</strong> in the side menu view click the <a class="link" href="img/green_plus.png?classes=inline" ><img src="/img/green_plus.png?classes=inline"
+	
+	
+	
+	loading="lazy"
+	
+		alt="plus"
+	
+	
+></a> button. Fill in the form:</li>
+<li><strong>NAME:</strong> Collections Repo</li>
+<li><strong>ORGANIZATION:</strong> Default</li>
+<li><strong>SCM TYPE:</strong> Git</li>
+</ul>
+<p>Now you need the URL to access the repo. You could get the URL in Github as <strong>Clone URL</strong>. Enter the URL into the Project configuration:</p>
+<ul>
+<li><strong>SCM URL:</strong> git@ansible-1:projects/tower_collections</li>
+<li><strong>SCM CREDENTIAL:</strong> Click the magnifying glass and choose <code>Git Credentials</code>, click <strong>SELECT</strong></li>
+<li><strong>SCM UPDATE OPTIONS:</strong> Tick the first three boxes to always get a fresh copy of the repository and to update the repository when launching a job.</li>
+<li>Click <strong>SAVE</strong></li>
+</ul>
+<p>The new Project will be synced automatically after creation. If everything went fine, you should see a green icon to the left of the new Project.</p>
+<h2 id="create-the-job-template-and-run-it">Create the Job Template and run it</h2>
+<p>The last step is to create a Job Template to run the Playbook. Go to the <strong>Templates</strong> view, click the <a class="link" href="https://goetzrieger.github.io/images/green_plus.png?classes=inline"  target="_blank" rel="noopener"
+    ><img src="https://goetzrieger.github.io/images/green_plus.png?classes=inline"
+	
+	
+	
+	loading="lazy"
+	
+		alt="plus"
+	
+	
+></a> button and choose <strong>Job Template</strong>.</p>
+<ul>
+<li>
+<p><strong>NAME:</strong> Install AT Job</p>
+</li>
+<li>
+<p><strong>JOB TYPE:</strong> Run</p>
+</li>
+<li>
+<p><strong>INVENTORY:</strong> Workshop Inventory</p>
+</li>
+<li>
+<p><strong>PROJECT:</strong> Collections Repo</p>
+</li>
+<li>
+<p><strong>PLAYBOOK:</strong> <code>configure_at_job.yml</code></p>
+</li>
+<li>
+<p><strong>CREDENTIAL:</strong> Workshop Credentials</p>
+</li>
+<li>
+<p>We need to run the tasks as root so check <strong>Enable privilege escalation</strong></p>
+</li>
+<li>
+<p>Click <strong>SAVE</strong></p>
+</li>
+</ul>
+<p>You can start the job by directly clicking the blue <strong>LAUNCH</strong> button, or by clicking on the rocket in the Job Templates overview. After launching the Job Template, you are automatically brought to the job overview where you can follow the playbook execution in real time.</p>
+<p>After the Job has finished bring up your VSCode terminal, as the job was run on all three managed nodes and the control/ Ansible Tower node, you can simply check the result here. Run <code>sudo at -l</code> and you should see your job was scheduled successfully.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Since Red Hat Ansible Tower does only check for updates in the repository in which you stored your Playbook, it might not do a refresh if there was a change in the Ansible Collection used by your Playbook. This happens particularly if you also combine Roles and Collections.</p>
+<p>In this case you should check the option <strong>Delete on Update</strong> which will delete the entire local directory during a refresh.</p>
+<p>If there is a problem while parsing your <code>requirements.yml</code> it’s worth testing it with the <code>ansible-galaxy</code> command. As a reminder, Red Hat Ansible Tower basically also just runs the command for you with the appropriate parameters, so testing this works manually makes a lot of sense.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ansible-galaxy collection install -r collections/requirements.yml -f
+</code></pre></td></tr></table>
+</div>
+</div><p>The <code>-f</code> switch will forces a fresh installation of the specified Ansible Collections, otherwise <code>ansible-galaxy</code> will only install it, if it wasn’t already installed. You can also use the <code>--force-with-deps</code> switch to make sure Ansible Collections which have dependencies to others are refreshed as well.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="dettonville/blog"
+        issue-term="pathname"
+        
+        label="comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Infra Coder
+    </section>
+    
+    <section class="powerby">
+        Built with InfraCoder <br />
+        Theme <b><a href="https://github.com/lj020326/blog-master" target="_blank" rel="noopener" data-version="3.9.0">BlogMaster</a></b> designed by <a href="https://dettonville.com" target="_blank" rel="noopener">Dettonville</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#set-up-a-local-git-server">Set up a Local Git Server</a></li>
+    <li><a href="#create-content-for-the-ansible-tower-project">Create Content for the Ansible Tower Project</a></li>
+    <li><a href="#create-the-project-and-job-template">Create the Project and Job Template</a></li>
+    <li><a href="#inventory-and-machine-credentials">Inventory and Machine Credentials</a></li>
+    <li><a href="#configure-scm-credentials">Configure SCM Credentials</a></li>
+    <li><a href="#set-up-the-project">Set up the Project</a></li>
+    <li><a href="#create-the-job-template-and-run-it">Create the Job Template and run it</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

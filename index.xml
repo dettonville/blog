@@ -6,7 +6,287 @@
         <description>Recent content on Infra Coder</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 08 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dettonville.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Collections in Ansible Tower</title>
+        <link>https://dettonville.github.io/p/collections-in-ansible-tower/</link>
+        <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dettonville.github.io/p/collections-in-ansible-tower/</guid>
+        <description>&lt;p&gt;Red Hat Ansible Tower supports Ansible Collections starting with version 3.5 - earlier version will not automatically install and configure them for you. To make sure Ansible Collections are recognized by Red Hat Ansible Tower a requirements file is needed and has to be stored in the proper directory.&lt;/p&gt;
+&lt;p&gt;Ansible Galaxy is already configured by default, however if you want your Red Hat Ansible Tower to prefer and fetch content from the Red Hat Automation Hub, additional configuration changes are required. They are addressed in a the chapter &lt;a class=&#34;link&#34; href=&#34;https://goetzrieger.github.io/ansible-collections/6-automation-hub-and-galaxy/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Use Automation Hub&lt;/a&gt; in this lab.&lt;/p&gt;
+&lt;p&gt;In this exercise you will learn how to define an Ansible Collection as a requirement in a format recognized by Red Hat Ansible Tower. We’ll be using the &lt;code&gt;ansible.posix&lt;/code&gt; collection again from Ansible Galaxy. As you probably know for Ansible Tower to access the needed bits and pieces a version control system is needed. For the sake of keeping this lab setup easy, we’ll set up a local Git server for this.&lt;/p&gt;
+&lt;h2 id=&#34;set-up-a-local-git-server&#34;&gt;Set up a Local Git Server&lt;/h2&gt;
+&lt;p&gt;So, let’s get started. We have to create a simplistic Git server on our control host. Typically you would work with GitHub, GitLab, Gitea, or any other Git server.&lt;/p&gt;
+&lt;p&gt;Make sure to run these steps from your users home directory!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ wget https://raw.githubusercontent.com/goetzrieger/ansible-labs-summit2020/master/content/ansible-collections/4-using-collections-from-tower/simple_git.yml
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ ansible-playbook simple_git.yml -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;git_project=tower_collections&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Next we will clone the repository on the control host. To enable you to work with git on the command line the SSH key for user &lt;em&gt;ec2-user&lt;/em&gt; was already added to the Git user &lt;em&gt;git&lt;/em&gt;. Next, clone the repository on the control machine:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git clone git@ansible-1:projects/tower_collections
+&lt;span class=&#34;c1&#34;&gt;# Message &amp;#34;warning: You appear to have cloned an empty repository.&amp;#34; is OK and can be ignored&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git config --global push.default simple
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Your Name&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git config --global user.email you@example.com
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; tower_collections/
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The repository is currently empty. The three config commands are just there to avoid warnings from Git.&lt;/p&gt;
+&lt;p&gt;You now have a local Git server that can be accessed via SSH from Tower.&lt;/p&gt;
+&lt;h2 id=&#34;create-content-for-the-ansible-tower-project&#34;&gt;Create Content for the Ansible Tower Project&lt;/h2&gt;
+&lt;p&gt;Red Hat Ansible Tower can download and install Ansible Collections automatically before executing a Job Template. If a &lt;code&gt;collections/requirements.yml&lt;/code&gt; exists in your project, it will be parsed and the Ansible Collections specified in this file will be automatically installed.&lt;/p&gt;
+&lt;p&gt;Starting with Red Hat Ansible Tower 3.6 the working directory for the Job Template is in &lt;code&gt;/tmp&lt;/code&gt;. Since the Ansible Collection is downloaded into this directory before the Job Template is executed, you will not find temporary files of your Ansible Collection in &lt;code&gt;/var/lib/awx/projects/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The format of the &lt;code&gt;requirements.yml&lt;/code&gt; for Ansible Collections is very similar to the one for roles, however it is very important to store in the folder &lt;code&gt;collections&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s create the files needed to see how you can use collections in Ansible Tower. This is of course just a simple example. First create the &lt;code&gt;collections&lt;/code&gt; directory in your Git repo (you should have changed into &lt;code&gt;tower_collections&lt;/code&gt; already above):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 tower_collections&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ mkdir collections
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 tower_collections&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; collections
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Then create the &lt;code&gt;requirements.yml&lt;/code&gt; file listing the collection(s) you need:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nn&#34;&gt;---&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;collections&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;ansible.posix&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;As this is a simple example we’ll just add a Playbook to the Git repo now. Normally you would have a lot more content in your project repository. So what could we do as an example instead of using the &lt;code&gt;ansible.posix&lt;/code&gt; collection again? Let’s create a Playbook to configure an &lt;code&gt;at&lt;/code&gt; job:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nn&#34;&gt;---&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Install AT Job&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;hosts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;all&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tasks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;at command needs to be installed&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;yum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;at&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;present&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Schedule a command to execute in 20 minutes as root&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ansible.posix.at&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ls -d / &amp;gt;/dev/null&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;units&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;minutes&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Save the file as &lt;code&gt;configure_at_job.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note the usage of the Fully Qualified Collection Name in the Playbook&lt;/p&gt;
+&lt;p&gt;Make sure everything looks fine:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 tower_collections&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ tree
+.
+├── collections
+│   └── requirements.yml
+└── configure_at_job.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;So far you created the code only locally on the control host, now you are ready to add it to the repository and push it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 tower_collections&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git add collections configure_at_job.yml
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 tower_collections&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;Adding requirements.yml and playbook&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;student@ansible-1 tower_collections&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;create-the-project-and-job-template&#34;&gt;Create the Project and Job Template&lt;/h2&gt;
+&lt;p&gt;Now it’s time to access your Ansible Tower web UI if you haven’t done so out of curiosity already. Point your browser to the URL you were given on the lab landing page, similar to &lt;code&gt;https://student&amp;lt;N&amp;gt;.&amp;lt;LABID&amp;gt;.open.redhat.com&lt;/code&gt; (replace &lt;code&gt;&amp;lt;N&amp;gt;&lt;/code&gt; with your student number and &lt;code&gt;&amp;lt;LABID&amp;gt;&lt;/code&gt; with the ID of this lab) and log in as &lt;code&gt;admin&lt;/code&gt;. You can find the password again on the lab landing page.&lt;/p&gt;
+&lt;p&gt;To run your new Playbook in Ansible Tower you have to configure a number of objects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An &lt;strong&gt;Inventory&lt;/strong&gt; with the managed hosts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Machine Credentials&lt;/strong&gt; to access the managed hosts&lt;/li&gt;
+&lt;li&gt;Git &lt;strong&gt;Credentials&lt;/strong&gt; to access your Git repository via SSH&lt;/li&gt;
+&lt;li&gt;The Git repo as &lt;strong&gt;Project&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Job Template&lt;/strong&gt; to run the Playbook&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We’ll be a bit verbose for students new to Ansible Tower. If you are an Ansible Tower old-hand, just skip through and finish the configuration steps shown.&lt;/p&gt;
+&lt;h2 id=&#34;inventory-and-machine-credentials&#34;&gt;Inventory and Machine Credentials&lt;/h2&gt;
+&lt;p&gt;The inventory &lt;strong&gt;Workshop Inventory&lt;/strong&gt; and the machine credentials &lt;strong&gt;Workshop Credentials&lt;/strong&gt; have already been created in your lab environment.&lt;/p&gt;
+&lt;h2 id=&#34;configure-scm-credentials&#34;&gt;Configure SCM Credentials&lt;/h2&gt;
+&lt;p&gt;Now we will configure the credentials to access our the Git repo on your control host via SSH. In the &lt;strong&gt;RESOURCES&lt;/strong&gt; menu choose &lt;strong&gt;Credentials&lt;/strong&gt;. Now:&lt;/p&gt;
+&lt;p&gt;Click the &lt;a class=&#34;link&#34; href=&#34;img/green_plus.png?classes=inline&#34; &gt;&lt;img src=&#34;https://dettonville.github.io/img/green_plus.png?classes=inline&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;plus&#34;
+	
+	
+&gt;&lt;/a&gt; button to add new credentials&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NAME:&lt;/strong&gt; Git Credentials&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ORGANIZATION:&lt;/strong&gt; Click on the magnifying glass, pick &lt;strong&gt;Default&lt;/strong&gt; and click &lt;strong&gt;SELECT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CREDENTIAL TYPE:&lt;/strong&gt; Click on the magnifying glass, pick &lt;strong&gt;Source Control&lt;/strong&gt; as type and click &lt;strong&gt;SELECT&lt;/strong&gt; (you will have to use the search or cycle through the types to find it).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USERNAME:&lt;/strong&gt; ec2-user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As we are using SSH key authentication, you have to provide an SSH private key that can be used to access the host with the Git repo as the user &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The Playbook we used to configure Git added the SSH private key to the &lt;code&gt;authorized_keys&lt;/code&gt; of user &lt;code&gt;git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Bring up your code-server terminal on Tower and use &lt;code&gt;cat&lt;/code&gt; to get the SSH private key:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;ansible-1 ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ cat ~/.ssh/aws-private.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA2nnL3m5sKvoSy37OZ8DQCTjTIPVmCJt/M02KgDt53+baYAFu1TIkC3Yk+HK1
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+-----END RSA PRIVATE KEY-----
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the &lt;strong&gt;complete private key&lt;/strong&gt; (including “BEGIN” and “END” lines) from the output and paste it into the &lt;strong&gt;SSH PRIVATE KEY&lt;/strong&gt; field in the web UI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;SAVE&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You have now setup credentials to access the Git repo on your control host.&lt;/p&gt;
+&lt;h2 id=&#34;set-up-the-project&#34;&gt;Set up the Project&lt;/h2&gt;
+&lt;p&gt;It’s time to set up the Tower Project pointing to your Git repository holding your Playbook and collections requirements file.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to &lt;strong&gt;RESOURCES → Projects&lt;/strong&gt; in the side menu view click the &lt;a class=&#34;link&#34; href=&#34;img/green_plus.png?classes=inline&#34; &gt;&lt;img src=&#34;https://dettonville.github.io/img/green_plus.png?classes=inline&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;plus&#34;
+	
+	
+&gt;&lt;/a&gt; button. Fill in the form:&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NAME:&lt;/strong&gt; Collections Repo&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ORGANIZATION:&lt;/strong&gt; Default&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SCM TYPE:&lt;/strong&gt; Git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now you need the URL to access the repo. You could get the URL in Github as &lt;strong&gt;Clone URL&lt;/strong&gt;. Enter the URL into the Project configuration:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SCM URL:&lt;/strong&gt; git@ansible-1:projects/tower_collections&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SCM CREDENTIAL:&lt;/strong&gt; Click the magnifying glass and choose &lt;code&gt;Git Credentials&lt;/code&gt;, click &lt;strong&gt;SELECT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SCM UPDATE OPTIONS:&lt;/strong&gt; Tick the first three boxes to always get a fresh copy of the repository and to update the repository when launching a job.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;SAVE&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The new Project will be synced automatically after creation. If everything went fine, you should see a green icon to the left of the new Project.&lt;/p&gt;
+&lt;h2 id=&#34;create-the-job-template-and-run-it&#34;&gt;Create the Job Template and run it&lt;/h2&gt;
+&lt;p&gt;The last step is to create a Job Template to run the Playbook. Go to the &lt;strong&gt;Templates&lt;/strong&gt; view, click the &lt;a class=&#34;link&#34; href=&#34;https://goetzrieger.github.io/images/green_plus.png?classes=inline&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://goetzrieger.github.io/images/green_plus.png?classes=inline&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;plus&#34;
+	
+	
+&gt;&lt;/a&gt; button and choose &lt;strong&gt;Job Template&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;NAME:&lt;/strong&gt; Install AT Job&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JOB TYPE:&lt;/strong&gt; Run&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;INVENTORY:&lt;/strong&gt; Workshop Inventory&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PROJECT:&lt;/strong&gt; Collections Repo&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PLAYBOOK:&lt;/strong&gt; &lt;code&gt;configure_at_job.yml&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CREDENTIAL:&lt;/strong&gt; Workshop Credentials&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We need to run the tasks as root so check &lt;strong&gt;Enable privilege escalation&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;SAVE&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can start the job by directly clicking the blue &lt;strong&gt;LAUNCH&lt;/strong&gt; button, or by clicking on the rocket in the Job Templates overview. After launching the Job Template, you are automatically brought to the job overview where you can follow the playbook execution in real time.&lt;/p&gt;
+&lt;p&gt;After the Job has finished bring up your VSCode terminal, as the job was run on all three managed nodes and the control/ Ansible Tower node, you can simply check the result here. Run &lt;code&gt;sudo at -l&lt;/code&gt; and you should see your job was scheduled successfully.&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;p&gt;Since Red Hat Ansible Tower does only check for updates in the repository in which you stored your Playbook, it might not do a refresh if there was a change in the Ansible Collection used by your Playbook. This happens particularly if you also combine Roles and Collections.&lt;/p&gt;
+&lt;p&gt;In this case you should check the option &lt;strong&gt;Delete on Update&lt;/strong&gt; which will delete the entire local directory during a refresh.&lt;/p&gt;
+&lt;p&gt;If there is a problem while parsing your &lt;code&gt;requirements.yml&lt;/code&gt; it’s worth testing it with the &lt;code&gt;ansible-galaxy&lt;/code&gt; command. As a reminder, Red Hat Ansible Tower basically also just runs the command for you with the appropriate parameters, so testing this works manually makes a lot of sense.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ansible-galaxy collection install -r collections/requirements.yml -f
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The &lt;code&gt;-f&lt;/code&gt; switch will forces a fresh installation of the specified Ansible Collections, otherwise &lt;code&gt;ansible-galaxy&lt;/code&gt; will only install it, if it wasn’t already installed. You can also use the &lt;code&gt;--force-with-deps&lt;/code&gt; switch to make sure Ansible Collections which have dependencies to others are refreshed as well.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Ansible considerations for app container configurations</title>
         <link>https://dettonville.github.io/p/ansible-for-app-configuration/</link>
         <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
